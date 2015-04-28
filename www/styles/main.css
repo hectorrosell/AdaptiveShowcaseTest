@@ -1,0 +1,147 @@
+/*****************************************************/
+/*                     Main CSS                      */
+/*****************************************************/
+/*****************************************************/
+/*                Bootstrap Overwrite                */
+/*****************************************************/
+
+html,
+body {
+    font-size: 14px;
+    height: 100%;
+}
+
+.navbar {
+    border-bottom: 2px solid transparent;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    margin-bottom: 0px;
+    min-height: 2.857em;
+}
+
+.navbar-toggle {
+    float: left;
+    margin-right: 0px;
+    padding: 0px 0px;
+    margin-bottom: 0.214em;
+    margin-top: 0.500em;
+    background-color: transparent;
+    background-image: none;
+    border: none;
+}
+
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+    background-color: transparent;
+}
+
+.navbar-default {
+    background-color: rgb(0, 76, 138);
+    border-color: rgb(52, 147, 213);
+}
+
+.nav > li > a {
+    position: relative;
+    display: block;
+    padding: 0.286em 1.071em;
+}
+
+.input-group-addon {
+    background-color: #ffffff;
+}
+
+.form-group {
+    margin-bottom: 0.7em;
+}
+
+.btn-lg,
+.btn-group-lg > .btn {
+    padding: 7px 16px;
+}
+
+@media (min-width: 768px) {
+    .navbar {
+        border-radius: 0;
+    }
+    .navbar-toggle {
+        display: block;
+    }
+}
+/*****************************************************/
+/*             Jasny Bootstrap Overwrite             */
+/*****************************************************/
+
+.navmenu-default,
+.navbar-default .navbar-offcanvas {
+    background-color: rgb(0, 76, 138);
+    border-color: rgb(52, 147, 213);
+}
+
+.navmenu-default .navmenu-nav.dropdown-menu,
+.navbar-default .navbar-offcanvas .navmenu-nav.dropdown-menu {
+    background-color: rgb(0, 61, 115);
+}
+
+.navmenu-default .navmenu-nav>li>a,
+.navbar-default .navbar-offcanvas .navmenu-nav>li>a {
+    color: #ffffff;
+}
+
+.navmenu-default .navmenu-nav>li>a:hover,
+.navbar-default .navbar-offcanvas .navmenu-nav>li>a:hover,
+.navmenu-default .navmenu-nav>li>a:focus,
+.navbar-default .navbar-offcanvas .navmenu-nav>li>a:focus {
+    color: #ffffff;
+}
+
+.navmenu-default .navmenu-nav>.open>a,
+.navbar-default .navbar-offcanvas .navmenu-nav>.open>a,
+.navmenu-default .navmenu-nav>.open>a:hover,
+.navbar-default .navbar-offcanvas .navmenu-nav>.open>a:hover,
+.navmenu-default .navmenu-nav>.open>a:focus,
+.navbar-default .navbar-offcanvas .navmenu-nav>.open>a:focus {
+    color: #ffffff;
+}
+
+.navmenu-nav.dropdown-menu {
+    margin-bottom: 0.714em;
+    -moz-box-shadow: inset 0 8px 8px -8px rgba(0, 0, 0, 0.25);
+    -webkit-box-shadow: inset 0 8px 8px -8px rgba(0, 0, 0, 0.25);
+    box-shadow: inset 0 8px 8px -8px rgba(0, 0, 0, 0.25);
+}
+
+.navmenu-nav.dropdown-menu li:first-child {
+    padding-top: 1.429em;
+}
+
+.navmenu-nav.dropdown-menu li {
+    padding-top: 0.700em;
+}
+
+.navmenu-nav.dropdown-menu li:last-child {
+    padding-bottom: 0.900em;
+}
+
+.navmenu-nav.dropdown-menu >li> a,
+.navmenu-nav.dropdown-menu >li> a:hover,
+.navmenu-nav.dropdown-menu >li> a:focus {
+    color: rgb(153, 177, 199);
+}
+
+.navmenu,
+.navbar-offcanvas {
+    width: 20.429em
+}
+
+.navmenu-fixed-left,
+.navbar-offcanvas.navmenu-fixed-left {
+    border: 0px
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active {
+    background-color: #004c8a;
+}
