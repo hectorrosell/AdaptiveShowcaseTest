@@ -6,11 +6,14 @@
         .controller('ListController', ListController)
         .controller('ModalController', ModalController)
         .controller('ModalImport', ModalImport);
-    // recommended
+
     function ListController($scope, $log, $state, $rootScope) {
 
-        $scope.UnitslistTitle = UnitlistTitle;
-        console.log(UnitlistTitle);
+        $scope.unit_list_title = unitListTitle;
+        $scope.method_list_title = methodListTitle;
+        $scope.detail_list_title = detailListTitle;
+
+        console.log(methodListTitle);
 
         $log.debug("List Controller");
 
@@ -84,27 +87,27 @@
                 name: "Type 21"
             }
         ];
-
         $scope.units_list = [
             {
-
+                id: 0,
                 name: "Type u1"
             }, {
+                id: 1,
                 name: "Type u2"
             }, {
+                id: 2,
                 name: "Type u3"
             }
         ];
-
         $scope.methods_list = [
             {
-                id: 1,
+                id: 0,
                 name: "Type m1"
             }, {
-                id: 2,
+                id: 1,
                 name: "Type m2"
             }, {
-                id: 3,
+                id: 2,
                 name: "Type m3"
             }
         ];
@@ -113,27 +116,36 @@
             $log.debug("itemMainListSelected");
             var lengthList = $scope.main_list.length;
             for (var i = 0; i < lengthList; i++) {
-
                 if (id === $scope.main_list[i].id) {
-                    //$scope.valueListSelected = !$scope.valueListSelected;
-
-                    UnitlistTitle = $scope.main_list[i].name;
-                    console.log(UnitlistTitle);
-                    //$rootScope.UnitslistTitle = UnitslistTitle2;
+                    unitListTitle = $scope.main_list[i].name;
+                    console.log(unitListTitle);
                 }
             }
             $state.go('main-page.units-list');
-        }
-
-        $scope.itemUnitsListSelected = function (id) {
-            $log.debug("itemUnitsListSelected");
+        };
+        $rootScope.itemUnitListSelected = function (id) {
+            $log.debug("itemUnitListSelected");
+            var lengthList2 = $scope.units_list.length;
+            for (var i2 = 0; i2 < lengthList2; i2++) {
+                console.log("Test: " + methodListTitle);
+                if (id === $scope.units_list[i2].id) {
+                    methodListTitle = $scope.units_list[i2].name;
+                    console.log("Test: " + methodListTitle);
+                }
+            }
             $state.go('main-page.methods-list');
-        }
-
-        $scope.detailListSelected = function (id) {
-            $log.debug("detailListSelected");
+        };
+        $rootScope.itemMethodListSelected = function (id) {
+            $log.debug("itemMethodListSelected");
+            var lengthList = $scope.methods_list.length;
+            for (var i = 0; i < lengthList; i++) {
+                if (id === $scope.methods_list[i].id) {
+                    detailListTitle = $scope.methods_list[i].name;
+                    console.log(detailListTitle);
+                }
+            }
             $state.go('main-page.detail-list');
-        }
+        };
 
     }
 

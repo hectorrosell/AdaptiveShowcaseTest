@@ -5,7 +5,7 @@
                 <button type="button" class="btn btn-default btn-sm" ui-sref="main-page.main-list">BACK</button>
             </div>
             <div class="col-xs-6 text-center">
-                <h4 style="color: white;">{{UnitslistTitle}}</h4>
+                <h4 style="color: white;">{{unit_list_title}}</h4>
             </div>
             <div class="col-xs-3 text-center">
                 <button type="button" class="btn btn-default btn-sm" ui-sref="main-page.main-list">HOME</button>
@@ -15,7 +15,7 @@
     <div class="container-fluid">
         <div class="wrapper-itemList">
             <div class="itemList" ng-repeat="item in units_list" ng-model="valueListSelected">
-                <div class="col-xs-8 " ng-click="itemUnitsListSelected($index)">
+                <div class="col-xs-8 " ng-click="itemUnitListSelected($index)">
                     <p class="name ">{{item.name}}</p>
                 </div>
                 <div class="col-xs-4 arrow text-right">></div>
