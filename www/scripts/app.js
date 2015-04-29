@@ -1,8 +1,8 @@
 'use strict';
 
-var unitListTitle = "Unit list";
-var methodListTitle = "Method list";
-var detailListTitle = "Detail list";
+var unitList;
+var methodList;
+var detailList;
 
 angular.module('ADApp.Controllers', []);
 angular.module('ADApp.States', []);

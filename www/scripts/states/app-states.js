@@ -22,29 +22,24 @@ angular.module('ADApp.States')
                     abstract: true,
                     templateUrl: 'views/main-page/main-page.html',
                 })
-                .state("main-page.home", {
-                    url: "/home",
-                    templateUrl: 'views/main-page/home/home.html',
-                    controller: 'HomeController'
-                })
                 .state("main-page.main-list", {
                     url: "/main-list",
                     templateUrl: 'views/main-page/main-list/main-list.html',
-                    controller: 'ListController'
+                    controller: 'MainController'
                 })
                 .state("main-page.units-list", {
                     url: "/units-list",
                     templateUrl: 'views/main-page/units-list/units-list.html',
-                    controller: 'ListController'
+                    controller: 'MainController'
                 })
                 .state("main-page.methods-list", {
                     url: "/methods-list",
                     templateUrl: 'views/main-page/methods-list/methods-list.html',
-                    controller: 'ListController'
+                    controller: 'MainController'
                 })
                 .state("main-page.detail-list", {
                     url: "/detail-list",
                     templateUrl: 'views/main-page/detail-list/detail-list.html',
-                    controller: 'ListController'
+                    controller: 'MainController'
                 })
         });
