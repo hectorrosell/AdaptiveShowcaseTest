@@ -1,5 +1,7 @@
 'use strict';
 
+var UnitlistTitle = "Unit list";
+
 angular.module('ADApp.Controllers', []);
 angular.module('ADApp.States', []);
 
