@@ -145,3 +145,297 @@ body {
 .btn-primary.active {
     background-color: #004c8a;
 }
+/*
+/////////////////////////////////////////////////////
+/////////////////////////////////////////////////////
+/////////////////////////////////////////////////////
+
+    http://jsbin.com/rucopakuxe/1/edit
+/////////////////////////////////////////////////////
+/////////////////////////////////////////////////////
+/////////////////////////////////////////////////////
+/////////////////////////////////////////////////////
+*/
+/* adjust body when menu is open */
+
+body.slide-active {
+    overflow-x: hidden
+}
+/*first child of #page-content so it doesn't shift around*/
+
+.no-margin-top {
+    margin-top: 0px!important
+}
+/*wrap the entire page content but not nav inside this div if not a fixed top, don't add any top padding */
+
+#page-content {
+    position: relative;
+    padding-top: 70px;
+    left: 0;
+}
+
+#page-content.slide-active {
+    padding-top: 0
+}
+/* put toggle bars on the left :: not using button */
+
+#slide-nav .navbar-toggle {
+    cursor: pointer;
+    position: relative;
+    line-height: 0;
+    float: left;
+    margin: 0;
+    width: 30px;
+    height: 40px;
+    padding: 10px 0 0 0;
+    border: 0;
+    background: transparent;
+}
+/* icon bar prettyup - optional */
+
+#slide-nav .navbar-toggle > .icon-bar {
+    width: 100%;
+    display: block;
+    height: 3px;
+    margin: 5px 0 0 0;
+}
+
+#slide-nav .navbar-toggle.slide-active .icon-bar {
+    background: orange
+}
+
+.navbar-header {
+    position: relative
+}
+/* un fix the navbar when active so that all the menu items are accessible */
+
+.navbar.navbar-fixed-top.slide-active {
+    position: relative
+}
+/* screw writing importants and shit, just stick it in max width since these classes are not shared between sizes */
+
+@media (max-width: 767px) {
+    #slide-nav .container {
+        margin: 0;
+        padding: 0!important;
+    }
+    #slide-nav .navbar-header {
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+    #slide-nav .navbar.slide-active {
+        position: absolute;
+        width: 80%;
+        top: -1px;
+        z-index: 1000;
+    }
+    #slide-nav #slidemenu {
+        background: #f7f7f7;
+        left: -100%;
+        width: 80%;
+        min-width: 0;
+        position: absolute;
+        padding-left: 0;
+        z-index: 2;
+        top: -8px;
+        margin: 0;
+    }
+    #slide-nav #slidemenu .navbar-nav {
+        min-width: 0;
+        width: 100%;
+        margin: 0;
+    }
+    #slide-nav #slidemenu .navbar-nav .dropdown-menu li a {
+        min-width: 0;
+        width: 80%;
+        white-space: normal;
+    }
+    #slide-nav {
+        border-top: 0
+    }
+    #slide-nav.navbar-inverse #slidemenu {
+        background: #333
+    }
+    /* this is behind the navigation but the navigation is not inside it so that the navigation is accessible and scrolls*/
+
+    #slide-nav #navbar-height-col {
+        position: fixed;
+        top: 0;
+        height: 100%;
+        width: 80%;
+        left: -80%;
+        background: #eee;
+    }
+    #slide-nav.navbar-inverse #navbar-height-col {
+        background: #333;
+        z-index: 1;
+        border: 0;
+    }
+    #slide-nav .navbar-form {
+        width: 100%;
+        margin: 8px 0;
+        text-align: center;
+        overflow: hidden;
+        /*fast clearfixer*/
+    }
+    #slide-nav .navbar-form .form-control {
+        text-align: center
+    }
+    #slide-nav .navbar-form .btn {
+        width: 100%
+    }
+}
+
+@media (min-width: 768px) {
+    #page-content {
+        left: 0!important
+    }
+    .navbar.navbar-fixed-top.slide-active {
+        position: fixed
+    }
+    .navbar-header {
+        left: 0!important
+    }
+}
+/*****************************************************/
+/*                  Grid List                        */
+/*****************************************************/
+
+.wrapper-itemList {
+    height: 24.286em;
+    overflow-y: scroll;
+    overflow-x: none;
+}
+
+@media(min-height:475px) {
+    .wrapper-itemList {
+        height: 24.286em;
+    }
+}
+
+@media(min-height:520px) {
+    .wrapper-itemList {
+        height: 31.286em;
+    }
+}
+
+@media(min-height:600px) {
+    .wrapper-itemList {
+        height: 36.286em;
+    }
+}
+
+@media(min-height:650px) {
+    .wrapper-itemList {
+        height: 40.286em;
+    }
+}
+
+@media(min-height:700px) {
+    .wrapper-itemList {
+        height: 43.286em;
+    }
+}
+
+@media(min-height:768px) {
+    .wrapper-itemList {
+        height: 46.786em;
+    }
+}
+
+@media(min-height:800px) {
+    .wrapper-itemList {
+        height: 48.586em;
+    }
+}
+
+@media(min-height:850px) {
+    .wrapper-itemList {
+        height: 30.586em;
+    }
+}
+
+@media(min-height:900px) {
+    .wrapper-itemList {
+        height: 54.286em;
+    }
+}
+
+@media(min-height:1024px) {
+    .wrapper-itemList {
+        height: 65.286em;
+    }
+}
+
+.itemList {
+    height: 2.857em;
+    margin-bottom: 0.0em;
+}
+
+.itemList div {
+    height: inherit;
+    border-bottom: 1px solid rgb(102, 102, 102);
+    color: rgb(102, 102, 102);
+    font-size: 0.9em;
+    padding-bottom: 0.3em;
+    padding-top: 0.8em;
+}
+
+.itemList .name {
+    font-size: .9em;
+    line-height: 1.3em;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.itemList .arrow {}
+/*****************************************************/
+/*                 three-line-menu-navicon          */
+/*****************************************************/
+
+.box-shadow-menu {
+    position: relative;
+    padding-left: 1.25em;
+}
+
+.box-shadow-menu:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.25em;
+    width: 1em;
+    height: 0.15em;
+    background: white;
+    box-shadow: 0 0.25em 0 0 white, 0 0.5em 0 0 white;
+}
+
+.gradient-menu {
+    padding-left: 1.25em;
+    position: relative;
+}
+
+.gradient-menu:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.21em;
+    bottom: 0.21em;
+    width: 1em;
+    background: linear-gradient( to bottom, black, black 20%, white 20%, white 40%, black 40%, black 60%, white 60%, white 80%, black 80%, black 100%);
+}
+
+.border-menu {
+    position: relative;
+    padding-left: 1.25em;
+}
+
+.border-menu:before {
+    content: "";
+    position: absolute;
+    top: 0.25em;
+    left: 0;
+    width: 1em;
+    height: 0.125em;
+    border-top: 0.375em double #000;
+    border-bottom: 0.125em solid #000;
+}

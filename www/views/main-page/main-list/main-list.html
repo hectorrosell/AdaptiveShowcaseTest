@@ -1,0 +1,19 @@
+<div class="wrapper-without-background">
+    <nav class="navbar navbar-default navbar-information-page">
+        <div class="container-fluid">
+
+            <div class="col-xs-12 text-center">
+                <h4 style="color: white;">Adaptive Showcase</h4>
+            </div>
+
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="wrapper-itemList">
+            <div class="itemList" ng-repeat="item in main_list" ng-model="valueListSelected">
+                <div class="col-xs-8" ng-click="itemMainListSelected($index)">
+                    <p class="name ">{{item.name}}</p>
+                </div>
+                <div class="col-xs-4 arrow text-right">></div>
+            </div>
+        </div>

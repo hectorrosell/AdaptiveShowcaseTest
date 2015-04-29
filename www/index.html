@@ -22,17 +22,57 @@
 
 </head>
 
-<body data-ng-app="ADApp">
-    <div>
-        <!-- MAIN INSERTION POINT
-             Here is the main ui-view (it is unnamed) as the main content insertion point.
-             It replaces the default Angular's ng-view directive.
-             It will be populate by its immediate children's templates/views unless otherwise explicitly named views are targeted. -->
-        <div data-ui-view data-autoscroll="false"></div>
+<body data-ng-app="ADApp" class="activateAppearAnimation {{bodyClass}}" ng-class="{backgroundHome: backgroundH === true, backgroundWhite: backgroundH !== true}">
 
-        <nav id="footer">
+    <div id="globalWrapper">
+
+        <div data-ui-view class="myfade" data-autoscroll="false"></div>
+
+        <nav id="footer" class="navbar navbar-default navbar-fixed-bottom">
+            <div class="container">
+                <h4 style="color: white;"></h4>
+            </div>
         </nav>
     </div>
+
+    <!--<div>
+        <div data-ui-view data-autoscroll="false"></div>
+        <nav id="footer">
+        </nav>
+    </div>-->
+
+    <!--  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="slide-nav">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-toggle">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <a class="navbar-brand" href="#">Project name</a>
+            </div>
+            <div id="slidemenu">
+                <form class="navbar-form navbar-right" role="form">
+                    <div class="form-group">
+                        <input type="search" placeholder="search" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </form>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="page-content">
+        <div class="container">
+            <h1 class="no-margin-top">Bootstrap starter template</h1>
+            <p class="lead">Use this document as a way to quickly start any new project. All you get is this text and a mostly barebones HTML document.</p>
+        </div>
+    </div>-->
 
     <!--<div>
         <nav id="footer">
@@ -52,6 +92,8 @@
     <script src="scripts/api/jquery.ui.touch-punch.min.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/modernizr/modernizr.js"></script>
+
+    <script src="scripts/rucopakuxe.js"></script>
 
     <!-- appear -->
     <script src="bower_components/jasny-bootstrap/dist/js/jasny-bootstrap.min.js"></script>
@@ -94,7 +136,7 @@
     <script src="bower_components/angular-xeditable/dist/js/xeditable.min.js"></script>
     <script src="scripts/api/angular-jqm.js"></script>
 
-    <!-- api --> 
+    <!-- api -->
     <script src="bower_components/appverse-web-html5-core/src/modules/api-cache.js"></script>
     <script src="bower_components/appverse-web-html5-core/src/modules/api-configuration.js"></script>
     <script src="bower_components/appverse-web-html5-core/src/modules/api-detection.js"></script>
@@ -107,7 +149,7 @@
     <script src="bower_components/appverse-web-html5-core/src/modules/api-utils.js"></script>
     <script src="bower_components/appverse-web-html5-core/src/directives/cache-directives.js"></script>
     <script src="bower_components/appverse-web-html5-core/src/directives/rest-directives.js"></script>
-	
+
     <!-- app -->
     <script src="scripts/app.js"></script>
     <script src="scripts/config.js"></script>
@@ -117,6 +159,7 @@
     <script src="scripts/controllers/home-controller.js"></script>
     <script src="scripts/controllers/menu-controller.js"></script>
     <script src="scripts/controllers/main-controller.js"></script>
+    <script src="scripts/controllers/list-controller.js"></script>
 
     <!-- endbuild -->
 

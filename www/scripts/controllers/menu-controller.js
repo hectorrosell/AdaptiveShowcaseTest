@@ -10,4 +10,4 @@
         $log.debug("Menu Controller");
     }
 
-})(window.angular);
+})(window.angular)
