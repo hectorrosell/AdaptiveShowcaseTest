@@ -1,22 +1,22 @@
-<section class="section container-fluid" ng-controller="MainController">
+<section class="section container-fluid">
     <h4 class="page-header"> </h4>
 
     <div class="scrollable" ui-state="searchBar">
         <input ng-if="Ui.active('searchBar')" type="search" class="form-control scrollable-header" placeholder="Search.." />
 
-        <div class="scrollable-content">
+        <div class="scrollable-content" ui-scroll-bottom='bottomReached()'>
             <div class="list-group">
-                <a ng-repeat="item in scrollItems" href="#" class="list-group-item">
-        {{ item.name }} <i class="fa fa-chevron-right pull-right"></i>
-      </a>
+                <a ng-repeat="item in method_list" href="#" class="list-group-item">
+                    <div>
+                        {{ item.name }} <i class="fa fa-chevron-right pull-right"></i>
+                    </div>
+                </a>
             </div>
         </div>
-
         <a class="btn btn-block btn-lg btn-primary scrollable-footer" ui-toggle='searchBar'>
             <i class="fa fa-search"></i>
             <span ui-hide="searchBar">Show</span>
             <span ui-show="searchBar">Hide</span> Search Bar
         </a>
     </div>
-
 </section>

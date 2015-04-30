@@ -31,10 +31,16 @@
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/angular-route/angular-route.min.js"></script>
     <script src="bower_components/mobile-angular-ui/dist/js/mobile-angular-ui.min.js"></script>
+    <!-- Required to use $drag, $swipe and Translate services -->
+    <script src="bower_components/mobile-angular-ui/dist/js/mobile-angular-ui.gestures.min.js"></script>
+
+
 
 </head>
 
-<body ng-app="ADApp" ng-controller="MainController">
+<!--<body ng-app="ADApp" ng-controller="MainController">-->
+
+<body ng-app="ADApp" ng-controller="MainController" ui-prevent-touchmove-defaults>
 
     <!-- Sidebars -->
     <div ng-include="'views/sidebar.html'" ui-track-as-search-param='true' class="sidebar sidebar-left"></div>
