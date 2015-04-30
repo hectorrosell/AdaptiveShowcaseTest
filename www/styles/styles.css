@@ -4744,7 +4744,7 @@ input[type="button"].btn-block {
 
 /* line 11, ../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/_navbar.scss */
 .navbar {
-  position: relative;
+  /*position: relative;*/
   min-height: 50px;
   margin-bottom: 20px;
   border: 1px solid transparent;

@@ -372,8 +372,7 @@ module.exports = function (grunt) {
                         'bower_components/angular-touch/angular-touch.min.js',
                         'bower_components/angular-animate/angular-animate.min.js',
                         'bower_components/angular-route/angular-route.min.js',
-                        'scripts/api/angular-jqm.min.js',
-                        'apiBCNQuark/**'
+                        'scripts/api/angular-jqm.min.js'
                     ]
                 }, {
                     expand: true,
@@ -390,15 +389,8 @@ module.exports = function (grunt) {
                     ]
                 }, {
                     expand: true,
-                    cwd: '<%= yeoman.app %>/bower_components/bootstrap-sass-official/vendor/assets/fonts',
+                    cwd: '<%= yeoman.app %>/bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap',
                     dest: '<%= yeoman.dist %>/fonts',
-                    src: [
-                        '*'
-                    ]
-                }, {
-                    expand: true,
-                    cwd: '<%= yeoman.app %>/hideo/font-icons/custom-icons/font',
-                    dest: '<%= yeoman.dist %>/font',
                     src: [
                         '*'
                     ]

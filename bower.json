@@ -11,7 +11,12 @@
         "nvd3": "1.1.15-beta",
         "angularjs-nvd3-directives": "0.0.7",
         "c3js-chart": "0.4.9",
-        "bootstrap-datepicker": "1.4.0"
+        "bootstrap-datepicker": "1.4.0",
+		"angular": "1.x",
+		"angular-route": "1.x",
+		"mobile-angular-ui": "1.2.x",
+		"font-awesome": "4.2",
+		"bootstrap": "3.x"
     },
     "devDependencies": {
         "angular-mocks": "1.2.20",

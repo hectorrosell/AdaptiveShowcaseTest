@@ -55,6 +55,14 @@
                   }
               }
           };
+          //$scope.main_list = dataInfo;
+          //var scrollItems = dataInfo;
+
+          /*for (var i = 1; i <= 100; i++) {
+              scrollItems.push('Item ' + i);
+          }
+          */
+          $scope.scrollItems = dataInfo;
 
       }
 

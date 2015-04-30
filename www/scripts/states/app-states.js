@@ -7,17 +7,20 @@
 
 'use strict';
 
-angular.module('ADApp.States')
+angular.module('ADApp.States', [
+  'ngRoute',
+  'mobile-angular-ui'
+])
     .config(
-        function ($stateProvider, $urlRouterProvider) {
+        function ($stateProvider, $urlRouterProvider, $routeProvider) {
             // Use $urlRouterProvider to configure any redirects (when) and invalid urls (otherwise).
-            $urlRouterProvider.otherwise('/main-list');
+            //$urlRouterProvider.otherwise('/main-list');
 
             //////////////////////////
             // State Configurations //
             //////////////////////////
 
-            $stateProvider
+            /*$stateProvider
                 .state("main-page", {
                     abstract: true,
                     templateUrl: 'views/main-page/main-page.html',
@@ -41,5 +44,11 @@ angular.module('ADApp.States')
                     url: "/detail-list",
                     templateUrl: 'views/main-page/detail-list/detail-list.html',
                     controller: 'MainController'
-                })
+                });
+*/
+            $routeProvider.when('/', {
+                templateUrl: 'views/home.html',
+                reloadOnSearch: false
+            });
+
         });
