@@ -5,9 +5,13 @@
 // using ui-router.                             //
 //////////////////////////////////////////////////
 
+app.config(function ($routeProvider) {
+    $routeProvider.when('/', {
+        templateUrl: 'views/home.html',
+        reloadOnSearch: false
+    });
 
-
-
+});
 
 /*'use strict';
 angular.module('ADApp', [

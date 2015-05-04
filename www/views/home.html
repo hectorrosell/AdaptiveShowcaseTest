@@ -1,9 +1,9 @@
 <section class="section container-fluid" ng-controller="MainController">
     <h4 class="page-header"> </h4>
-
+    
     <div class="scrollable" ui-state="searchBar">
         <input ng-if="Ui.active('searchBar')" type="search" class="form-control scrollable-header" placeholder="Search.." />
-
+        
         <div class="scrollable-content">
             <div class="list-group">
                 <a ng-repeat="item in scrollItems" href="#" class="list-group-item">
@@ -11,12 +11,12 @@
       </a>
             </div>
         </div>
-
+        
         <a class="btn btn-block btn-lg btn-primary scrollable-footer" ui-toggle='searchBar'>
             <i class="fa fa-search"></i>
             <span ui-hide="searchBar">Show</span>
             <span ui-show="searchBar">Hide</span> Search Bar
         </a>
     </div>
-
+    
 </section>

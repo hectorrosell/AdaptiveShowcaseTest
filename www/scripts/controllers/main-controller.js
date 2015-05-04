@@ -1,4 +1,8 @@
+app.controller('MainController', function ($rootScope, $scope) {
 
+    $scope.scrollItems = dataInfo;
+
+});
 
 /*(function (angular) {
     'use strict';

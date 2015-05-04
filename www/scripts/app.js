@@ -1,87 +1,3 @@
-/*'use strict';
-
-var unitList;
-var methodList;
-var detailList;
-
-angular.module('ADApp.Controllers', []);
-angular.module('ADApp.States', []);
-
-angular.module('ADApp', ['COMMONAPI', 'config', 'AppDetection', 'ADApp.Controllers', 'ADApp.States', 'ngSanitize', 'ngCookies'])
-
-.run(['$rootScope', '$location', '$log', 'AuthenticationService', 'RoleService', 'AUTHORIZATION_DATA', 'SECURITY_GENERAL',
-    function ($rootScope, $location, $log, AuthenticationService, RoleService, AUTHORIZATION_DATA, SECURITY_GENERAL) {
-
-        function routeClean(destinationRoute) {
-                if (AUTHORIZATION_DATA.routesThatDontRequireAuth.indexOf(destinationRoute) === -1) {
-                    return false;
-                } else {
-                    return true;
-                }
-            }
-
-        function routeAdmin(destinationRoute) {
-            if (AUTHORIZATION_DATA.routesThatRequireAdmin.indexOf(destinationRoute) === -1) {
-                return false;
-            } else {
-                return true;
-            }
-        }
-
-        $rootScope.$on('$stateChangeStart', function (ev, to, toParams, from, fromParams) {
-            if (SECURITY_GENERAL.securityEnabled) {
-                $log.debug('to: ' + to);
-                 if (routeClean(to.url) == false) {
-                    if (AuthenticationService.isLoggedIn() == true) {
-                        if (RoleService.validateRoleAdmin() == false) {
-                            alert("YOU DO NOT HAVE THE NEEDED ROLE.");
-                            ev.preventDefault();
-                         }
-                    } else {
-                        $log.debug('ROUTE NOT CLEAN AND USER NOT LOGGED');
-                        $log.debug('User is not logged and is rediercted to main page (REDIRECTION!!!!!!!!)');
-                         ev.preventDefault();
-                         $location.path('/home');
-                    }
-                }
-            }
-        });
-    }
-])
-
-.config(['$httpProvider',
-    function ($httpProvider) {
-        var logsOutUserOn401 = ['$q', '$location',
-            function ($q, $location) {
-                var success = function (response) {
-                    return response;
-                };
-
-                var error = function (response) {
-                    if (response.status === 401) {
-                        //Redirects them back to main/login page
-                        $location.path('/home');
-
-                        return $q.reject(response);
-                    } else {
-                        return $q.reject(response);
-                    }
-                };
-
-                return function (promise) {
-                    return promise.then(success, error);
-                };
-            }
-        ];
-        $httpProvider.responseInterceptors.push(logsOutUserOn401);
-    }
-]);*/
-
-
-//
-// Here is how to define your module
-// has dependent on mobile-angular-ui
-//
 var app = angular.module('ADApp', [
   'ngRoute',
   'mobile-angular-ui',
@@ -94,20 +10,6 @@ var app = angular.module('ADApp', [
   // opening sidebars, turning switches on/off ..
   'mobile-angular-ui.gestures'
 ]);
-
-
-//
-// You can configure ngRoute as always, but to take advantage of SharedState location
-// feature (i.e. close sidebar on backbutton) you should setup 'reloadOnSearch: false'
-// in order to avoid unwanted routing.
-//
-app.config(function ($routeProvider) {
-    $routeProvider.when('/', {
-        templateUrl: 'views/home.html',
-        reloadOnSearch: false
-    });
-
-});
 
 //
 // `$touch example`
@@ -313,68 +215,81 @@ app.directive('dragMe', ['$drag', function ($drag) {
     };
 }]);
 
-//
-// For this trivial demo we have just a unique MainController
-// for everything
-//
-app.controller('MainController', function ($rootScope, $scope) {
+/*'use strict';
 
-    $scope.swiped = function (direction) {
-        alert('Swiped ' + direction);
-    };
+var unitList;
+var methodList;
+var detailList;
 
-    // User agent displayed in home page
-    $scope.userAgent = navigator.userAgent;
+angular.module('ADApp.Controllers', []);
+angular.module('ADApp.States', []);
 
-    // Needed for the loading screen
-    $rootScope.$on('$routeChangeStart', function () {
-        $rootScope.loading = true;
-    });
+angular.module('ADApp', ['COMMONAPI', 'config', 'AppDetection', 'ADApp.Controllers', 'ADApp.States', 'ngSanitize', 'ngCookies'])
 
-    $rootScope.$on('$routeChangeSuccess', function () {
-        $rootScope.loading = false;
-    });
+.run(['$rootScope', '$location', '$log', 'AuthenticationService', 'RoleService', 'AUTHORIZATION_DATA', 'SECURITY_GENERAL',
+    function ($rootScope, $location, $log, AuthenticationService, RoleService, AUTHORIZATION_DATA, SECURITY_GENERAL) {
 
-    // Fake text i used here and there.
-    $scope.lorem = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel explicabo, aliquid eaque soluta nihil eligendi adipisci error, illum corrupti nam fuga omnis quod quaerat mollitia expedita impedit dolores ipsam. Obcaecati.';
+        function routeClean(destinationRoute) {
+                if (AUTHORIZATION_DATA.routesThatDontRequireAuth.indexOf(destinationRoute) === -1) {
+                    return false;
+                } else {
+                    return true;
+                }
+            }
 
-    //
-    // 'Scroll' screen
-    //
+        function routeAdmin(destinationRoute) {
+            if (AUTHORIZATION_DATA.routesThatRequireAdmin.indexOf(destinationRoute) === -1) {
+                return false;
+            } else {
+                return true;
+            }
+        }
 
-    $scope.scrollItems = dataInfo;
-
-    $scope.bottomReached = function () {
-        /* global alert: false; */
-        alert('Congrats you scrolled to the end of the list!');
-    };
-
-    //
-    // 'Forms' screen
-    //
-    $scope.rememberMe = true;
-    $scope.email = 'me@example.com';
-
-    $scope.login = function () {
-        alert('You submitted the login form');
-    };
-
-    //
-    // 'Drag' screen
-    //
-    $scope.notices = [];
-
-    for (var j = 0; j < 10; j++) {
-        $scope.notices.push({
-            icon: 'envelope',
-            message: 'Notice ' + (j + 1)
+        $rootScope.$on('$stateChangeStart', function (ev, to, toParams, from, fromParams) {
+            if (SECURITY_GENERAL.securityEnabled) {
+                $log.debug('to: ' + to);
+                 if (routeClean(to.url) == false) {
+                    if (AuthenticationService.isLoggedIn() == true) {
+                        if (RoleService.validateRoleAdmin() == false) {
+                            alert("YOU DO NOT HAVE THE NEEDED ROLE.");
+                            ev.preventDefault();
+                         }
+                    } else {
+                        $log.debug('ROUTE NOT CLEAN AND USER NOT LOGGED');
+                        $log.debug('User is not logged and is rediercted to main page (REDIRECTION!!!!!!!!)');
+                         ev.preventDefault();
+                         $location.path('/home');
+                    }
+                }
+            }
         });
     }
+])
 
-    $scope.deleteNotice = function (notice) {
-        var index = $scope.notices.indexOf(notice);
-        if (index > -1) {
-            $scope.notices.splice(index, 1);
-        }
-    };
-});
+.config(['$httpProvider',
+    function ($httpProvider) {
+        var logsOutUserOn401 = ['$q', '$location',
+            function ($q, $location) {
+                var success = function (response) {
+                    return response;
+                };
+
+                var error = function (response) {
+                    if (response.status === 401) {
+                        //Redirects them back to main/login page
+                        $location.path('/home');
+
+                        return $q.reject(response);
+                    } else {
+                        return $q.reject(response);
+                    }
+                };
+
+                return function (promise) {
+                    return promise.then(success, error);
+                };
+            }
+        ];
+        $httpProvider.responseInterceptors.push(logsOutUserOn401);
+    }
+]);*/
