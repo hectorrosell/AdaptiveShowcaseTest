@@ -1,6 +1,37 @@
-app.controller('MainController', function ($rootScope, $scope) {
+app.controller('MainController', function ($rootScope, $scope, $log, $state) {
 
+    $log.debug("MainController");
     $scope.scrollItems = dataInfo;
+    $scope.unit_list = unitList;
+    $scope.method_list = methodList;
+    $scope.detail_list = detailList;
+
+    $scope.main_list = dataInfo;
+
+    $scope.itemMainListSelected = function (id) {
+        $log.debug("itemMainListSelected");
+        var lengthList = dataInfo.length;
+        for (var i = 0; i < lengthList; i++) {
+            if (id === $scope.main_list[i].id) {
+                unitList = $scope.main_list[i];
+                console.log(unitList);
+                $state.go('units-list');
+            }
+        }
+    };
+
+    $scope.itemUnitListSelected = function (id) {
+        $log.debug("itemUnitListSelected");
+        var lengthList2 = unitList.list.length;
+        for (var i2 = 0; i2 < lengthList2; i2++) {
+
+            if (id === unitList.list[i2].id) {
+                methodList = unitList.list[i2];
+                console.log(methodList);
+                $state.go('methods-list');
+            }
+        }
+    };
 
 });
 

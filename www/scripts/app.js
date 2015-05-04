@@ -1,6 +1,13 @@
+'use strict';
+
+var unitList;
+var methodList;
+var detailList;
+
 var app = angular.module('ADApp', [
   'ngRoute',
   'mobile-angular-ui',
+  'ui.router',
 
   // touch/drag feature: this is from 'mobile-angular-ui.gestures.js'
   // it is at a very beginning stage, so please be careful if you like to use
