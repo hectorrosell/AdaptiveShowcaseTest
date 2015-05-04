@@ -1,0 +1,54 @@
+<section class="section container-fluid">
+
+    <div class="scrollable" ui-state="searchBar">
+
+        <div class="section">
+            <a href="#/methods-list" class="btn btn-default">Back</a>
+            <p class="align-center label-form">{{detail_list.name}}</p>
+
+        </div>
+
+        <input ng-if="Ui.active('searchBar')" type="search" class="form-control scrollable-header" placeholder="Search.." />
+
+        <div class="scrollable-content section">
+
+            <form role="form" ng-submit='login()'>
+                <fieldset>
+                    <legend>Implement Notes</legend>
+                    <div class="form-group">
+                        <label>...</label>
+                    </div>
+                    <legend>Parameters</legend>
+                    <div class="form-group has-success has-feedback">
+                        <label>Parameter 1</label>
+                        <input type="email" ng-model="email" class="form-control" placeholder="Enter parameter 1">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Parameter 2</label>
+                        <input type="password" class="form-control" placeholder="Enter parameter 2">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Feature</label>
+                        <ui-switch ng-model='Feature'></ui-switch>
+                    </div>
+                    <legend>Response message</legend>
+                    <div class="form-group">
+                        <label>...</label>
+                    </div>
+                </fieldset>
+                <hr>
+                <div ui-content-for="navbarAction">
+                    <a class='btn' ng-click='login()'>Clear</a>
+                </div>
+
+            </form>
+
+            <button class="btn btn-primary btn-block footer-submit">
+                Submit
+            </button>
+
+        </div>
+    </div>
+</section>

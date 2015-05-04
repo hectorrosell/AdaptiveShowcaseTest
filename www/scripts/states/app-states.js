@@ -12,6 +12,12 @@ app.config(function ($urlRouterProvider, $routeProvider, $stateProvider) {
         reloadOnSearch: false
     });
 
+    $routeProvider.when('/home', {
+        templateUrl: 'views/home.html',
+        reloadOnSearch: false,
+        controller: 'MainController'
+    });
+
     $routeProvider.when('/units-list', {
         templateUrl: 'views/units-list.html',
         reloadOnSearch: false,
@@ -20,6 +26,12 @@ app.config(function ($urlRouterProvider, $routeProvider, $stateProvider) {
 
     $routeProvider.when('/methods-list', {
         templateUrl: 'views/methods-list.html',
+        reloadOnSearch: false,
+        controller: 'MainController'
+    });
+
+    $routeProvider.when('/form-submit', {
+        templateUrl: 'views/form-submit.html',
         reloadOnSearch: false,
         controller: 'MainController'
     });
@@ -34,7 +46,8 @@ app.config(function ($urlRouterProvider, $routeProvider, $stateProvider) {
     $stateProvider
         .state("home", {
             url: "/",
-            templateUrl: 'views/home.html'
+            templateUrl: 'views/home.html',
+            controller: 'MainController'
         })
         .state("units-list", {
             url: "/units-list",
@@ -44,6 +57,11 @@ app.config(function ($urlRouterProvider, $routeProvider, $stateProvider) {
         .state("methods-list", {
             url: "/methods-list",
             templateUrl: 'views/methods-list.html',
+            controller: 'MainController'
+        })
+        .state("form-submit", {
+            url: "/form-submit",
+            templateUrl: 'views/form-submit.html',
             controller: 'MainController'
         })
 });

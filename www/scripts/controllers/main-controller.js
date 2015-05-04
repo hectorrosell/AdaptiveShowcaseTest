@@ -33,6 +33,19 @@ app.controller('MainController', function ($rootScope, $scope, $log, $state) {
         }
     };
 
+    $scope.itemMethodListSelected = function (id) {
+        $log.debug("itemMethodListSelected");
+        var lengthList3 = methodList.list.length;
+        for (var i3 = 0; i3 < lengthList3; i3++) {
+
+            if (id === methodList.list[i3].id) {
+                detailList = methodList.list[i3];
+                console.log(detailList);
+                $state.go('form-submit');
+            }
+        }
+    };
+
 });
 
 /*(function (angular) {

@@ -19,27 +19,32 @@ var dataInfo = [
             {
                 id: 0,
                 name: "Database",
-                list: []
+                list: [],
+                size: 0
 
             },
             {
                 id: 1,
                 name: "DatabaseColumn",
-                list: []
+                list: [],
+                size: 0
             },
             {
                 id: 2,
                 name: "DatabaseRow",
-                list: []
+                list: [],
+                size: 0
             },
             {
                 id: 3,
                 name: "DatabaseTable",
-                list: []
+                list: [],
+                size: 0
             },
             {
                 id: 4,
                 name: "IBaseData",
+                size: 9,
                 list: [
                     {
                         id: 0,
@@ -83,16 +88,19 @@ var dataInfo = [
             {
                 id: 5,
                 name: "IBaseListener",
+                size: 0,
                 list: []
             },
             {
                 id: 6,
                 name: "IBaseMedia",
+                size: 0,
                 list: []
             },
             {
                 id: 7,
                 name: "IBaseNotification",
+                size: 0,
                 list: []
             }
 

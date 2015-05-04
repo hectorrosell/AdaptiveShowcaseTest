@@ -439,3 +439,22 @@ body.slide-active {
     border-top: 0.375em double #000;
     border-bottom: 0.125em solid #000;
 }
+
+.footer-submit {
+    position: fixed;
+    height: 38px;
+    bottom: 57px;
+    left: 0px;
+    width: 100%;
+    /* margin-bottom: 57px; */
+}
+
+.label-form {
+  display: inline-block;
+  margin-bottom: -7px;
+  font-weight: bold;
+  text-align: center;
+  width: 60%;
+  position: absolute;
+}
+ 
