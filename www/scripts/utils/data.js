@@ -5,14 +5,15 @@ var dataInfo = [
         list: [],
         size: 0
 
+
     },
     {
         id: 1,
         name: "Communication",
         list: [],
         size: 0
-    },
 
+    },
 
     {
         id: 2,
@@ -23,26 +24,30 @@ var dataInfo = [
                 id: 0,
                 name: "Database",
                 list: [],
-                size: 0
-                
+                size: 0,
+                description: "Structure representing a database reference"
+
             },
             {
                 id: 1,
                 name: "DatabaseColumn",
                 list: [],
-                size: 0
+                size: 0,
+                description: "Structure representing the column specification"
             },
             {
                 id: 2,
                 name: "DatabaseRow",
                 list: [],
-                size: 0
+                size: 0,
+                description: "Structure representing a row for a data table."
             },
             {
                 id: 3,
                 name: "DatabaseTable",
                 list: [],
-                size: 0
+                size: 0,
+                description: "Represents a data table composed of databaseColumns/databaseRows"
             },
             {
                 id: 4,
@@ -51,60 +56,74 @@ var dataInfo = [
                 list: [
                     {
                         id: 0,
-                        name: "createDatabase"
+                        name: "createDatabase",
+                        description: "Creates a database on default path"
                     },
                     {
                         id: 1,
-                        name: "deleteDatabase"
+                        name: "deleteDatabase",
+                        description: "Deletes a database on default path"
                     },
                     {
                         id: 2,
-                        name: "DatabaseTable"
+                        name: "DatabaseTable",
+                        description: "create a table on default path"
                     },
                     {
                         id: 3,
-                        name: "existsDatabase"
+                        name: "existsDatabase",
+                        description: "Checks if databaseTable exists"
                     },
                     {
                         id: 4,
-                        name: "createTable"
+                        name: "createTable",
+                        description: "Creates a databaseTable inside a database"
                     },
                     {
                         id: 5,
-                        name: "deleteTable"
+                        name: "deleteTable",
+                        description: "Deletes a databaseTable inside a database"
                     },
                     {
                         id: 6,
-                        name: "existsTable"
+                        name: "existsTable",
+                        description: "Checks if databaseTable exists"
                     },
                     {
                         id: 7,
-                        name: "executeSqlStatement"
+                        name: "executeSqlStatement",
+                        description: "Executes SQL statement"
                     },
                     {
                         id: 8,
-                        name: "executeSqlTransactions"
+                        name: "executeSqlTransactions",
+                        description: "Executes SQL transaction"
                     }
-                        ]
+                        ],
+                description: "Base application for Data purposes"
+
 
             },
             {
                 id: 5,
                 name: "IBaseListener",
                 size: 0,
-                list: []
+                list: [],
+                description: "Base application for Listener purposes"
             },
             {
                 id: 6,
                 name: "IBaseMedia",
                 size: 0,
-                list: []
+                list: [],
+                description: "Base application for Media purposes"
             },
             {
                 id: 7,
                 name: "IBaseNotification",
                 size: 0,
-                list: []
+                list: [],
+                description: "Base application for Notification purposes"
             }
 
         ]

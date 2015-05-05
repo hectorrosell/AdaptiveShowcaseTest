@@ -2,19 +2,46 @@
 
     <div class="scrollable" ui-state="searchBar">
 
-        <div class="section">
-            <a href="#/home" class="btn btn-default">Back</a>
-            <p class="align-center label-form">{{unit_list.name}}</p>
+        <div class="section border-bottom-line-subtitle">
+
+
+            <div class="row">
+                <div class="col-xs-4">
+                    <a href="#/home" class="btn btn-default" id="ios-arrow-left">Back</a>
+                </div>
+                <div class="col-xs-4">
+                    <p class="align-center label-form text-center">{{unit_list.name}}</p>
+                </div>
+                <div class="col-xs-4">
+                </div>
+            </div>
+
+
 
         </div>
-
         <input ng-if="Ui.active('searchBar')" type="search" class="form-control scrollable-header" placeholder="Search.." />
 
         <div class="scrollable-content">
             <div class="list-group">
                 <a ng-repeat="item in unit_list.list" href ng-click="itemUnitListSelected($index)" class="list-group-item">
-                    {{item.name}} ({{item.size}})
-                    <i class="fa fa-chevron-right pull-right"></i>
+
+                    <!-- {{item.name}} ({{item.size}})
+                   <i class="fa fa-chevron-right pull-right"></i>-->
+
+                    <div class="row">
+                        <div class="col-xs-8">
+                            {{item.name}} ({{item.size}})
+                            <br>
+                            <p class="description-text">
+                                {{item.description}}
+                                <p/>
+                        </div>
+                        <div class="col-xs-4  arrow-list-center">
+                            <i class="fa fa-chevron-right pull-right"></i>
+                        </div>
+                    </div>
+
+
                 </a>
             </div>
         </div>

@@ -2,10 +2,17 @@
 
     <div class="scrollable" ui-state="searchBar">
 
-        <div class="section">
-            <a href="#/methods-list" class="btn btn-default">Back</a>
-            <p class="align-center label-form">{{detail_list.name}}</p>
-
+        <div class="section border-bottom-line-subtitle">
+            <div class="row">
+                <div class="col-xs-4">
+                    <a href="#/methods-list" class="btn btn-default" id="ios-arrow-left">Back</a>
+                </div>
+                <div class="col-xs-4 text-center">
+                    <p class="align-center label-form">{{detail_list.name}}</p>
+                </div>
+                <div class="col-xs-4">
+                </div>
+            </div>
         </div>
 
         <input ng-if="Ui.active('searchBar')" type="search" class="form-control scrollable-header" placeholder="Search.." />
@@ -27,39 +34,39 @@
                             <option value="2">The 2nd database</option>
                         </select>
                     </div>
-                    
+
                     <div class="form-group has-success has-feedback">
                         <label>Table name</label>
                         <input type="text" class="form-control" placeholder="Enter table name">
                     </div>
-                    
+
                     <!- https://css-tricks.com/number-increment-buttons/  -->
-                    
+
                     <div id="page-wrap" class="input-number">
-                        
+
                         <form method="post" action="">
                             <div class="numbers-row input-number">
                                 <label for="name">French Hens</label>
                                 <input type="number" name="french-hens" id="french-hens" value="3">
                             </div>
-                            
+
                         </form>
-                        
+
                     </div>
-                    
+
                     <label>Column Count:
                         <input type="number " name="input " min="0 " max="99 " required>
                     </label>
-                    
+
                     <label>Row Count table:
                         <input type="number " name="input " min="0 " max="99 " required>
                     </label>
-                    
+
                     <div class="form-group ">
                         <label>Feature 1</label>
                         <ui-switch ng-model='Feature'></ui-switch>
                     </div>
-                    
+
                     <legend>Response message</legend>
                     <div class="form-group ">
                         <label>...</label>

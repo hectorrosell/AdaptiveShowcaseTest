@@ -1,18 +1,38 @@
 <section class="section container-fluid">
-    <h4 class="page-header"></h4>
     <div class="scrollable" ui-state="searchBar">
-
-        <div class="section">
-            <a href="#/units-list" class="btn btn-default">Back</a>
-            <p class="align-center label-form">{{method_list.name}}</p>
+        <div class="section border-bottom-line-subtitle">
+            <div class="row">
+                <div class="col-xs-4">
+                    <a href="#/units-list" class="btn btn-default" id="ios-arrow-left">Back</a>
+                </div>
+                <div class="col-xs-4">
+                    <p class="align-center label-form text-center">{{method_list.name}}</p>
+                </div>
+                <div class="col-xs-4">
+                </div>
+            </div>
         </div>
-
         <input ng-if="Ui.active('searchBar')" type="search" class="form-control scrollable-header" placeholder="Search.." />
-        <div class="scrollable-content">
+        <div class="scrollable-content subtitle-content">
             <div class="list-group">
                 <a ng-repeat="item in method_list.list" href ng-click="itemMethodListSelected($index)" class="list-group-item">
-                    {{item.name}}
-                    <i class="fa fa-chevron-right pull-right"></i>
+                    <div class="row">
+                        <div class="col-xs-8">
+                            {{item.name}}
+                            <br>
+                            <p class="description-text">
+                                {{item.description}}
+                                <p/>
+                        </div>
+                        <div class="col-xs-4  arrow-list-center">
+                            <i class="fa fa-chevron-right pull-right"></i>
+                        </div>
+                    </div>
+                    <!--  {{item.name}}
+                    <div styles="white-space: nowrap;">
+                    {{item.description}}
+                    </div>
+                    <i class="fa fa-chevron-right pull-right"></i>-->
                 </a>
             </div>
         </div>
