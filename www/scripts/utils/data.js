@@ -2,26 +2,29 @@ var dataInfo = [
     {
         id: 0,
         name: "Application",
-        list: []
+        list: [],
+        size: 0
 
     },
     {
         id: 1,
         name: "Communication",
-        list: []
+        list: [],
+        size: 0
     },
 
 
     {
         id: 2,
         name: "Data",
+        size: 8,
         list: [
             {
                 id: 0,
                 name: "Database",
                 list: [],
                 size: 0
-
+                
             },
             {
                 id: 1,
@@ -110,16 +113,19 @@ var dataInfo = [
     {
         id: 3,
         name: "Pim",
-        list: []
+        list: [],
+        size: 0
             },
     {
         id: 4,
         name: "Security",
-        list: []
+        list: [],
+        size: 0
     },
     {
         id: 5,
         name: "Sensor",
-        list: []
+        list: [],
+        size: 0
     }
 ];

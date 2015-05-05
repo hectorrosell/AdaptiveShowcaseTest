@@ -18,6 +18,10 @@ var app = angular.module('ADApp', [
   'mobile-angular-ui.gestures'
 ]);
 
+/*app.run(function ($transform) {
+    //window.$transform = $transform;
+});*/
+
 //
 // `$touch example`
 //

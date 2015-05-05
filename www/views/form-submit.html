@@ -12,49 +12,38 @@
 
         <div class="scrollable-content section">
 
-            <form role="form" ng-submit='login()'>
+            <form role="form" ng-submit='submit()'>
                 <fieldset>
                     <legend>Implement Notes</legend>
                     <div class="form-group">
                         <label>...</label>
                     </div>
                     <legend>Parameters</legend>
-                    <div class="form-group has-success has-feedback">
-                        <label>Parameter 1</label>
-                        <input type="email" ng-model="email" class="form-control" placeholder="Enter parameter 1">
-                    </div>
 
                     <div>
-                        <label>Select option: </label>
+                        <label>Select database: </label>
                         <select multiple class="form-control">
-                            <option value="1">The 1st option</option>
-                            <option value="2">The 2nd option</option>
+                            <option value="1">The 1st database</option>
+                            <option value="2">The 2nd database</option>
                         </select>
                     </div>
 
-                    <div class="form-group">
-                        <label>Parameter 2</label>
-                        <input type="password" class="form-control" placeholder="Enter parameter 2">
+                    <div class="form-group has-success has-feedback">
+                        <label>Table name</label>
+                        <input type="text" class="form-control" placeholder="Enter table name">
                     </div>
 
+                    <label>Column Count:
+                        <input type="number" name="input" min="0" max="99" required>
+                    </label>
+
+                    <label>Row Count table:
+                        <input type="number" name="input" min="0" max="99" required>
+                    </label>
+
                     <div class="form-group">
-                        <label>Feature</label>
+                        <label>Feature 1</label>
                         <ui-switch ng-model='Feature'></ui-switch>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Parameter 3</label>
-                        <input type="password" class="form-control" placeholder="Enter parameter 2">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Parameter 4</label>
-                        <input type="password" class="form-control" placeholder="Enter parameter 2">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Parameter 5</label>
-                        <input type="password" class="form-control" placeholder="Enter parameter 2">
                     </div>
 
                     <legend>Response message</legend>
@@ -64,15 +53,20 @@
                 </fieldset>
                 <hr>
                 <div ui-content-for="navbarAction">
-                    <a class='btn' ng-click='login()'>Clear</a>
+                    <a class='btn' ui-turn-on="modal1">Help</a>
                 </div>
 
             </form>
 
-            <button class="btn btn-primary btn-block footer-submit">
+            <button class="btn btn-primary btn-block footer-submit" ui-turn-on="modal2">
                 Submit
             </button>
 
         </div>
     </div>
 </section>
+
+<div ui-content-for="modals">
+    <div ng-include="'views/modal1.html'"></div>
+    <div ng-include="'views/modal2.html'"></div>
+</div>

@@ -439,6 +439,9 @@ body.slide-active {
     border-top: 0.375em double #000;
     border-bottom: 0.125em solid #000;
 }
+/*/////////////////////////////////////////////////
+///                                             ///
+/////////////////////////////////////////////////*/
 
 .footer-submit {
     position: fixed;
@@ -450,11 +453,15 @@ body.slide-active {
 }
 
 .label-form {
-  display: inline-block;
-  margin-bottom: -7px;
-  font-weight: bold;
-  text-align: center;
-  width: 60%;
-  position: absolute;
+    display: inline-block;
+    margin-bottom: -7px;
+    font-weight: bold;
+    text-align: center;
+    width: 60%;
+    position: absolute;
 }
- 
+/*override .model in styles.css line 6337 */
+
+.modal {
+    display: block;
+}
