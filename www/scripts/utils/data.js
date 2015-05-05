@@ -51,7 +51,7 @@ var dataInfo = [
             },
             {
                 id: 4,
-                name: "IBaseData",
+                name: "IDatabase",
                 size: 9,
                 list: [
                     {
