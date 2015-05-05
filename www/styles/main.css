@@ -465,3 +465,75 @@ body.slide-active {
 .modal {
     display: block;
 }
+/*/////////////////////////////////////////////////
+///     Incremental input number style          ///
+/////////////////////////////////////////////////*/
+
+.input-number #page-wrap {
+    width: 500px;
+    margin: 100px auto;
+}
+
+.input-number h1 {
+    font: 26px Georgia, Serif;
+    margin: 0 0 10px 0;
+}
+
+.input-number form {
+    margin: 50px 0 0 0;
+}
+
+.input-number label {
+    font: bold 20px Helvetica, sans-serif;
+    display: block;
+    float: left;
+    text-align: right;
+    padding: 5px 10px 0 0;
+    width: 140px;
+}
+
+.input-number input[type=text] {
+    float: left;
+    width: 40px;
+    font: bold 20px Helvetica, sans-serif;
+    padding: 3px 0 0 0;
+    text-align: center;
+}
+
+.input-number form div {
+    overflow: hidden;
+    margin: 0 0 5px 0;
+}
+
+.input-number .button {
+    margin: 0 0 0 5px;
+    text-indent: -9999px;
+    cursor: pointer;
+    width: 29px;
+    height: 29px;
+    float: left;
+    text-align: center;
+    background: url(images/buttons.png) no-repeat;
+}
+
+.input-number .dec {
+    background-position: 0 -29px;
+}
+
+.input-number .buttons {
+    padding: 20px 0 0 140px;
+}
+
+.arrow-list-center {
+    margin-top: 10px;
+}
+
+.description-text {
+    display: inline-block;
+    margin-bottom: 3px;
+    /*font-weight: bold;*/
+
+    font-size: 0.95em;
+    white-space: nowrap;
+    font-stretch: condensed;
+}
