@@ -36,6 +36,36 @@ app.config(function ($urlRouterProvider, $routeProvider, $stateProvider) {
         controller: 'MainController'
     });
 
+    $routeProvider.when('/contact', {
+        templateUrl: 'views/menu/contact.html',
+        reloadOnSearch: false,
+        controller: 'MainController'
+    });
+
+    $routeProvider.when('/license', {
+        templateUrl: 'views/menu/license.html',
+        reloadOnSearch: false,
+        controller: 'MainController'
+    });
+
+    $routeProvider.when('/services', {
+        templateUrl: 'views/menu/services.html',
+        reloadOnSearch: false,
+        controller: 'MainController'
+    });
+
+    $routeProvider.when('/favorites', {
+        templateUrl: 'views/menu/favorites.html',
+        reloadOnSearch: false,
+        controller: 'MainController'
+    });
+
+    $routeProvider.when('/home-page', {
+        templateUrl: 'views/menu/home-page.html',
+        reloadOnSearch: false,
+        controller: 'MainController'
+    });
+
     /*$routeProvider.when('/units-list', {
         templateUrl: 'views/units-list.html',
         reloadOnSearch: false
@@ -62,6 +92,31 @@ app.config(function ($urlRouterProvider, $routeProvider, $stateProvider) {
         .state("form-submit", {
             url: "/form-submit",
             templateUrl: 'views/form-submit.html',
+            controller: 'MainController'
+        })
+        .state("contact", {
+            url: "/contact",
+            templateUrl: 'views/menu/contact.html',
+            controller: 'MainController'
+        })
+        .state("license", {
+            url: "/license",
+            templateUrl: 'views/menu/license.html',
+            controller: 'MainController'
+        })
+        .state("favorites", {
+            url: "/favorites",
+            templateUrl: 'views/menu/favorites.html',
+            controller: 'MainController'
+        })
+        .state("services", {
+            url: "/services",
+            templateUrl: 'views/menu/services.html',
+            controller: 'MainController'
+        })
+        .state("home-page", {
+            url: "/home-page",
+            templateUrl: 'views/menu/home-page.html',
             controller: 'MainController'
         })
 });

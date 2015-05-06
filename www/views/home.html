@@ -1,14 +1,39 @@
 <section class="section container-fluid">
-    <h4 class="page-header"> </h4>
 
     <div class="scrollable" ui-state="searchBar">
+
         <input ng-if="Ui.active('searchBar')" type="search" class="form-control scrollable-header" placeholder="Search.." />
 
-        <div class="scrollable-content">
+        <div class="section border-bottom-line-subtitle subToolBarMenu">
+            <div class="row">
+                <div class="col-xs-4">
+                </div>
+                <div class="col-xs-4">
+                    <p class="align-center label-form text-center">Services</p>
+                </div>
+                <div class="col-xs-4">
+                </div>
+            </div>
+        </div>
+
+        <div class="scrollable-content main-list-content">
             <div class="list-group">
                 <a ng-repeat="item in scrollItems" href ng-click="itemMainListSelected($index)" class="list-group-item name-item-list">
-                    {{ item.name }}  ({{item.size}})
-                    <i class="fa fa-chevron-right pull-right"></i>
+
+
+                    <!-- {{ item.name }}  ({{item.size}})
+                    <i class="fa fa-chevron-right pull-right"></i>-->
+
+                    <div class="row">
+                        <div class="col-xs-8 name-item-list">
+                            <p>{{item.name}} ({{item.size}})</p>
+                            <p class="description-item-list">{{item.description}}</p>
+                        </div>
+                        <div class="col-xs-4  arrow-list-center">
+                            <i class="fa fa-chevron-right pull-right"></i>
+                        </div>
+                    </div>
+
                 </a>
             </div>
         </div>

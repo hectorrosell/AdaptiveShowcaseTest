@@ -1,25 +1,10 @@
 <section class="section container-fluid">
-    <div class="scrollable" ui-state="searchBar">
-        <div class="section border-bottom-line-subtitle">
-
-            <!--<div class="section">
-                <a href="#/units-list" class="btn btn-default">Back</a>
-            </div>-->
-
-            <!--<div class="row">
-                <div class="col-xs-4">
-                    <a href="#/units-list" class="btn btn-default" id="ios-arrow-left">Back</a>
-                </div>
-                <div class="col-xs-4">
-                    <p class="align-center label-form text-center">{{method_list.name}}</p>
-                </div>
-                <div class="col-xs-4">
-                </div>
-            </div>-->
+    <div class="scrollable" >
+        <div class="section border-bottom-line-subtitle subToolBar">
 
             <div class="row">
                 <div class="col-xs-4">
-                    <a href="#/units-list" class="btn btn-default back-button"> <i class="fa fa-chevron-left pull-left"></i> Back</a>
+                    <a href="#/units-list" class="btn btn-default back-button"> <i class="fa fa-chevron-left pull-left back-icon"></i> Back</a>
                 </div>
                 <div class="col-xs-4">
                     <p class="align-center label-form text-center">{{method_list.name}}</p>
@@ -29,17 +14,14 @@
             </div>
 
         </div>
-        <input ng-if="Ui.active('searchBar')" type="search" class="form-control scrollable-header" placeholder="Search.." />
-        <div class="scrollable-content subtitle-content">
+        
+        <div class="scrollable-content subtitle-content list-content">
             <div class="list-group">
                 <a ng-repeat="item in method_list.list" href ng-click="itemMethodListSelected($index)" class="list-group-item">
                     <div class="row">
                         <div class="col-xs-8 name-item-list">
-                            {{item.name}} ({{item.size}})
-                            <br>
-                            <p class="description-item-list">
-                                {{item.description}}
-                                <p/>
+                            <p>{{item.name}} ({{item.size}})</p>
+                            <p class="description-item-list">{{item.description}}</p>
                         </div>
                         <div class="col-xs-4  arrow-list-center">
                             <i class="fa fa-chevron-right pull-right"></i>

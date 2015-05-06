@@ -445,8 +445,8 @@ body.slide-active {
 
 .footer-submit {
     position: fixed;
-    height: 38px;
-    bottom: 57px;
+    height: 41px;
+    bottom: 52px;
     left: 0px;
     width: 100%;
     /* margin-bottom: 57px; */
@@ -639,8 +639,99 @@ body.slide-active {
 }
 /* Override fa-chevron-left:before*/
 
-.fa-chevron-left:before {
-    content: "\f053";
+.back-icon {
     vertical-align: middle;
 }
-/*  */
+
+.subToolBar {
+    padding-top: 2px;
+    padding-bottom: 3px;
+}
+
+.subToolBarMenu {
+    padding-top: 5px;
+    padding-bottom: 0px;
+}
+
+.subToolBar p {
+    margin-bottom: 0px;
+    padding-top: 5px;
+}
+
+.list-content {
+    height: 96%;
+}
+
+.list-content-form {
+    height: 87%;
+}
+
+.main-list-content {
+    height: 100%;
+}
+
+.fa-chevron-left:before {
+    vertical-align: middle;
+}
+
+#window-resizer-tooltip {
+    display: none;
+    position: fixed;
+    z-index: 100000;
+    bottom: 0px;
+    right: 0px;
+    color: rgb(204, 204, 204);
+    background: 10px 10px no-repeat rgba(0, 0, 0, 0.8);
+    padding: 5px 0px 5px 40px;
+    width: 200px;
+    white-space: nowrap;
+    border-top-left-radius: 10px;
+    font: normal 11px Tahoma, Verdana, sans-serif;
+}
+
+#window-resizer-tooltip a {
+    position: absolute;
+    display: block;
+    width: 19px;
+    height: 19px;
+    left: 11px;
+    top: 50%;
+    margin-top: -9px;
+    background-image: url(chrome-extension://kkelicaakdanhinjdeammmilcgefonfh/images/icon_19.png);
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+not all injected stylesheet#window-resizer-tooltip a {
+    background-size: 19px 19px;
+    background-image: url(chrome-extension://kkelicaakdanhinjdeammmilcgefonfh/images/icon_19x2.png);
+}
+
+#window-resizer-tooltip .tooltiptitle {
+    display: inline-block;
+    width: 70px;
+    text-align: right;
+}
+
+.background-license {
+    background: #fff;
+    padding: 1em;
+    /*margin-top: 1px;*/
+}
+
+.footer {
+    background: #f7f7f7;
+    background: #f7f7f7;
+    text-align: center;
+    vertical-align: middle;
+    padding: 1em;
+    font-size: 1.1em;
+    white-space: nowrap;
+    font-stretch: condensed;
+}
+
+.emoji {
+    height: 20px;
+    width: 20px;
+    vertical-align: middle;
+    max-width: 100%;
+}

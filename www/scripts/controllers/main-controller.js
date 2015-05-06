@@ -15,7 +15,7 @@ app.controller('MainController', function ($rootScope, $scope, $log, $state) {
             if (id === $scope.main_list[i].id) {
                 unitList = $scope.main_list[i];
                 console.log(unitList);
-                $state.go('units-list');
+                $state.transitionTo('units-list');
             }
         }
     };
@@ -28,7 +28,7 @@ app.controller('MainController', function ($rootScope, $scope, $log, $state) {
             if (id === unitList.list[i2].id) {
                 methodList = unitList.list[i2];
                 console.log(methodList);
-                $state.go('methods-list');
+                $state.transitionTo('methods-list');
             }
         }
     };
@@ -41,7 +41,7 @@ app.controller('MainController', function ($rootScope, $scope, $log, $state) {
             if (id === methodList.list[i3].id) {
                 detailList = methodList.list[i3];
                 console.log(detailList);
-                $state.go('form-submit');
+                $state.transitionTo('form-submit');
             }
         }
     };

@@ -1,6 +1,6 @@
 <section class="section container-fluid">
 
-    <div class="scrollable" ui-state="searchBar">
+    <div class="scrollable">
 
         <!--<div class="section">
                 <a href="#/units-list" class="btn btn-default">Back</a>
@@ -17,12 +17,11 @@
                 </div>
             </div>-->
 
-        <div class="section border-bottom-line-subtitle ">
-
+        <div class="section border-bottom-line-subtitle subToolBar">
 
             <div class="row">
                 <div class="col-xs-4">
-                    <a href="#/methods-list" class="btn btn-default back-button"> <i class="fa fa-chevron-left pull-left"></i> Back</a>
+                    <a href="#/methods-list" class="btn btn-default back-button"> <i class="fa fa-chevron-left pull-left back-icon"></i> Back</a>
                 </div>
                 <div class="col-xs-4">
                     <p class="align-center label-form text-center">{{detail_list.name}}</p>
@@ -32,10 +31,9 @@
             </div>
 
         </div>
-        <input ng-if="Ui.active('searchBar')" type="search" class="form-control scrollable-header" placeholder="Search.." />
 
-        <div class="scrollable-content section">
-
+        <div class="scrollable-content section list-content-form">
+            
             <form role="form" ng-submit='submit()'>
                 <fieldset>
                     <legend>Implement Notes</legend>
@@ -93,13 +91,13 @@
                 <div ui-content-for="navbarAction ">
                     <a class='btn' ui-turn-on="modal1 ">Help</a>
                 </div>
-
+                
             </form>
-
+            
             <button class="btn btn-primary btn-block footer-submit " ui-turn-on="modal2 ">
                 Submit
             </button>
-
+            
         </div>
     </div>
 

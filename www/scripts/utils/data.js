@@ -3,13 +3,16 @@ var dataInfo = [
         id: 0,
         name: "Application",
         list: [],
-        size: 0
+        size: 0,
+        description: "Description text"
     },
     {
         id: 1,
         name: "Communication",
         list: [],
-        size: 0
+        size: 0,
+        description: "Description text"
+
     },
     {
         id: 2,
@@ -18,63 +21,20 @@ var dataInfo = [
         list: [
             {
                 id: 0,
-                name: "Database",
-                list: [],
-                size: 0,
-                description: "Structure representing a database reference"
-            },
-            {
-                id: 1,
-                name: "DatabaseColumn",
-                list: [],
-                size: 0,
-                description: "Structure representing the column specification"
-            },
-            {
-                id: 2,
-                name: "DatabaseRow",
-                list: [],
-                size: 0,
-                description: "Structure representing a row for a data table."
-            },
-            {
-                id: 3,
-                name: "DatabaseTable",
-                list: [],
-                size: 0,
-                description: "Represents a data table"
-            },
-            {
-                id: 4,
-                name: "IBaseListener",
-                size: 0,
-                list: [],
-                description: "Base application for Listener purposes"
-            },
-            {
-                id: 5,
-                name: "IBaseMedia",
-                size: 0,
-                list: [],
-                description: "Base application for Media purposes"
-            },
-            {
-                id: 6,
-                name: "IBaseNotification",
-                size: 0,
-                list: [],
-                description: "Base application for Notification purposes"
-            },
-            {
-                id: 7,
                 name: "ICloud",
                 size: 0,
                 list: [],
                 description: "Interface for Managing the Cloud operations"
             },
-
             {
-                id: 8,
+                id: 1,
+                name: "IDataStream",
+                size: 0,
+                list: [],
+                description: "Interface for Managing the DataStream operations"
+            },
+            {
+                id: 2,
                 name: "IDatabase",
                 size: 9,
                 list: [
@@ -128,51 +88,48 @@ var dataInfo = [
 
             },
             {
-                id: 9,
-                name: "IDataStream",
-                size: 0,
-                list: [],
-                description: "Interface for Managing the DataStream operations"
-            },
-            {
-                id: 10,
+                id: 3,
                 name: "IFilePath",
                 size: 0,
                 list: [],
                 description: "Base application for Notification purposes"
             },
             {
-                id: 11,
+                id: 4,
                 name: "IFileSystem",
                 size: 0,
                 list: [],
                 description: "Interface for Managing the File System operations"
             },
             {
-                id: 12,
+                id: 5,
                 name: "IXML",
                 size: 0,
                 list: [],
                 description: "Interface for Managing the XML operations"
             }
-        ]
+        ],
+        description: "Description text"
     },
     {
         id: 3,
         name: "Pim",
         list: [],
-        size: 0
+        size: 0,
+        description: "Description text"
             },
     {
         id: 4,
         name: "Security",
         list: [],
-        size: 0
+        size: 0,
+        description: "Description text"
     },
     {
         id: 5,
         name: "Sensor",
         list: [],
-        size: 0
+        size: 0,
+        description: "Description text"
     }
 ];
