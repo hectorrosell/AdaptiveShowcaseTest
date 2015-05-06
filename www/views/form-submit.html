@@ -2,19 +2,36 @@
 
     <div class="scrollable" ui-state="searchBar">
 
-        <div class="section border-bottom-line-subtitle">
+        <!--<div class="section">
+                <a href="#/units-list" class="btn btn-default">Back</a>
+            </div>-->
+
+        <!--<div class="row">
+                <div class="col-xs-4">
+                    <a href="#/units-list" class="btn btn-default" id="ios-arrow-left">Back</a>
+                </div>
+                <div class="col-xs-4">
+                    <p class="align-center label-form text-center">{{method_list.name}}</p>
+                </div>
+                <div class="col-xs-4">
+                </div>
+            </div>-->
+
+        <div class="section border-bottom-line-subtitle ">
+
+
             <div class="row">
                 <div class="col-xs-4">
-                    <a href="#/methods-list" class="btn btn-default" id="ios-arrow-left">Back</a>
+                    <a href="#/methods-list" class="btn btn-default back-button"> <i class="fa fa-chevron-left pull-left"></i> Back</a>
                 </div>
-                <div class="col-xs-4 text-center">
-                    <p class="align-center label-form">{{detail_list.name}}</p>
+                <div class="col-xs-4">
+                    <p class="align-center label-form text-center">{{detail_list.name}}</p>
                 </div>
                 <div class="col-xs-4">
                 </div>
             </div>
-        </div>
 
+        </div>
         <input ng-if="Ui.active('searchBar')" type="search" class="form-control scrollable-header" placeholder="Search.." />
 
         <div class="scrollable-content section">
@@ -85,6 +102,7 @@
 
         </div>
     </div>
+
 </section>
 
 <div ui-content-for="modals ">

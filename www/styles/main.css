@@ -532,18 +532,25 @@ body.slide-active {
     margin-top: 10px;
 }
 
-.description-text {
+.description-item-list {
     display: inline-block;
     margin-bottom: 3px;
     /*font-weight: bold;*/
 
-    font-size: 0.95em;
+    font-size: 0.86em;
     white-space: nowrap;
     font-stretch: condensed;
 }
 
+.name-item-list {
+    font-size: 0.95em;
+}
+
 .border-bottom-line-subtitle {
-    border-bottom: 1px solid #F2F2F2;
+    border-bottom: 1px solid #bbbbbb;
+    background: rgb(240, 240, 240);
+    border-top: 1px solid #cccccc;
+    margin-top: 1px;
 }
 /*/////////////////////////////////////////////////
 ///        iOS Style arrow back button          ///
@@ -620,3 +627,20 @@ body.slide-active {
 .subtitle-content {
     /*margin-top: 3.5em;*/
 }
+/*/////////////////////////////////
+///        back button          ///
+/////////////////////////////////*/
+
+.back-button {
+    border: none;
+    margin-left: 0px;
+    padding-left: 0px;
+    background: none;
+}
+/* Override fa-chevron-left:before*/
+
+.fa-chevron-left:before {
+    content: "\f053";
+    vertical-align: middle;
+}
+/*  */

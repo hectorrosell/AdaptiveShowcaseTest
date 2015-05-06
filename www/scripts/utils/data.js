@@ -4,17 +4,13 @@ var dataInfo = [
         name: "Application",
         list: [],
         size: 0
-
-
     },
     {
         id: 1,
         name: "Communication",
         list: [],
         size: 0
-
     },
-
     {
         id: 2,
         name: "Data",
@@ -26,7 +22,6 @@ var dataInfo = [
                 list: [],
                 size: 0,
                 description: "Structure representing a database reference"
-
             },
             {
                 id: 1,
@@ -47,10 +42,39 @@ var dataInfo = [
                 name: "DatabaseTable",
                 list: [],
                 size: 0,
-                description: "Represents a data table composed of databaseColumns/databaseRows"
+                description: "Represents a data table"
             },
             {
                 id: 4,
+                name: "IBaseListener",
+                size: 0,
+                list: [],
+                description: "Base application for Listener purposes"
+            },
+            {
+                id: 5,
+                name: "IBaseMedia",
+                size: 0,
+                list: [],
+                description: "Base application for Media purposes"
+            },
+            {
+                id: 6,
+                name: "IBaseNotification",
+                size: 0,
+                list: [],
+                description: "Base application for Notification purposes"
+            },
+            {
+                id: 7,
+                name: "ICloud",
+                size: 0,
+                list: [],
+                description: "Interface for Managing the Cloud operations"
+            },
+
+            {
+                id: 8,
                 name: "IDatabase",
                 size: 9,
                 list: [
@@ -100,35 +124,39 @@ var dataInfo = [
                         description: "Executes SQL transaction"
                     }
                         ],
-                description: "Base application for Data purposes"
-
+                description: "Interface for Managing the Cloud operations"
 
             },
             {
-                id: 5,
-                name: "IBaseListener",
+                id: 9,
+                name: "IDataStream",
                 size: 0,
                 list: [],
-                description: "Base application for Listener purposes"
+                description: "Interface for Managing the DataStream operations"
             },
             {
-                id: 6,
-                name: "IBaseMedia",
-                size: 0,
-                list: [],
-                description: "Base application for Media purposes"
-            },
-            {
-                id: 7,
-                name: "IBaseNotification",
+                id: 10,
+                name: "IFilePath",
                 size: 0,
                 list: [],
                 description: "Base application for Notification purposes"
+            },
+            {
+                id: 11,
+                name: "IFileSystem",
+                size: 0,
+                list: [],
+                description: "Interface for Managing the File System operations"
+            },
+            {
+                id: 12,
+                name: "IXML",
+                size: 0,
+                list: [],
+                description: "Interface for Managing the XML operations"
             }
-
         ]
     },
-
     {
         id: 3,
         name: "Pim",
