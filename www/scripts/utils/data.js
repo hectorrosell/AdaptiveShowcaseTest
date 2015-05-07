@@ -4,11 +4,11 @@ var dataInfo = [
         name: "Application",
         list: [],
         size: 0,
-        description: "Description text"
+        description: "Example, Application: Interface for Managing the DataStream operations, interface for Managing the DataStream operations"
     },
     {
         id: 1,
-        name: "Communication",
+        name: "Commerce",
         list: [],
         size: 0,
         description: "Description text"
@@ -16,6 +16,14 @@ var dataInfo = [
     },
     {
         id: 2,
+        name: "Communication",
+        list: [],
+        size: 0,
+        description: "Description text"
+
+    },
+    {
+        id: 3,
         name: "Data",
         size: 8,
         list: [
@@ -112,22 +120,69 @@ var dataInfo = [
         description: "Description text"
     },
     {
-        id: 3,
-        name: "Pim",
+        id: 4,
+        name: "Media",
         list: [],
         size: 0,
         description: "Description text"
             },
     {
-        id: 4,
+        id: 5,
+        name: "Notification",
+        list: [],
+        size: 0,
+        description: "Description text"
+    },
+    {
+        id: 6,
+        name: "PIM",
+        list: [],
+        size: 0,
+        description: "Description text"
+    }, {
+        id: 7,
+        name: "Reader",
+        list: [],
+        size: 0,
+        description: "Description text"
+            },
+    {
+        id: 8,
         name: "Security",
         list: [],
         size: 0,
         description: "Description text"
     },
     {
-        id: 5,
+        id: 9,
         name: "Sensor",
+        list: [],
+        size: 0,
+        description: "Description text"
+    },
+    {
+        id: 10,
+        name: "Social",
+        list: [],
+        size: 0,
+        description: "Description text"
+    }, {
+        id: 11,
+        name: "System",
+        list: [],
+        size: 0,
+        description: "Description text"
+            },
+    {
+        id: 12,
+        name: "UI",
+        list: [],
+        size: 0,
+        description: "Description text"
+    },
+    {
+        id: 13,
+        name: "Util",
         list: [],
         size: 0,
         description: "Description text"

@@ -5,66 +5,11 @@
 // using ui-router.                             //
 //////////////////////////////////////////////////
 
-app.config(function ($urlRouterProvider, $routeProvider, $stateProvider) {
+'use strict';
 
-    $routeProvider.when('/', {
-        templateUrl: 'views/home.html',
-        reloadOnSearch: false
-    });
+app.config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider, $stateProvider) {
 
-    $routeProvider.when('/home', {
-        templateUrl: 'views/home.html',
-        reloadOnSearch: false,
-        controller: 'MainController'
-    });
-
-    $routeProvider.when('/units-list', {
-        templateUrl: 'views/units-list.html',
-        reloadOnSearch: false,
-        controller: 'MainController'
-    });
-
-    $routeProvider.when('/methods-list', {
-        templateUrl: 'views/methods-list.html',
-        reloadOnSearch: false,
-        controller: 'MainController'
-    });
-
-    $routeProvider.when('/form-submit', {
-        templateUrl: 'views/form-submit.html',
-        reloadOnSearch: false,
-        controller: 'MainController'
-    });
-
-    $routeProvider.when('/contact', {
-        templateUrl: 'views/menu/contact.html',
-        reloadOnSearch: false,
-        controller: 'MainController'
-    });
-
-    $routeProvider.when('/license', {
-        templateUrl: 'views/menu/license.html',
-        reloadOnSearch: false,
-        controller: 'MainController'
-    });
-
-    $routeProvider.when('/services', {
-        templateUrl: 'views/menu/services.html',
-        reloadOnSearch: false,
-        controller: 'MainController'
-    });
-
-    $routeProvider.when('/favorites', {
-        templateUrl: 'views/menu/favorites.html',
-        reloadOnSearch: false,
-        controller: 'MainController'
-    });
-
-    $routeProvider.when('/home-page', {
-        templateUrl: 'views/menu/home-page.html',
-        reloadOnSearch: false,
-        controller: 'MainController'
-    });
+    $urlRouterProvider.otherwise('/home');
 
     /*$routeProvider.when('/units-list', {
         templateUrl: 'views/units-list.html',
@@ -75,7 +20,7 @@ app.config(function ($urlRouterProvider, $routeProvider, $stateProvider) {
 
     $stateProvider
         .state("home", {
-            url: "/",
+            url: "/home",
             templateUrl: 'views/home.html',
             controller: 'MainController'
         })
@@ -102,7 +47,7 @@ app.config(function ($urlRouterProvider, $routeProvider, $stateProvider) {
         .state("license", {
             url: "/license",
             templateUrl: 'views/menu/license.html',
-            controller: 'MainController'
+            //controller: 'MainController'
         })
         .state("favorites", {
             url: "/favorites",
@@ -118,8 +63,8 @@ app.config(function ($urlRouterProvider, $routeProvider, $stateProvider) {
             url: "/home-page",
             templateUrl: 'views/menu/home-page.html',
             controller: 'MainController'
-        })
-});
+        });
+}]);
 
 /*'use strict';
 angular.module('ADApp', [

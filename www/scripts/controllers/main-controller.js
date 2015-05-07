@@ -1,4 +1,6 @@
-app.controller('MainController', function ($rootScope, $scope, $log, $state) {
+'use strict';
+
+app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', function ($rootScope, $scope, $log, $state) {
 
     $log.debug("MainController");
     $scope.scrollItems = dataInfo;
@@ -46,7 +48,16 @@ app.controller('MainController', function ($rootScope, $scope, $log, $state) {
         }
     };
 
-});
+    function limitText(limitField, limitCount, limitNum) {
+        if (limitField.value.length > limitNum) {
+            limitField.value = limitField.value.substring(0, limitNum);
+        } else {
+            limitCount.value = limitNum - limitField.value.length;
+        }
+    };
+
+
+}]);
 
 /*(function (angular) {
     'use strict';

@@ -1,4 +1,4 @@
-$(function() {
+/*$(function() {
     
   $(".numbers-row").append('<div class="inc button">+</div><div class="dec button">-</div>');
     
@@ -22,4 +22,4 @@ $(function() {
     
   });
     
-});
+});*/

@@ -533,13 +533,17 @@ body.slide-active {
 }
 
 .description-item-list {
-    display: inline-block;
+    /* display: inline-block;*/
+
     margin-bottom: 3px;
     /*font-weight: bold;*/
 
     font-size: 0.86em;
     white-space: nowrap;
     font-stretch: condensed;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .name-item-list {
@@ -734,4 +738,12 @@ not all injected stylesheet#window-resizer-tooltip a {
     width: 20px;
     vertical-align: middle;
     max-width: 100%;
+}
+/* line 11, ../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/_navbar.scss */
+
+.navbar {
+    position: absolute;
+    min-height: 50px;
+    margin-bottom: 0px;
+    border: 1px solid transparent;
 }

@@ -1,14 +1,14 @@
-'use strict';
-
 var unitList;
 var methodList;
 var detailList;
 
+//(function () {
+
 var app = angular.module('ADApp', [
-  'ngRoute',
+
   'mobile-angular-ui',
   'ui.router',
-
+  'ngRoute',
   // touch/drag feature: this is from 'mobile-angular-ui.gestures.js'
   // it is at a very beginning stage, so please be careful if you like to use
   // in production. This is intended to provide a flexible, integrated and and
@@ -16,7 +16,14 @@ var app = angular.module('ADApp', [
   // final pourpose to integrate gestures into default ui interactions like
   // opening sidebars, turning switches on/off ..
   'mobile-angular-ui.gestures'
+
 ]);
+
+
+//})();
+
+
+
 
 /*app.run(function ($transform) {
     //window.$transform = $transform;
@@ -26,7 +33,7 @@ var app = angular.module('ADApp', [
 // `$touch example`
 //
 
-app.directive('toucharea', ['$touch', function ($touch) {
+/*app.directive('toucharea', ['$touch', function ($touch) {
     // Runs during compile
     return {
         restrict: 'C',
@@ -55,12 +62,12 @@ app.directive('toucharea', ['$touch', function ($touch) {
             });
         }
     };
-}]);
+}]);*/
 
 //
 // `$drag` example: drag to dismiss
 //
-app.directive('dragToDismiss', function ($drag, $parse, $timeout) {
+/*app.directive('dragToDismiss', function ($drag, $parse, $timeout) {
     return {
         restrict: 'A',
         compile: function (elem, attrs) {
@@ -98,13 +105,13 @@ app.directive('dragToDismiss', function ($drag, $parse, $timeout) {
             };
         }
     };
-});
+});*/
 
 //
 // Another `$drag` usage example: this is how you could create
 // a touch enabled "deck of cards" carousel. See `carousel.html` for markup.
 //
-app.directive('carousel', function () {
+/*app.directive('carousel', function () {
     return {
         restrict: 'C',
         scope: {},
@@ -129,9 +136,10 @@ app.directive('carousel', function () {
             };
         }
     };
-});
+});*/
 
-app.directive('carouselItem', function ($drag) {
+
+/*app.directive('carouselItem', function ($drag) {
     return {
         restrict: 'C',
         require: '^carousel',
@@ -161,18 +169,12 @@ app.directive('carouselItem', function ($drag) {
             });
 
             $drag.bind(elem, {
-                //
-                // This is an example of custom transform function
-                //
+
                 transform: function (element, transform, touch) {
-                    //
-                    // use translate both as basis for the new transform:
-                    //
+
                     var t = $drag.TRANSLATE_BOTH(element, transform, touch);
 
-                    //
-                    // Add rotation:
-                    //
+
                     var Dx = touch.distanceX,
                         t0 = touch.startTransform,
                         sign = Dx < 0 ? -1 : 1,
@@ -204,9 +206,10 @@ app.directive('carouselItem', function ($drag) {
             });
         }
     };
-});
+});*/
 
-app.directive('dragMe', ['$drag', function ($drag) {
+
+/*app.directive('dragMe', ['$drag', function ($drag) {
     return {
         controller: function ($scope, $element) {
             $drag.bind($element, {
@@ -224,7 +227,7 @@ app.directive('dragMe', ['$drag', function ($drag) {
             });
         }
     };
-}]);
+}]);*/
 
 /*'use strict';
 

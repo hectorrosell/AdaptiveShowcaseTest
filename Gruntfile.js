@@ -1,4 +1,3 @@
-// Generated on 2013-09-19 using generator-angular 0.4.0
 'use strict';
 var proxySnippet = require('grunt-connect-proxy/lib/utils').proxyRequest;
 var LIVERELOAD_PORT = 35729;
@@ -11,12 +10,6 @@ var mountFolder = function (connect, dir) {
 };
 
 var fs = require('fs');
-
-// # Globbing
-// for performance reasons we're only matching one level down:
-// 'test/spec/{,*/}*.js'
-// use this if you want to recursively match all subfolders:
-// 'test/spec/**/*.js'
 
 module.exports = function (grunt) {
     require('load-grunt-tasks')(grunt);
@@ -240,8 +233,8 @@ module.exports = function (grunt) {
                 javascriptsDir: '<%= yeoman.app %>/scripts',
                 fontsDir: '<%= yeoman.app %>/styles/fonts',
                 importPath: '<%= yeoman.app %>/bower_components',
-                httpImagesPath: '/images',
-                httpGeneratedImagesPath: '/images/generated',
+                httpImagesPath: '/styles/images',//hrrl
+                httpGeneratedImagesPath: '/styles/images/images/generated',//hrrl
                 httpFontsPath: '/styles/fonts',
                 relativeAssets: false
             },
@@ -259,10 +252,19 @@ module.exports = function (grunt) {
         uglify: {
             dist: {
                 files: {
-                    '<%= yeoman.dist %>/scripts/api/angular-jqm.js': ['<%= yeoman.app %>/scripts/api/angular-jqm.js'],
+                    //'<%= yeoman.dist %>/scripts/api/angular-jqm.js': ['<%= yeoman.app %>/scripts/api/angular-jqm.js'],
                     '<%= yeoman.dist %>/bower_components/angular-animate/angular-animate.js': ['<%= yeoman.app %>/bower_components/angular-animate/angular-animate.js'],
                     '<%= yeoman.dist %>/bower_components/angular-route/angular-route.js': ['<%= yeoman.app %>/bower_components/angular-route/angular-route.js'],
-                    '<%= yeoman.dist %>/bower_components/angular-touch/angular-touch.js': ['<%= yeoman.app %>/bower_components/angular-touch/angular-touch.js']
+                    '<%= yeoman.dist %>/bower_components/angular-touch/angular-touch.js': ['<%= yeoman.app %>/bower_components/angular-touch/angular-touch.js'],
+					
+					'<%= yeoman.dist %>/bower_components/angular/angular.js': ['<%= yeoman.app %>/bower_components/angular/angular.js']
+					//'<%= yeoman.dist %>/bower_components/angular-route/angular-route.min.js': ['<%= yeoman.app %>/bower_components/angular-route/angular-route.min.js'],
+					//'<%= yeoman.dist %>/bower_components/mobile-angular-ui/dist/js/mobile-angular-ui.min.js': ['<%= yeoman.app %>/bower_components/mobile-angular-ui/dist/js/mobile-angular-ui.min.js'],
+					//'<%= yeoman.dist %>/bower_components/mobile-angular-ui/dist/js/mobile-angular-ui.gestures.min.js': ['<%= yeoman.app %>/bower_components/mobile-angular-ui/dist/js/mobile-angular-ui.gestures.min.js'],
+					//'<%= yeoman.dist %>/bower_components/jquery/dist/jquery.min.js': ['<%= yeoman.app %>/bower_components/jquery/dist/jquery.min.js'],
+					//'<%= yeoman.dist %>/bower_components/jquery-ui/ui/minified/jquery-ui.min.js': ['<%= yeoman.app %>/bower_components/jquery-ui/ui/minified/jquery-ui.min.js'],
+					//'<%= yeoman.dist %>/bower_components/angular/angular.js': ['<%= yeoman.app %>/bower_components/angular/angular.js'] 
+					
                 }
             }
         },
@@ -272,8 +274,8 @@ module.exports = function (grunt) {
                     src: [
                         '<%= yeoman.dist %>/scripts/*.js',
                         '<%= yeoman.dist %>/styles/*.css',
-                        '<%= yeoman.dist %>/styles/images/*.{png,gif,jpg,jpeg}',
-      '!<%= yeoman.dist %>/styles/images/ajax-loader.gif'
+                        '<%= yeoman.dist %>/styles/images/*.{png,gif,jpg,jpeg}'
+      //'!<%= yeoman.dist %>/styles/images/ajax-loader.gif'
                     ]
                 }
             }
@@ -303,21 +305,21 @@ module.exports = function (grunt) {
                 assetsDirs: ['<%= yeoman.dist %>', '<%= yeoman.dist %>/scripts/**', '<%= yeoman.dist %>/styles', '<%= yeoman.dist %>/styles/images']
             }
         },
-        //imagemin: {
-        //    dist: {
-        //        files: [{
-        //            expand: true,
-        //           cwd: '<%= yeoman.app %>/styles/images',
-        //            src: '**/*.{jpg,jpeg,svg,gif,png}',
-        //            dest: '<%= yeoman.dist %>/styles/images'
-        //         },{
-        //             expand: true,
-        //            cwd: '<%= yeoman.app %>/images',
-        //             src: '**/*.{jpg,jpeg,svg,gif,png}',
-        //             dest: '<%= yeoman.dist %>/images'
-        //         }]
-        //    }
-        // },
+        imagemin: {
+            dist: {
+                files: [{
+                    expand: true,
+                   cwd: '<%= yeoman.app %>/styles/images',
+                    src: '**/*.{jpg,jpeg,svg,gif,png}',
+                    dest: '<%= yeoman.dist %>/styles/images'
+                 },{
+                     expand: true,
+                    cwd: '<%= yeoman.app %>/images',
+                     src: '**/*.{jpg,jpeg,svg,gif,png}',
+                     dest: '<%= yeoman.dist %>/images'
+                 }]
+            }
+         },
         tinypng: {
             options: {
                 apiKey: "l_QIDgceoKGF8PBNRr3cmYy_Nhfa9F1p",
@@ -368,6 +370,7 @@ module.exports = function (grunt) {
                         '.htaccess',
                         'resources/**',
                         'styles/fonts/**',
+						'fonts/**',
                         'views/**/*.html',
                         'bower_components/angular-touch/angular-touch.min.js',
                         'bower_components/angular-animate/angular-animate.min.js',
@@ -377,7 +380,7 @@ module.exports = function (grunt) {
                 }, {
                     expand: true,
                     cwd: '.tmp/images',
-                    dest: '<%= yeoman.dist %>/images',
+                    dest: '<%= yeoman.dist %>styles/images',
                     src: [
                         'generated/*'
                     ]
@@ -390,11 +393,20 @@ module.exports = function (grunt) {
                 }, {
                     expand: true,
                     cwd: '<%= yeoman.app %>/bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap',
+                    dest: '<%= yeoman.dist %>styles/fonts',
+                    src: [
+                        '*'
+                    ]
+                }
+				, {
+                    expand: true,
+                    cwd: '<%= yeoman.app %>/bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap',
                     dest: '<%= yeoman.dist %>/fonts',
                     src: [
                         '*'
                     ]
-                }, {
+                }
+				, {
                     expand: true,
                     cwd: '<%= yeoman.app %>/bower_components/jquery-ui/themes/smoothness/images',
                     dest: '<%= yeoman.dist %>/styles/images',
@@ -417,9 +429,9 @@ module.exports = function (grunt) {
             },
 			img: {
 				expand: true,
-                cwd: '<%= yeoman.app %>/images',
+                cwd: '<%= yeoman.app %>/styles/images',
                 src: ['**/*.png'],
-                dest: '<%= yeoman.dist %>/images'
+                dest: '<%= yeoman.dist %>/styles/images'
 			}
         },
         concurrent: {
@@ -432,7 +444,7 @@ module.exports = function (grunt) {
                 'copy:i18n'
             ],
             dist: [
-                //'imagemin',
+                'imagemin',
                 'copy:png',
 				'copy:img'
             ]
@@ -462,7 +474,7 @@ module.exports = function (grunt) {
     });
 
     grunt.loadNpmTasks('grunt-contrib-watch');
-	//grunt.loadNpmTasks('grunt-contrib-imagemin');
+	grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-karma');
     grunt.loadNpmTasks('grunt-docular');
     grunt.loadNpmTasks('grunt-connect-proxy');
