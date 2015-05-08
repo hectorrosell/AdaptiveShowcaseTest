@@ -445,7 +445,7 @@ body.slide-active {
 
 .footer-submit {
     position: fixed;
-    height: 41px;
+    height: 7%;
     bottom: 52px;
     left: 0px;
     width: 100%;
@@ -530,6 +530,9 @@ body.slide-active {
 
 .arrow-list-center {
     margin-top: 10px;
+    /* margin: 0; */
+    /* padding: 0; */
+    /* text-align: center; */
 }
 
 .description-item-list {
@@ -547,7 +550,31 @@ body.slide-active {
 }
 
 .name-item-list {
-    font-size: 0.95em;
+    font-size: 1em;
+    /* padding-left: 4px; */
+
+    padding-right: 0px;
+    margin-right: -5px;
+    margin-bottom: 3px;
+    margin-top: 6px;
+}
+
+.list-group-item {
+    border: none;
+    border-bottom: 1px solid #dddddd;
+    margin-bottom: 0;
+}
+
+.list-group-item:first-child {
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+}
+
+.item-list>.row>.col-xs-2 {
+    /*font-size: 1em;
+    padding-left: 4px;
+    padding-right: 0px;
+    margin-right: -5px;*/
 }
 
 .border-bottom-line-subtitle {
@@ -728,16 +755,42 @@ not all injected stylesheet#window-resizer-tooltip a {
     text-align: center;
     vertical-align: middle;
     padding: 1em;
-    font-size: 1.1em;
+    font-size: 0.8em;
     white-space: nowrap;
     font-stretch: condensed;
 }
 
+@media(min-height:450px) {
+    .footer {
+        padding: 1em;
+        font-size: 0.8em;
+    }
+}
+
+@media(min-height:500px) {
+    .footer {
+        padding: 1em;
+        font-size: 0.9em;
+    }
+}
+
+@media(min-height:550px) {
+    .footer {
+        padding: 1em;
+        font-size: 1.1em;
+    }
+}
+
+@media(min-height:650px) {
+    .footer {
+        padding: 1em;
+        font-size: 1.2em;
+    }
+}
+
 .emoji {
-    height: 20px;
-    width: 20px;
-    vertical-align: middle;
-    max-width: 100%;
+    margin-left: 0.0em;
+    padding-left: 0.0em;
 }
 /* line 11, ../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/_navbar.scss */
 
@@ -746,4 +799,43 @@ not all injected stylesheet#window-resizer-tooltip a {
     min-height: 50px;
     margin-bottom: 0px;
     border: 1px solid transparent;
+}
+/* Animation of transition between views */
+
+.slide {
+    position: relative;
+    height: 98%;
+}
+
+.slide.ng-leave,
+.slide.ng-enter {
+    -webkit-transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+    -moz-transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+    -ms-transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+    -o-transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+    transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+    position: absolute;
+    height: 98%;
+    left: 0;
+    right: 0;
+}
+
+.slide.left.ng-enter,
+.slide.right.ng-leave.ng-leave-active {
+    left: 98%;
+    opacity: 0;
+}
+
+.slide.left.ng-enter.ng-enter-active,
+.slide.left.ng-leave,
+.slide.right.ng-enter.ng-enter-active,
+.slide.right.ng-leave {
+    left: 0;
+    opacity: 1;
+}
+
+.slide.left.ng-leave.ng-leave-active,
+.slide.right.ng-enter {
+    left: -100%;
+    opacity: 0;
 }

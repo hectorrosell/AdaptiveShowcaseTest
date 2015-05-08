@@ -3,6 +3,20 @@
 app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', function ($rootScope, $scope, $log, $state) {
 
     $log.debug("MainController");
+
+    $rootScope.isHomePage = isHomePage;
+
+    function isHomePage() {
+        console.log("******************************");
+        console.log("Home Page: " + $state.is("home"));
+        if ($state.is("home")) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+
     $scope.scrollItems = dataInfo;
     $scope.unit_list = unitList;
     $scope.method_list = methodList;
@@ -48,13 +62,22 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', func
         }
     };
 
-    function limitText(limitField, limitCount, limitNum) {
-        if (limitField.value.length > limitNum) {
-            limitField.value = limitField.value.substring(0, limitNum);
-        } else {
-            limitCount.value = limitNum - limitField.value.length;
+    // Transitions animation
+
+    var oldLocation = '';
+    $scope.$on('$routeChangeStart', function (angularEvent, next) {
+        console.log("routeChangeStart");
+        var isDownwards = true;
+        if (next && next.$$route) {
+            var newLocation = next.$$route.originalPath;
+            if (oldLocation !== newLocation && oldLocation.indexOf(newLocation) !== -1) {
+                isDownwards = false;
+            }
+            oldLocation = newLocation;
         }
-    };
+
+        $scope.isDownwards = isDownwards;
+    });
 
 
 }]);

@@ -4,19 +4,22 @@ var detailList;
 
 //(function () {
 
+var resolve = {
+    delay: function ($q, $timeout) {
+        console.log("delay");
+        var delay = $q.defer();
+        $timeout(delay.resolve, 0, false);
+        return delay.promise;
+    }
+};
+
 var app = angular.module('ADApp', [
 
   'mobile-angular-ui',
   'ui.router',
   'ngRoute',
-  // touch/drag feature: this is from 'mobile-angular-ui.gestures.js'
-  // it is at a very beginning stage, so please be careful if you like to use
-  // in production. This is intended to provide a flexible, integrated and and
-  // easy to use alternative to other 3rd party libs like hammer.js, with the
-  // final pourpose to integrate gestures into default ui interactions like
-  // opening sidebars, turning switches on/off ..
-  'mobile-angular-ui.gestures'
-
+  'mobile-angular-ui.gestures',
+  'ngAnimate'
 ]);
 
 

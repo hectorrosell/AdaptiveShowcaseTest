@@ -34,14 +34,15 @@
 
         <div class="scrollable-content list-content">
             <div class="list-group">
-                <a ng-repeat="item in unit_list.list" href ng-click="itemUnitListSelected($index)" class="list-group-item">
+
+                <div ng-repeat="item in unit_list.list" ng-click="itemUnitListSelected($index)" class="list-group-item item-list">
 
                     <!-- {{item.name}} ({{item.size}})
                    <i class="fa fa-chevron-right pull-right"></i>-->
 
                     <div class="row">
-                        <div class="col-xs-10 name-item-list">
-                            <p>{{item.name}} ({{item.size}})</p>
+                        <div class="col-xs-10">
+                            <p class="name-item-list">{{item.name}} ({{item.size}})</p>
                             <p class="description-item-list">{{item.description}}</p>
                         </div>
                         <div class="col-xs-2  arrow-list-center">
@@ -49,7 +50,7 @@
                         </div>
                     </div>
 
-                </a>
+                </div>
             </div>
         </div>
 

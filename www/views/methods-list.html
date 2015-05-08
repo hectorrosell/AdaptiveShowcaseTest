@@ -17,10 +17,10 @@
 
         <div class="scrollable-content subtitle-content list-content">
             <div class="list-group">
-                <a ng-repeat="item in method_list.list" href ng-click="itemMethodListSelected($index)" class="list-group-item">
+                <a ng-repeat="item in method_list.list" href ng-click="itemMethodListSelected($index)" class="list-group-item item-list">
                     <div class="row">
-                        <div class="col-xs-10 name-item-list">
-                            <p>{{item.name}} ({{item.size}})</p>
+                        <div class="col-xs-10">
+                            <p class="name-item-list">{{item.name}} ({{item.size}})</p>
                             <p class="description-item-list">{{item.description}}</p>
                         </div>
                         <div class="col-xs-2  arrow-list-center">

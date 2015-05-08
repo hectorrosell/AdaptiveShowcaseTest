@@ -4,7 +4,7 @@ var dataInfo = [
         name: "Application",
         list: [],
         size: 0,
-        description: "Example, Application: Interface for Managing the DataStream operations, interface for Managing the DataStream operations"
+        description: "Description text for service Application"
     },
     {
         id: 1,
