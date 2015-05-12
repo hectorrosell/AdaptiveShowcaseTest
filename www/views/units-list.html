@@ -1,6 +1,8 @@
 <section class="section container-fluid">
 
-    <div class="scrollable">
+    <div class="scrollable" ui-state="searchBar">
+
+        <input ng-if="Ui.active('searchBar')" type="search" class="form-control scrollable-header" placeholder="Search.." />
 
         <div class="section border-bottom-line-subtitle subToolBar">
 
@@ -24,7 +26,7 @@
                     <a href="#/home" class="btn btn-default back-button"> <i class="fa fa-chevron-left pull-left back-icon"></i> Back</a>
                 </div>
                 <div class="col-xs-4">
-                    <p class="align-center label-form text-center">{{unit_list.name}}</p>
+                    <div class="align-center label-form text-center">{{unit_list.name}}</div>
                 </div>
                 <div class="col-xs-4">
                 </div>

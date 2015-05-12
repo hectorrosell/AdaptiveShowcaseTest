@@ -52,7 +52,7 @@ var app = angular.module('ADApp', [
                     $scope.touch = touch;
                     $scope.$apply();
                 },
-
+                
                 end: function (touch) {
                     $scope.touch = touch;
                     $scope.$apply();
