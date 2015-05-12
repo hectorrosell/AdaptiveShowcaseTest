@@ -4,29 +4,24 @@ var detailList;
 
 //(function () {
 
-var resolve = {
+/*var resolve = {
     delay: function ($q, $timeout) {
-        console.log("delay");
+        console.log("resolve delay");
         var delay = $q.defer();
-        $timeout(delay.resolve, 0, false);
+        $timeout(delay.resolve, 200, false);
         return delay.promise;
     }
-};
+};*/
 
 var app = angular.module('ADApp', [
-
   'mobile-angular-ui',
   'ui.router',
   'ngRoute',
-  'mobile-angular-ui.gestures',
+  //'mobile-angular-ui.gestures',
   'ngAnimate'
 ]);
 
-
 //})();
-
-
-
 
 /*app.run(function ($transform) {
     //window.$transform = $transform;

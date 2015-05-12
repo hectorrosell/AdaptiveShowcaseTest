@@ -4,9 +4,9 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', func
 
     $log.debug("MainController");
 
-    $rootScope.isHomePage = isHomePage;
+    //$rootScope.isHomePage = isHomePage;
 
-    function isHomePage() {
+    $scope.isHomePage = function () {
         console.log("******************************");
         console.log("Home Page: " + $state.is("home"));
         if ($state.is("home")) {
@@ -14,8 +14,7 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', func
         } else {
             return true;
         }
-    }
-
+    };
 
     $scope.scrollItems = dataInfo;
     $scope.unit_list = unitList;

@@ -21,7 +21,7 @@ module.exports = function (grunt) {
         dist: 'dist',
         doc: 'doc'
     };
-
+	
     try {
         yeomanConfig.app = require('./bower.json').appPath || yeomanConfig.app;
     } catch (e) {}
@@ -253,11 +253,11 @@ module.exports = function (grunt) {
             dist: {
                 files: {
                     //'<%= yeoman.dist %>/scripts/api/angular-jqm.js': ['<%= yeoman.app %>/scripts/api/angular-jqm.js'],
-                    '<%= yeoman.dist %>/bower_components/angular-animate/angular-animate.js': ['<%= yeoman.app %>/bower_components/angular-animate/angular-animate.js'],
-                    '<%= yeoman.dist %>/bower_components/angular-route/angular-route.js': ['<%= yeoman.app %>/bower_components/angular-route/angular-route.js'],
-                    '<%= yeoman.dist %>/bower_components/angular-touch/angular-touch.js': ['<%= yeoman.app %>/bower_components/angular-touch/angular-touch.js'],
-					
-					'<%= yeoman.dist %>/bower_components/angular/angular.js': ['<%= yeoman.app %>/bower_components/angular/angular.js']
+                    //'<%= yeoman.dist %>/bower_components/angular-animate/angular-animate.js': ['<%= yeoman.app %>/bower_components/angular-animate/angular-animate.js'],
+                    //'<%= yeoman.dist %>/bower_components/angular-route/angular-route.js': ['<%= yeoman.app %>/bower_components/angular-route/angular-route.js'],
+                    //'<%= yeoman.dist %>/bower_components/angular-touch/angular-touch.js': ['<%= yeoman.app %>/bower_components/angular-touch/angular-touch.js'],
+					//'<%= yeoman.dist %>/bower_components/angular-animate/angular-animate.min.js': ['<%= yeoman.app %>/bower_components/angular-animate/angular-animate.min.js'],
+					//'<%= yeoman.dist %>/bower_components/angular/angular.js': ['<%= yeoman.app %>/bower_components/angular/angular.js']
 					//'<%= yeoman.dist %>/bower_components/angular-route/angular-route.min.js': ['<%= yeoman.app %>/bower_components/angular-route/angular-route.min.js'],
 					//'<%= yeoman.dist %>/bower_components/mobile-angular-ui/dist/js/mobile-angular-ui.min.js': ['<%= yeoman.app %>/bower_components/mobile-angular-ui/dist/js/mobile-angular-ui.min.js'],
 					//'<%= yeoman.dist %>/bower_components/mobile-angular-ui/dist/js/mobile-angular-ui.gestures.min.js': ['<%= yeoman.app %>/bower_components/mobile-angular-ui/dist/js/mobile-angular-ui.gestures.min.js'],
@@ -369,13 +369,13 @@ module.exports = function (grunt) {
                         '*.{ico,png,txt,html}',
                         '.htaccess',
                         'resources/**',
-                        'styles/fonts/**',
+                        //'styles/fonts/**',
 						'fonts/**',
                         'views/**/*.html',
-                        'bower_components/angular-touch/angular-touch.min.js',
-                        'bower_components/angular-animate/angular-animate.min.js',
-                        'bower_components/angular-route/angular-route.min.js',
-                        'scripts/api/angular-jqm.min.js'
+                        //'bower_components/angular-touch/angular-touch.min.js',
+                        //'bower_components/angular-animate/angular-animate.min.js'
+                        //'bower_components/angular-route/angular-route.min.js',
+                        //'scripts/api/angular-jqm.min.js'
                     ]
                 }, {
                     expand: true,
@@ -390,7 +390,7 @@ module.exports = function (grunt) {
                     dest: '<%= yeoman.dist %>/resources/i18n/angular',
                     src: ['angular-locale_en-us.js'
                     ]
-                }, {
+                }/*, {
                     expand: true,
                     cwd: '<%= yeoman.app %>/bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap',
                     dest: '<%= yeoman.dist %>styles/fonts',
@@ -398,7 +398,8 @@ module.exports = function (grunt) {
                         '*'
                     ]
                 }
-				, {
+				*/
+				/*, {
                     expand: true,
                     cwd: '<%= yeoman.app %>/bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap',
                     dest: '<%= yeoman.dist %>/fonts',
@@ -406,6 +407,7 @@ module.exports = function (grunt) {
                         '*'
                     ]
                 }
+				*/
 				, {
                     expand: true,
                     cwd: '<%= yeoman.app %>/bower_components/jquery-ui/themes/smoothness/images',
