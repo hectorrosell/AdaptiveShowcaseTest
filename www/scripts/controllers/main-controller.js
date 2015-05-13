@@ -1,10 +1,23 @@
 'use strict';
 
-app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', function ($rootScope, $scope, $log, $state) {
+app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$location', '$route', function ($rootScope, $scope, $log, $state, $location, $route) {
 
     $log.debug("MainController");
 
+
+    if (isFirstState) {
+
+        oldLocation = "/#/home";
+        isFirstState = false;
+        $log.debug("isFirstState: " + isFirstState);
+
+    }
+
+
+
     //$rootScope.isHomePage = isHomePage;
+
+    $scope.status = statusNextSlice;
 
     $scope.isHomePage = function () {
         console.log("******************************");
@@ -26,7 +39,9 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', func
     $scope.itemMainListSelected = function (id) {
         $log.debug("itemMainListSelected");
         var lengthList = dataInfo.length;
+        $('.slide').addClass('move');
         for (var i = 0; i < lengthList; i++) {
+
             if (id === $scope.main_list[i].id) {
                 unitList = $scope.main_list[i];
                 console.log(unitList);
@@ -36,6 +51,7 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', func
     };
 
     $scope.itemUnitListSelected = function (id) {
+        statusNextSlice = false;
         $log.debug("itemUnitListSelected");
         var lengthList2 = unitList.list.length;
         for (var i2 = 0; i2 < lengthList2; i2++) {
@@ -63,20 +79,64 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', func
 
     // Transitions animation
 
-    var oldLocation = '';
-    $scope.$on('$routeChangeStart', function (angularEvent, next) {
-        console.log("routeChangeStart");
+    $scope.$on('$locationChangeStart', function (angularEvent, next, location) {
+        console.log("locationChangeStart ");
         var isDownwards = true;
-        if (next && next.$$route) {
-            var newLocation = next.$$route.originalPath;
-            if (oldLocation !== newLocation && oldLocation.indexOf(newLocation) !== -1) {
+
+
+        $log.debug("next: " + next);
+        $log.debug("next: " + next.$$route);
+        if (next) {
+            var newLocation = next;
+            $log.debug("oldLocation: " + oldLocation + ", newLocation:  " + newLocation);
+
+
+            //if (oldLocation !== newLocation && oldLocation.indexOf(newLocation) !== -1) {
+            if (newLocation.indexOf(oldLocation) !== -1) {
+                console.log("igual ");
                 isDownwards = false;
+            } else {
+                console.log("diferent ");
+
             }
-            oldLocation = newLocation;
+
+            if (counterStates == 0) {
+                $log.debug("counterStates 1: " + counterStates);
+                counterStates++;
+
+            } else {
+                $log.debug("counterStates 2: " + counterStates);
+                oldLocation = newLocation;
+                counterStates = 0;
+            }
+
         }
 
-        $scope.isDownwards = isDownwards;
+        $log.debug("isDownwards: " + isDownwards);
+        /*$scope.isDownwards = isDownwards;*/
+        $scope.isDownwards = false;
     });
+
+    /* $scope.$on('$locationChangeEnd', function (angularEvent, next, location) {
+
+     });*/
+
+    /* $scope.$on('$routeChangeStart', function (angularEvent, next) {
+         console.log("routeChangeStart");
+         var isDownwards = true;
+         if (next && next.$$route) {
+             var newLocation = next.$$route.originalPath;
+
+             $log.debug("oldLocation: " + oldLocation + "newLocation:  " + newLocation);
+
+             if (oldLocation !== newLocation && oldLocation.indexOf(newLocation) !== -1) {
+                 isDownwards = false;
+             }
+             oldLocation = newLocation;
+         }
+
+         $scope.isDownwards = isDownwards;
+     });*/
 
 
 }]);

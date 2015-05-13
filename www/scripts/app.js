@@ -2,6 +2,12 @@ var unitList;
 var methodList;
 var detailList;
 
+var statusNextSlice = true;
+var oldLocation = '';
+
+var counterStates=0; 
+var isFirstState=true; 
+
 //(function () {
 
 /*var resolve = {
@@ -52,7 +58,7 @@ var app = angular.module('ADApp', [
                     $scope.touch = touch;
                     $scope.$apply();
                 },
-                
+
                 end: function (touch) {
                     $scope.touch = touch;
                     $scope.$apply();

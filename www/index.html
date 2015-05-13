@@ -32,7 +32,7 @@
 
 <!--<body ng-app="ADApp" ng-controller="MainController">-->
 
-<body ng-app="ADApp" ng-controller="MainController">
+<body ng-app="ADApp">
 
     <!-- Sidebars -->
     <div ng-include=" 'views/sidebar.html' " ui-track-as-search-param='true' class="sidebar sidebar-left "></div>
@@ -41,7 +41,7 @@
 
         <!-- Navbars -->
 
-        <div class="navbar navbar-app navbar-absolute-top ">
+        <div class="navbar navbar-app navbar-absolute-top" ng-controller="MainController">
 
             <div class="navbar-brand navbar-brand-center " ui-yield-to="title ">
                 Adaptive 2.2.12
@@ -76,21 +76,20 @@
         </div>
         <!-- App Body -->
         <div class="app-body ">
-            <div class="app-content ">
+            <div class="app-content">
                 <!--<ng-view></ng-view>-->
 
                 <div data-ui-view ng-class="{slide: true, left: isDownwards, right: !isDownwards} "></div>
-
                 <!-- <div data-ui-view></div>-->
                 <!--<div data-ui-view></div>-->
             </div>
         </div>
-        
+
     </div>
     <!-- ~ .app -->
-    
+
     <div ui-yield-to="modals "></div>
-    
+
     <!--<body data-ng-app="ADApp " class="activateAppearAnimation {{bodyClass}} " ng-class="{backgroundHome: backgroundH===t rue, backgroundWhite: backgroundH !==t rue} ">
 
     <div id="globalWrapper ">
