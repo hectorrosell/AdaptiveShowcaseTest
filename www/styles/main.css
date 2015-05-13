@@ -461,10 +461,13 @@ body.slide-active {
     position: absolute;
     padding: 0.6em;*/
     /*text-shadow: 0px -1px 0px #D0D0D0;*/
+    /* text-shadow: 0px -1px 0px #D0D0D0; */
 
-    padding-top: 6px;
-    padding-bottom: 3px;
+    padding-top: 4px;
+    padding-bottom: 0px;
+    margin-bottom: 4px;
     font-size: 1.15em;
+    white-space: nowrap;
 }
 /*override .model in styles.css line 6337 */
 
@@ -688,7 +691,7 @@ body.slide-active {
 
 .subToolBar p {
     margin-bottom: 0px;
-    padding-top: 5px;
+    padding-top: 6px;
 }
 
 .list-content {
@@ -696,7 +699,7 @@ body.slide-active {
 }
 
 .list-content-form {
-    height: 87%;
+    height: 84%;
 }
 
 .main-list-content {
@@ -744,11 +747,14 @@ not all injected stylesheet#window-resizer-tooltip a {
     width: 70px;
     text-align: right;
 }
+/*.background-license {*/
 
-.background-license {
+.wrapper-content-section {
     background: #fff;
     padding: 1em;
-    /*margin-top: 1px;*/
+    /* margin-top: 1px; */
+
+    height: 95%;
 }
 
 .footer {
@@ -769,6 +775,9 @@ not all injected stylesheet#window-resizer-tooltip a {
         min-height: 6%;
         font-size: 0.8em;
     }
+    .list-content-form {
+        height: 84%;
+    }
 }
 
 @media(min-height:500px) {
@@ -783,7 +792,13 @@ not all injected stylesheet#window-resizer-tooltip a {
     .footer {
         padding: 1.1em;
         min-height: 6%;
-        font-size: 1.1em;
+        font-size: 1em;
+    }
+}
+
+@media(min-height:600px) {
+    .list-content-form {
+        height: 87%;
     }
 }
 
@@ -791,7 +806,7 @@ not all injected stylesheet#window-resizer-tooltip a {
     .footer {
         padding: 1.1em;
         min-height: 6%;
-        font-size: 1.2em;
+        font-size: 1.1em;
     }
 }
 
