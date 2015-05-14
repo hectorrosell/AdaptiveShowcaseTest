@@ -703,7 +703,7 @@ body.slide-active {
 }
 
 .main-list-content {
-    height: 100%;
+    height: 103%;
 }
 
 .fa-chevron-left:before {
@@ -747,7 +747,6 @@ not all injected stylesheet#window-resizer-tooltip a {
     width: 70px;
     text-align: right;
 }
-/*.background-license {*/
 
 .wrapper-content-section {
     background: #fff;
@@ -809,11 +808,10 @@ not all injected stylesheet#window-resizer-tooltip a {
         font-size: 1.1em;
     }
 }
-
-.emoji {
+/*.emoji {
     margin-left: 0.0em;
     padding-left: 0.0em;
-}
+}*/
 /* line 11, ../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/_navbar.scss */
 
 .navbar {
@@ -822,9 +820,10 @@ not all injected stylesheet#window-resizer-tooltip a {
     margin-bottom: 0px;
     border: 1px solid transparent;
 }
+/*////////////////////////////////////////*/
 /* Animation of transitions between views */
-
-.slide {
+/*////////////////////////////////////////*/
+/*.slide {
     position: relative;
     height: 98%;
 }
@@ -844,7 +843,7 @@ not all injected stylesheet#window-resizer-tooltip a {
 
 .slide.left.ng-enter,
 .slide.right.ng-leave.ng-leave-active {
-    left: 98%;
+    left: 100%;
     opacity: 0;
 }
 
@@ -860,8 +859,71 @@ not all injected stylesheet#window-resizer-tooltip a {
 .slide.right.ng-enter {
     left: -100%;
     opacity: 0;
+}*/
+
+/////////////////////////////////////////////
+.slide {
+    position: relative;
+    height: 98%;
 }
-/* Override font-awesome.css - bower_components/font-awesome/css */
+
+.slide.ng-leave,
+.slide.ng-enter {
+    -webkit-transition: all 0.8s;
+    -moz-transition: all 0.8s;
+    -ms-transition: all 0.8s;
+    -o-transition: all 0.8s;
+    transition: all 0.8s;
+    position: absolute;
+    height: 98%;
+    left: 0;
+    right: 0;
+}
+
+.slide.left.ng-enter,
+.slide.right.ng-leave.ng-leave-active {
+    right: 98%;
+    opacity: 0;
+}
+
+.slide.right.ng-enter.ng-enter-active,
+.slide.right.ng-leave {
+    right: 0;
+    opacity: 1;
+}
+
+.slide2 {
+    position: relative;
+    height: 98%;
+}
+
+.slide2.ng-leave,
+.slide2.ng-enter {
+    -webkit-transition: all 0.8s;
+    -moz-transition: all 0.8s;
+    -ms-transition: all 0.8s;
+    -o-transition: all 0.8s;
+    transition: all 0.8s;
+    position: absolute;
+    height: 98%;
+    left: 0;
+    right: 0;
+}
+
+.slide2.left2.ng-enter,
+.slide2.right2.ng-leave.ng-leave-active {
+    left: 98%;
+    opacity: 0;
+}
+
+.slide2.right2.ng-enter.ng-enter-active,
+.slide2.right2.ng-leave {
+    left: 0;
+    opacity: 1;
+}
+/*/////////////////////////////////////////////////////////////////*/
+/*/ Override font-awesome.css - bower_components/font-awesome/css/ */
+/*/////////////////////////////////////////////////////////////////*/
 
 @font-face {
     font-family: 'FontAwesome';
@@ -869,4 +931,23 @@ not all injected stylesheet#window-resizer-tooltip a {
     src: url('../fonts/fontawesome-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/fontawesome-webfont.woff') format('woff'), url('../fonts/fontawesome-webfont.ttf') format('truetype'), url('../fonts/fontawesome-webfont.svg#fontawesomeregular') format('svg');
     font-weight: normal;
     font-style: normal;
+}
+
+.sidebar-left {
+    background: #FFF;
+}
+
+.sidebar-scrollable-content {
+    width: 100%;
+    height: 42%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.sidebar-content-info {
+    padding: 1.5em;
+    font-size: 0.82em;
+    /* border-bottom: 1px solid rgb(102, 102, 102); */
+
+    border-top: 1px solid rgb(102, 102, 102);
 }

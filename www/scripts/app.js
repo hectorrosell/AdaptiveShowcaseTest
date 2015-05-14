@@ -5,8 +5,8 @@ var detailList;
 var statusNextSlice = true;
 var oldLocation = '';
 
-var counterStates=0; 
-var isFirstState=true; 
+var counterStates = 0;
+var isFirstState = true;
 
 //(function () {
 
@@ -14,7 +14,7 @@ var isFirstState=true;
     delay: function ($q, $timeout) {
         console.log("resolve delay");
         var delay = $q.defer();
-        $timeout(delay.resolve, 200, false);
+        $timeout(delay.resolve, 0, false);
         return delay.promise;
     }
 };*/

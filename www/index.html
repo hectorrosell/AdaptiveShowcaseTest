@@ -32,7 +32,7 @@
 
 <!--<body ng-app="ADApp" ng-controller="MainController">-->
 
-<body ng-app="ADApp">
+<body ng-app="ADApp" ng-controller="MainController">
 
     <!-- Sidebars -->
     <div ng-include=" 'views/sidebar.html' " ui-track-as-search-param='true' class="sidebar sidebar-left "></div>
@@ -41,10 +41,10 @@
 
         <!-- Navbars -->
 
-        <div class="navbar navbar-app navbar-absolute-top" ng-controller="MainController">
+        <div class="navbar navbar-app navbar-absolute-top">
 
             <div class="navbar-brand navbar-brand-center " ui-yield-to="title ">
-                Adaptive 2.2.12
+                Adaptive Showcase
             </div>
             <div class="btn-group pull-left ">
                 <div ui-toggle="uiSidebarLeft " class="btn sidebar-toggle ">
@@ -67,7 +67,7 @@
         </div>
         <div class="navbar navbar-app navbar-absolute-bottom footer ">
 
-            <span>&#169; 2015 Adative.me Forged with  <span style="color: red ">&hearts;</span> in Barcelona</span>
+            <span>&#169; 2015 Adaptive.me Forged with  <span style="color: red ">&hearts;</span> in Barcelona</span>
 
             <!--<span>&#169; 2015 Adative.me Forged with <img src="styles/images/love.png " class="emoji "> in Barcelona</span>-->
 
@@ -79,7 +79,10 @@
             <div class="app-content">
                 <!--<ng-view></ng-view>-->
 
-                <div data-ui-view ng-class="{slide: true, left: isDownwards, right: !isDownwards} "></div>
+                <div ui-view ng-class="{slide: true, left: isDownwards, right: !isDownwards, slide2: isSlideBack, left2: isDownwards, right2: !isDownwards} "></div>
+
+                <!--<div ng-view ng-class="{slide: true, left: isDownwards, right: !isDownwards}"></div>-->
+
                 <!-- <div data-ui-view></div>-->
                 <!--<div data-ui-view></div>-->
             </div>
