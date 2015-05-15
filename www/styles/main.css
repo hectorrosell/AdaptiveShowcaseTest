@@ -767,6 +767,17 @@ not all injected stylesheet#window-resizer-tooltip a {
     white-space: nowrap;
     font-stretch: condensed;
 }
+/*.sidebar-image-wrapper {
+    padding: 2.5em;
+    height: 34%;
+    margin-top: -1.5em;
+}*/
+
+.sidebar-image-wrapper {
+    padding: 5.5em;
+    height: 44%;
+    margin-top: -3.5em;
+}
 
 @media(min-height:450px) {
     .footer {
@@ -776,6 +787,11 @@ not all injected stylesheet#window-resizer-tooltip a {
     }
     .list-content-form {
         height: 84%;
+    }
+    .sidebar-image-wrapper {
+        padding: 3.5em;
+        height: 42%;
+        margin-top: -1.5em;
     }
 }
 
@@ -798,6 +814,11 @@ not all injected stylesheet#window-resizer-tooltip a {
 @media(min-height:600px) {
     .list-content-form {
         height: 87%;
+    }
+    .sidebar-image-wrapper {
+        margin-top: -0.6em;
+        padding: 3.5em;
+        height: 34%;
     }
 }
 
@@ -950,4 +971,10 @@ not all injected stylesheet#window-resizer-tooltip a {
     /* border-bottom: 1px solid rgb(102, 102, 102); */
 
     border-top: 1px solid rgb(102, 102, 102);
+}
+
+.footer-top-border {
+    border-top: 1px solid #dddddd;
+    min-height: 20px;
+    height: 7.5%;
 }
