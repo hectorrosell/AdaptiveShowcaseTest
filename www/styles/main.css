@@ -779,11 +779,35 @@ not all injected stylesheet#window-resizer-tooltip a {
     height: 34%;
     margin-top: -1.5em;
 }*/
-
-.sidebar-image-wrapper {
+/*.sidebar-image-wrapper {
     padding: 5.5em;
     height: 44%;
     margin-top: -3.5em;
+    text-align: center;
+    overflow: hidden;
+}*/
+
+.sidebar-image-wrapper {
+    /*padding-left: 9.5em;*/
+    /* height: 44%; */
+    /* margin-top: -3.5em; */
+
+    overflow: hidden;
+}
+
+.img-responsive {
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+
+@media(min-height:400px) {
+    .sidebar-image-wrapper {
+        height: 30%;
+    }
+    .img-responsive {
+        width: 50%;
+    }
 }
 
 @media(min-height:450px) {
@@ -796,14 +820,18 @@ not all injected stylesheet#window-resizer-tooltip a {
         height: 84%;
     }
     .sidebar-image-wrapper {
-        padding: 3.5em;
+        height: 40%;
+        /* padding: 3.5em;
         height: 42%;
-        margin-top: -1.5em;
+        margin-top: -1.5em;*/
     }
     .has-navbar-bottom .app-body {
         /* padding-bottom: 43px; */
         /* position: absolute; */
         /*height: 95%;*/
+    }
+    .img-responsive {
+        width: 80%;
     }
 }
 
@@ -813,6 +841,15 @@ not all injected stylesheet#window-resizer-tooltip a {
         min-height: 6%;
         font-size: 0.9em;*/
     }
+    .sidebar-image-wrapper {
+        height: 39%;
+        /* padding: 3.5em;
+        height: 42%;
+        margin-top: -1.5em;*/
+    }
+    .img-responsive {
+        width: 80%;
+    }
 }
 
 @media(min-height:550px) {
@@ -821,6 +858,9 @@ not all injected stylesheet#window-resizer-tooltip a {
         min-height: 6%;
         font-size: 1em;*/
     }
+    .img-responsive {
+        width: 85%;
+    }
 }
 
 @media(min-height:600px) {
@@ -828,9 +868,15 @@ not all injected stylesheet#window-resizer-tooltip a {
         height: 87%;
     }
     .sidebar-image-wrapper {
-        margin-top: -0.6em;
+        /* margin-top: -0.6em;
         padding: 3.5em;
         height: 34%;
+        max-width: 100%;*/
+
+        height: 32%;
+    }
+    .img-responsive {
+        max-width: 95%;
     }
 }
 
@@ -839,6 +885,9 @@ not all injected stylesheet#window-resizer-tooltip a {
         /* padding: 1.1em;
         min-height: 6%;
         font-size: 1.1em;*/
+    }
+    .img-responsive {
+        max-width: 95%;
     }
 }
 /*.emoji {
@@ -1054,4 +1103,3 @@ not all injected stylesheet#window-resizer-tooltip a {
 .wrapper-search {
     height: 40px;
 }
- 

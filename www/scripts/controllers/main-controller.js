@@ -4,11 +4,15 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
 
     $log.debug("MainController");
 
+    var currentLocation;
+
     $scope.isSlideBack = false;
 
-    $scope.title = "Adaptive Showcase t";
+    $scope.title = "Adaptive Showcase";
 
     $scope.status = statusNextSlice;
+
+
 
     $scope.go = function (location) {
 
@@ -86,56 +90,80 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
 
     $scope.main_list = dataInfo;
 
-    $scope.itemMainListSelected = function (id) {
-        //$scope.isSlideBack = false;
-        $log.debug("itemMainListSelected");
-        var lengthList = dataInfo.length;
-        //$('.slide').addClass('move');
-        for (var i = 0; i < lengthList; i++) {
+    $scope.itemMainListSelected = function (id, location) {
 
-            if (id === $scope.main_list[i].id) {
-                unitList = $scope.main_list[i];
-                $scope.unit_list = unitList;
-                console.log(unitList);
-                $state.transitionTo('units-list');
+        console.log("location: " + currentLocation);
+
+        if (currentLocation.indexOf("uiSidebarLeft") !== -1) {
+
+
+        } else {
+            //if (false) {
+
+            //$scope.isSlideBack = false;
+            $log.debug("itemMainListSelected");
+            var lengthList = dataInfo.length;
+            //$('.slide').addClass('move');
+            for (var i = 0; i < lengthList; i++) {
+
+                if (id === $scope.main_list[i].id) {
+                    unitList = $scope.main_list[i];
+                    $scope.unit_list = unitList;
+                    console.log(unitList);
+                    $state.transitionTo('units-list');
+                }
             }
+
         }
     };
 
     $scope.itemUnitListSelected = function (id) {
-        $scope.isSlideBack = false;
-        statusNextSlice = false;
-        $log.debug("itemUnitListSelected");
-        var lengthList2 = unitList.list.length;
-        for (var i2 = 0; i2 < lengthList2; i2++) {
 
-            if (id === unitList.list[i2].id) {
-                methodList = unitList.list[i2];
-                $scope.method_list = methodList;
-                console.log(methodList);
-                $state.transitionTo('methods-list');
+        if (currentLocation.indexOf("uiSidebarLeft") !== -1) {
+
+        } else {
+
+            $scope.isSlideBack = false;
+            statusNextSlice = false;
+            $log.debug("itemUnitListSelected");
+            var lengthList2 = unitList.list.length;
+            for (var i2 = 0; i2 < lengthList2; i2++) {
+
+                if (id === unitList.list[i2].id) {
+                    methodList = unitList.list[i2];
+                    $scope.method_list = methodList;
+                    console.log(methodList);
+                    $state.transitionTo('methods-list');
+                }
             }
         }
     };
 
     $scope.itemMethodListSelected = function (id) {
-        $scope.isSlideBack = false;
-        $log.debug("itemMethodListSelected");
-        var lengthList3 = methodList.list.length;
-        for (var i3 = 0; i3 < lengthList3; i3++) {
 
-            if (id === methodList.list[i3].id) {
-                detailList = methodList.list[i3];
-                $scope.detail_list = detailList;
-                console.log(detailList);
-                $state.transitionTo('form-submit');
+        if (currentLocation.indexOf("uiSidebarLeft") !== -1) {
+
+
+        } else {
+
+            $scope.isSlideBack = false;
+            $log.debug("itemMethodListSelected");
+            var lengthList3 = methodList.list.length;
+            for (var i3 = 0; i3 < lengthList3; i3++) {
+
+                if (id === methodList.list[i3].id) {
+                    detailList = methodList.list[i3];
+                    $scope.detail_list = detailList;
+                    console.log(detailList);
+                    $state.transitionTo('form-submit');
+                }
             }
         }
     };
 
     // Transitions animation
 
-    $scope.$on('$stateChangeSuccess', function (angularEvent, next, location) {
+    $scope.$on('$stateChangeSuccess', function () {
 
         if ($state.is("contact")) {
             $scope.title = "Contact";
@@ -154,16 +182,18 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
 
     $scope.$on('$locationChangeStart', function (angularEvent, next, location) {
 
-        console.log("locationChangeStart " +
+        /*console.log("locationChangeStart " +
             " , " + angularEvent +
             " , " + location +
             " , " + next
 
-        );
+        );*/
 
         var isDownwaids = false;
 
         if (next) {
+
+            currentLocation = next;
 
             var newLocation = next;
 
