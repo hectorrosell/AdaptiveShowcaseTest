@@ -1,7 +1,52 @@
 <section class="section container-fluid">
     <div class="scrollable" ui-state="searchBar">
 
-        <input ng-if="Ui.active('searchBar')" type="search" class="form-control scrollable-header" placeholder="Search.." />
+        <div ng-if="Ui.active('searchBar')" type="search" class="wrapper-search">
+
+            <input ng-model="searchText" class="form-control scrollable-header" placeholder="Search.." />
+
+            <!-- <div class="scrollable-content">
+                <div class="list-group">
+
+                    <div ng-repeat="item in scrollItems | filter:searchText" ng-click="itemMainListSelected($index)" class="list-group-item name-item-list">
+
+                        <div class="row">
+                            <div class="col-xs-10 name-item-list">
+                                <p> testing {{item.name}} ({{item.size}})</p>
+                                <p class="description-item-list">{{item.description}}</p>
+                            </div>
+                            <div class="col-xs-2  arrow-list-center">
+                                <i class="fa fa-chevron-right pull-right"></i>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>-->
+
+            <div class="scrollable-content subtitle-content list-content">
+                <div class="list-group">
+                    <a ng-repeat="item in method_list.list | filter:searchText" href ng-click="itemMethodListSelected($index)" class="list-group-item item-list">
+                        <div class="row">
+                            <div class="col-xs-10">
+                                <p class="name-item-list">{{item.name}} ({{item.size}})</p>
+                                <p class="description-item-list">{{item.description}}</p>
+                            </div>
+                            <div class="col-xs-2  arrow-list-center">
+                                <i class="fa fa-chevron-right pull-right"></i>
+                            </div>
+                        </div>
+                        <!--  {{item.name}}
+                    <div styles="white-space: nowrap;">
+                    {{item.description}}
+                    </div>
+                    <i class="fa fa-chevron-right pull-right"></i>-->
+                    </a>
+                </div>
+            </div>
+
+        </div>
 
         <div class="section border-bottom-line-subtitle subToolBar">
 
@@ -17,6 +62,8 @@
             </div>
 
         </div>
+
+
 
         <div class="scrollable-content subtitle-content list-content">
             <div class="list-group">

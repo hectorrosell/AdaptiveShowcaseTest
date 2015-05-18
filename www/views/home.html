@@ -2,24 +2,28 @@
 
     <div class="scrollable" ui-state="searchBar">
 
-        <div ng-if="Ui.active('searchBar')" type="search" class="wrapper-search">
+        <!--<div ng-if="Ui.active('searchBar')" type="search" class="wrapper-search">
 
-            <!--<i class="icon-search"></i>-->
 
             <i class="fa fa-search fa-3x emoji"></i>
 
-            <input class="form-control scrollable-header" placeholder="Search.." />
+            <input ng-model="searchText" class="form-control scrollable-header" placeholder="Search.." />
 
-        </div>
+            <div class="scrollable-content">
+                <div class="list-group">
 
-        <!--<div class="section border-bottom-line-subtitle subToolBarMenu">
-            <div class="row">
-                <div class="col-xs-4">
-                </div>
-                <div class="col-xs-4">
-                    <div class="align-center label-form text-center">Services</div>
-                </div>
-                <div class="col-xs-4">
+                    <div ng-repeat="item in scrollItems | filter:searchText" ng-click="itemMainListSelected($index)" class="list-group-item name-item-list">
+
+                        <div class="row">
+                            <div class="col-xs-10 name-item-list">
+                                <p> testing {{item.name}} ({{item.size}})</p>
+                                <p class="description-item-list">{{item.description}}</p>
+                            </div>
+                            <div class="col-xs-2  arrow-list-center">
+                                <i class="fa fa-chevron-right pull-right"></i>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>-->
