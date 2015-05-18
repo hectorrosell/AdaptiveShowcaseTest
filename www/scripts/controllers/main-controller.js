@@ -7,9 +7,11 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
     $scope.isSlideBack = false;
     $scope.title = "Adaptive Showcase";
     $scope.status = statusNextSlice;
+    var isAddToFavorites = false;
+
     $scope.go = function (location) {
         $state.transitionTo(location);
-    }
+    };
 
     $scope.isHomePage = function () {
         // console.log("******************************");
@@ -23,7 +25,6 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
 
     $scope.setBackTransitionServices = function () {
         $state.transitionTo("home");
-
     };
 
     $scope.setBackTransitionUnits = function () {
@@ -41,8 +42,6 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
 
     $scope.status = statusNextSlice;
     $scope.scrollItems = dataInfo;
-
-
 
     $scope.main_list = dataInfo;
     $scope.itemMainListSelected = function (id, location) {
@@ -67,7 +66,7 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
     $scope.itemUnitListSelected = function (id) {
 
         if (currentLocation.indexOf("uiSidebarLeft") !== -1) {
-            console.log('if');
+
         } else {
             console.log('else');
             $scope.isSlideBack = false;
@@ -75,7 +74,7 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
             var lengthList2 = unitList.list.length;
 
             for (var i2 = 0; i2 < lengthList2; i2++) {
-                console.log('id:' + id + 'unitList.list[i2].id:' + unitList.list[i2].id);
+
                 if (id === unitList.list[i2].id) {
                     methodList = unitList.list[i2];
                     $scope.method_list = methodList;
@@ -92,8 +91,8 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
 
     $scope.itemMethodListSelected = function (id) {
 
-        if (currentLocation.indexOf("uiSidebarLeft") !== -1) {
-
+        if (currentLocation.indexOf("uiSidebarLeft") !== -1 || isAddToFavorites) {
+            isAddToFavorites = false;
 
         } else {
 
@@ -110,6 +109,9 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
                 }
             }
         }
+
+        console.log("isAddToFavorites: " + isAddToFavorites);
+
     };
 
     $scope.$on('$stateChangeSuccess', function () {
@@ -168,5 +170,19 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
         //$rootScope.isDownwards = isDownwaids;
 
     });
+
+    $scope.addFavorites = function (id) {
+
+        console.log("add favorites");
+        isAddToFavorites = true;
+
+        console.log($scope.method_list.list[id]);
+        console.log($scope.method_list.list[id]);
+
+        if ($scope.method_list.list[id].favorite)
+            $scope.method_list.list[id].favorite = false;
+        else
+            $scope.method_list.list[id].favorite = true;
+    }
 
 }]);

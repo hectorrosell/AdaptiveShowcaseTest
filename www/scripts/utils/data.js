@@ -49,47 +49,56 @@ var dataInfo = [
                     {
                         id: 0,
                         name: "createDatabase",
-                        description: "Creates a database on default path"
+                        description: "Creates a database on default path",
+                        favorite: false
                     },
                     {
                         id: 1,
                         name: "deleteDatabase",
-                        description: "Deletes a database on default path"
+                        description: "Deletes a database on default path",
+                        favorite: false
                     },
                     {
                         id: 2,
                         name: "DatabaseTable",
-                        description: "create a table on default path"
+                        description: "create a table on default path",
+                        favorite: false
                     },
                     {
                         id: 3,
                         name: "existsDatabase",
-                        description: "Checks if databaseTable exists"
+                        description: "Checks if databaseTable exists",
+                        favorite: false
                     },
                     {
                         id: 4,
                         name: "createTable",
-                        description: "Creates a databaseTable inside a database"
+                        description: "Creates a databaseTable inside a database",
+                        favorite: false
                     },
                     {
                         id: 5,
                         name: "deleteTable",
-                        description: "Deletes a databaseTable inside a database"
+                        description: "Deletes a databaseTable inside a database",
+                        favorite: false
                     },
                     {
                         id: 6,
                         name: "existsTable",
-                        description: "Checks if databaseTable exists"
+                        description: "Checks if databaseTable exists",
+                        favorite: false
                     },
                     {
                         id: 7,
                         name: "executeSqlStatement",
-                        description: "Executes SQL statement"
+                        description: "Executes SQL statement",
+                        favorite: false
                     },
                     {
                         id: 8,
                         name: "executeSqlTransactions",
-                        description: "Executes SQL transaction"
+                        description: "Executes SQL transaction",
+                        favorite: false
                     }
                         ],
                 description: "Interface for Managing the Cloud operations"

@@ -27,6 +27,12 @@ var app = angular.module('ADApp', [
   'ngAnimate'
 ]);
 
+$('#addFavorite').click(function () {
+    /* $(this).next('ul').slideToggle('500');*/
+    $(this).toggleClass('fa-plus-circle fa-minus-circle');
+    console.log("toggleClass");
+});
+
 //})();
 
 /*app.run(function ($transform) {

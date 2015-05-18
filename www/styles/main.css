@@ -965,12 +965,14 @@ not all injected stylesheet#window-resizer-tooltip a {
 .slide.left.ng-enter,
 .slide.right.ng-leave.ng-leave-active {
     right: 98%;
+    left: -400px;
     opacity: 0;
 }
 
 .slide.right.ng-enter.ng-enter-active,
 .slide.right.ng-leave {
-    right: 0;
+    /*right: 0;*/
+
     opacity: 1;
 }
 
@@ -995,13 +997,13 @@ not all injected stylesheet#window-resizer-tooltip a {
 .slide2.left2.ng-enter,
 .slide2.right2.ng-leave.ng-leave-active {
     left: 98%;
-    opacity: 0;
+    /* opacity: 0;*/
 }
 
 .slide2.right2.ng-enter.ng-enter-active,
 .slide2.right2.ng-leave {
     left: 0;
-    opacity: 1;
+    /*opacity: 1;*/
 }
 /*/////////////////////////////////////////////////////////////////*/
 /*/ Override font-awesome.css - bower_components/font-awesome/css/ */
@@ -1102,4 +1104,48 @@ not all injected stylesheet#window-resizer-tooltip a {
 
 .wrapper-search {
     height: 94%;
+}
+
+.starIcon {
+    position: relative;
+}
+/*replace the content value with the
+corresponding value from the list below*/
+
+.starIcon:before {
+    content: "\f006";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    /*--adjust as necessary--*/
+
+    color: #FF9B00;
+    font-size: 22px;
+    padding-right: 0.5em;
+    position: absolute;
+    top: 0px;
+    left: 0;
+}
+
+.starIconFavorite {
+    position: relative;
+}
+/*replace the content value with the
+corresponding value from the list below*/
+
+.starIconFavorite:before {
+    content: "\f005";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    /*--adjust as necessary--*/
+
+    color: #FF9B00;
+    font-size: 22px;
+    padding-right: 0.5em;
+    position: absolute;
+    top: 0px;
+    left: 0;
 }
