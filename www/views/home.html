@@ -2,7 +2,15 @@
 
     <div class="scrollable" ui-state="searchBar">
 
-        <input ng-if="Ui.active('searchBar')" type="search" class="form-control scrollable-header" placeholder="Search.." />
+        <div ng-if="Ui.active('searchBar')" type="search" class="wrapper-search">
+
+            <!--<i class="icon-search"></i>-->
+
+            <i class="fa fa-search fa-3x emoji"></i>
+
+            <input class="form-control scrollable-header" placeholder="Search.." />
+
+        </div>
 
         <!--<div class="section border-bottom-line-subtitle subToolBarMenu">
             <div class="row">

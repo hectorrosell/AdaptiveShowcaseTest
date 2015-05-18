@@ -445,8 +445,8 @@ body.slide-active {
 
 .footer-submit {
     position: fixed;
-    height: 7%;
-    bottom: 52px;
+    height: 8%;
+    bottom: 7%;
     left: 0px;
     width: 100%;
     /* margin-bottom: 57px; */
@@ -583,10 +583,10 @@ body.slide-active {
 }
 
 .border-bottom-line-subtitle {
-    border-bottom: 1px solid #bbbbbb;
+    border-bottom: 1px solid #CBCBCB;
     background: rgb(240, 240, 240);
-    border-top: 1px solid #cccccc;
-    margin-top: 1px;
+    /* border-top: 1px solid #cccccc; */
+    /* margin-top: 1px; */
 }
 /*/////////////////////////////////////////////////
 ///        iOS Style arrow back button          ///
@@ -680,8 +680,8 @@ body.slide-active {
 }
 
 .subToolBar {
-    padding-top: 2px;
-    padding-bottom: 3px;
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
 
 .subToolBarMenu {
@@ -695,16 +695,17 @@ body.slide-active {
 }
 
 .list-content {
-    height: 96%;
+    height: 95%;
 }
 
 .list-content-form {
     height: 84%;
 }
-
+/*
 .main-list-content {
     height: 103%;
 }
+*/
 
 .fa-chevron-left:before {
     vertical-align: middle;
@@ -757,15 +758,21 @@ not all injected stylesheet#window-resizer-tooltip a {
 }
 
 .footer {
+    min-height: none;
     background: #f7f7f7;
     background: #f7f7f7;
     text-align: center;
     vertical-align: middle;
-    padding: 1.1em;
-    min-height: 6%;
-    font-size: 0.8em;
+    /* padding: 1.1em; */
+    /* min-height: 6%; */
+
+    font-size: 0.87em;
     white-space: nowrap;
     font-stretch: condensed;
+    height: 36px;
+    min-height: 0px;
+    color: #007aff;
+    border-top: 1px solid rgb(213, 213, 213);
 }
 /*.sidebar-image-wrapper {
     padding: 2.5em;
@@ -781,9 +788,9 @@ not all injected stylesheet#window-resizer-tooltip a {
 
 @media(min-height:450px) {
     .footer {
-        padding: 1.1em;
-        min-height: 6%;
-        font-size: 0.8em;
+        /*padding: 1.1em;*/
+        /* min-height: 6%;*/
+        /*font-size: 0.8em;*/
     }
     .list-content-form {
         height: 84%;
@@ -793,21 +800,26 @@ not all injected stylesheet#window-resizer-tooltip a {
         height: 42%;
         margin-top: -1.5em;
     }
+    .has-navbar-bottom .app-body {
+        /* padding-bottom: 43px; */
+        /* position: absolute; */
+        /*height: 95%;*/
+    }
 }
 
 @media(min-height:500px) {
     .footer {
-        padding: 1.1em;
+        /*padding: 1.1em;
         min-height: 6%;
-        font-size: 0.9em;
+        font-size: 0.9em;*/
     }
 }
 
 @media(min-height:550px) {
     .footer {
-        padding: 1.1em;
+        /* padding: 1.1em;
         min-height: 6%;
-        font-size: 1em;
+        font-size: 1em;*/
     }
 }
 
@@ -824,9 +836,9 @@ not all injected stylesheet#window-resizer-tooltip a {
 
 @media(min-height:650px) {
     .footer {
-        padding: 1.1em;
+        /* padding: 1.1em;
         min-height: 6%;
-        font-size: 1.1em;
+        font-size: 1.1em;*/
     }
 }
 /*.emoji {
@@ -966,15 +978,80 @@ not all injected stylesheet#window-resizer-tooltip a {
 }
 
 .sidebar-content-info {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    /* padding-bottom: 12px; */
+    /* margin-bottom: 156px; */
+    /* text-align: end; */
+    /* align-content: flex-end; */
+
+    line-height: 137%;
     padding: 1.5em;
-    font-size: 0.82em;
-    /* border-bottom: 1px solid rgb(102, 102, 102); */
-
-    border-top: 1px solid rgb(102, 102, 102);
+    font-size: 0.86em;
+    /*border-top: 1px solid rgb(102, 102, 102);
+  border-bottom: 1px solid rgb(102, 102, 102);*/
 }
-
-.footer-top-border {
+/*.footer-top-border {
     border-top: 1px solid #dddddd;
     min-height: 20px;
     height: 7.5%;
+}*/
+/*.navbar-app .btn,
+.navbar-app .btn-navbar {
+    background: 0 0;
+    border: 0;
+    line-height: 2.7em;
+    padding-top: 0;
+    padding-bottom: 0;
+    color: #007aff;
+    text-transform: uppercase;
+}*/
+
+.main-header {
+    font-size: 1.07em;
+    padding-top: 0.9em;
+    margin-top: 0em;
+    line-height: 15px;
+    height: 29px;
 }
+
+.footer p {
+    margin: 10px;
+}
+
+.navbar {
+    min-height: 39px;
+    border-bottom: 1px solid rgb(232, 232, 232);
+    border-top: none;
+}
+
+.has-navbar-bottom .app-body {
+    padding-bottom: 15px;
+}
+
+.navbar-app .btn,
+.navbar-app .btn-navbar {
+    line-height: 40px;
+}
+
+.has-navbar-top .app-body {
+    padding-top: 40px;
+}
+
+.app {
+    background: #fff;
+}
+
+.form-control {
+    margin-top: 7px;
+    margin-bottom: 7px;
+    width: 97%;
+    margin-left: 5px;
+    border-radius: 16px;
+}
+
+.wrapper-search {
+    height: 40px;
+}
+ 

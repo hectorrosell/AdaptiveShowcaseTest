@@ -9,20 +9,22 @@
 
     <div class="sidebar-scrollable-content">
         <div class="list-group" ui-turn-off='uiSidebarLeft'>
-            <a class="list-group-item" href="#/home-page">HomePage <i class="fa fa-chevron-right pull-right"></i></a>
-            <a class="list-group-item" href="#/home">Services  <i class="fa fa-chevron-right pull-right"></i></a>
-            <a class="list-group-item" href="#/favorites">Favorites <i class="fa fa-chevron-right pull-right"></i></a>
-            <a class="list-group-item" href="#/license">License  <i class="fa fa-chevron-right pull-right"></i></a>
-            <a class="list-group-item" href="#/contact">Contact  <i class="fa fa-chevron-right pull-right"></i></a>
+            <div class="list-group-item" ng-click="go('home-page')">HomePage <i class="fa fa-chevron-right pull-right"></i>
+            </div>
+            <div class="list-group-item" ng-click="go('home')">Services <i class="fa fa-chevron-right pull-right"></i>
+            </div>
+            <div class="list-group-item" ng-click="go('favorites')">Favorites <i class="fa fa-chevron-right pull-right"></i>
+            </div>
+            <div class="list-group-item" ng-click="go('license')">License <i class="fa fa-chevron-right pull-right"></i>
+            </div>
+            <div class="list-group-item" ng-click="go('contact')">Contact <i class="fa fa-chevron-right pull-right"></i>
+            </div>
         </div>
     </div>
-
     <div class="sidebar-content-info">
         <p>Adaptive Showcase
-        </p>
-        <p>Version: 2.2.12
-        </p>
-        <p>Author: Carlos Lozano Diez.
+            <br> Version: 2.2.12
+            <br> Author: Carlos Lozano Diez.
         </p>
     </div>
 

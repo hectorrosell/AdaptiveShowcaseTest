@@ -6,7 +6,29 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
 
     $scope.isSlideBack = false;
 
+    $scope.title = "Adaptive Showcase t";
+
     $scope.status = statusNextSlice;
+
+    $scope.go = function (location) {
+
+        console.log(location);
+        console.log($state);
+
+        /*if ($state.is("contact")) {
+            $scope.title = "Contact";
+        } else if ($state.is("favorites")) {
+            $scope.title = "Favorites";
+        } else if ($state.is("license")) {
+            $scope.title = "License";
+        } else if ($state.is("services")) {
+            $scope.title = "Services";
+        } else {
+            $scope.title = "Adaptive Showcase";
+        }*/
+
+        $state.transitionTo(location);
+    }
 
     $scope.isHomePage = function () {
         // console.log("******************************");
@@ -17,26 +39,26 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
             return true;
         }
     };
-    
+
     $scope.setBackTransitionServices = function () {
         $log.debug("myFuction1");
         //$scope.isSlideBack = true;
         $state.transitionTo("home");
 
     };
-    
+
     $scope.setBackTransitionUnits = function () {
         $log.debug("myFuction2");
         //$scope.isSlideBack = true;
         $state.transitionTo("units-list");
     };
-    
+
     $scope.setBackTransitionMethods = function () {
         $log.debug("myFuction3");
         // $scope.isSlideBack = true;
         $state.transitionTo("methods-list");
     };
- 
+
     if (isFirstState) {
         oldLocation = "home";
         isFirstState = false;
@@ -113,6 +135,23 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
 
     // Transitions animation
 
+    $scope.$on('$stateChangeSuccess', function (angularEvent, next, location) {
+
+        if ($state.is("contact")) {
+            $scope.title = "Contact";
+        } else if ($state.is("favorites")) {
+            $scope.title = "Favorites";
+        } else if ($state.is("license")) {
+            $scope.title = "License";
+        } else if ($state.is("services")) {
+            $scope.title = "Services";
+        } else {
+            $scope.title = "Adaptive Showcase";
+        }
+
+    });
+
+
     $scope.$on('$locationChangeStart', function (angularEvent, next, location) {
 
         console.log("locationChangeStart " +
@@ -157,6 +196,17 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
         //$scope.isSlideBack = false;
         //$rootScope.isDownwards = isDownwaids;
 
+        /*if ($state.is("contact")) {
+            $scope.title = "Contact";
+        } else if ($state.is("favorites")) {
+            $scope.title = "Favorites";
+        } else if ($state.is("license")) {
+            $scope.title = "License";
+        } else if ($state.is("services")) {
+            $scope.title = "Services";
+        } else {
+            $scope.title = "Adaptive Showcase";
+        }*/
     });
 
 }]);
