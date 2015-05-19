@@ -444,9 +444,10 @@ body.slide-active {
 /////////////////////////////////////////////////*/
 
 .footer-submit {
+    display: relative;
     position: fixed;
-    height: 8%;
-    bottom: 7%;
+    height: 36px;
+    bottom: 34px;
     left: 0px;
     width: 100%;
     /* margin-bottom: 57px; */
@@ -1192,7 +1193,7 @@ corresponding value from the list below*/
 }
 
 .btn {
-    display: flex;
+    /*display: flex;*/
 }
 
 .btn-group,
