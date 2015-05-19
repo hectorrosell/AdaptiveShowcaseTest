@@ -1,22 +1,20 @@
 <section class="section container-fluid">
 
     <div class="scrollable" ui-state="searchBar">
+        <div ng-if="Ui.active('searchBar')" type="search" class="wrapper-search">
 
-        <!--<div ng-if="Ui.active('searchBar')" type="search" class="wrapper-search">
 
-
-            <i class="fa fa-search fa-3x emoji"></i>
 
             <input ng-model="searchText" class="form-control scrollable-header" placeholder="Search.." />
 
             <div class="scrollable-content">
                 <div class="list-group">
 
-                    <div ng-repeat="item in scrollItems | filter:searchText" ng-click="itemMainListSelected($index)" class="list-group-item name-item-list">
+                    <div ng-repeat="item in scrollItems | filter:searchText" ng-click="itemMainListSelected($index)" class="list-group-item item-list">
 
                         <div class="row">
-                            <div class="col-xs-10 name-item-list">
-                                <p> testing {{item.name}} ({{item.size}})</p>
+                            <div class="col-xs-10 ">
+                                <p class="name-item-list"> {{item.name}} ({{item.size}})</p>
                                 <p class="description-item-list">{{item.description}}</p>
                             </div>
                             <div class="col-xs-2  arrow-list-center">
@@ -26,7 +24,7 @@
                     </div>
                 </div>
             </div>
-        </div>-->
+        </div>
 
         <div class="scrollable-content main-list-content">
             <div class="list-group">

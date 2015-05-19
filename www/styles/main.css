@@ -801,6 +801,19 @@ not all injected stylesheet#window-resizer-tooltip a {
     width: 40%;
 }
 
+.navbar {
+    position: absolute;
+    margin-bottom: 0px;
+    border: 1px solid transparent;
+    min-height: 39px;
+    border-bottom: 1px solid rgb(232, 232, 232);
+    border-top: none;
+}
+
+.has-navbar-top .app-body {
+    padding-top: 40px;
+}
+
 @media(min-height:400px) {
     .sidebar-image-wrapper {
         height: 30%;
@@ -850,6 +863,12 @@ not all injected stylesheet#window-resizer-tooltip a {
     .img-responsive {
         width: 80%;
     }
+    .navbar {
+        min-height: 50px;
+    }
+    .has-navbar-top .app-body {
+        padding-top: 50px;
+    }
 }
 
 @media(min-height:550px) {
@@ -895,13 +914,6 @@ not all injected stylesheet#window-resizer-tooltip a {
     padding-left: 0.0em;
 }*/
 /* line 11, ../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/_navbar.scss */
-
-.navbar {
-    position: absolute;
-    min-height: 50px;
-    margin-bottom: 0px;
-    border: 1px solid transparent;
-}
 /*////////////////////////////////////////*/
 /* Animation of transitions between views */
 /*////////////////////////////////////////*/
@@ -1060,22 +1072,33 @@ not all injected stylesheet#window-resizer-tooltip a {
 }*/
 
 .main-header {
-    font-size: 1.07em;
+    /* font-size: 1.07em;
     padding-top: 0.9em;
     margin-top: 0em;
     line-height: 15px;
-    height: 29px;
+    height: 29px;*/
+    /*font-size: 1.07em;
+    padding-top: none;
+    margin-top: 0em;
+    line-height: 100%;
+    height: 100%;*/
+
+    font-size: 1.07em;
+    padding-top: none;
+    margin-top: 0em;
+    line-height: 100%;
+    height: 100%;
+    vertical-align: middle;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .footer p {
     margin: 10px;
 }
 
-.navbar {
-    min-height: 39px;
-    border-bottom: 1px solid rgb(232, 232, 232);
-    border-top: none;
-}
+.navbar {}
 
 .has-navbar-bottom .app-body {
     padding-bottom: 15px;
@@ -1084,10 +1107,6 @@ not all injected stylesheet#window-resizer-tooltip a {
 .navbar-app .btn,
 .navbar-app .btn-navbar {
     line-height: 40px;
-}
-
-.has-navbar-top .app-body {
-    padding-top: 40px;
 }
 
 .app {
@@ -1148,4 +1167,44 @@ corresponding value from the list below*/
     position: absolute;
     top: 0px;
     left: 0;
+}
+
+.navbar-app .btn,
+.navbar-app .btn-navbar {
+    line-height: none;
+}
+
+.navbar-app .btn,
+.navbar-app .btn-navbar {
+    background: 0 0;
+    border: 0;
+    line-height: 100%;
+    /* padding-top: 0; */
+    /* padding-bottom: 0; */
+
+    color: #007aff;
+    text-transform: uppercase;
+    height: 100%;
+    vertical-align: middle;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    display: flex;
+}
+
+.btn-group,
+.btn-group-vertical {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+    position: absolute;
+}
+
+.pull-right {
+    float: right !important;
+    right: 0;
 }

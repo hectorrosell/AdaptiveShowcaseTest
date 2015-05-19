@@ -16,7 +16,7 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
     $scope.isHomePage = function () {
         // console.log("******************************");
         //console.log("Home Page: " + $state.is("home"));
-        if ($state.is("units-list") || $state.is("methods-list")) {
+        if ($state.is("home") || $state.is("units-list") || $state.is("methods-list")) {
             return false;
         } else {
             return true;
