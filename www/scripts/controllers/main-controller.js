@@ -55,7 +55,7 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
 
     $scope.main_list = dataInfo;
 
-    $scope.itemMainListSelected = function (id, location) {
+    $scope.itemMainListSelected = function (id) {
 
         if (currentLocation.indexOf("uiSidebarLeft") !== -1) {
 
@@ -69,16 +69,16 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
                     $scope.unit_list = unitList;
                     console.log(unitList);
 
-                    if (id === 0)
-                        $state.transitionTo('method-getOSInfo');
-                    else if (id === 1)
-                        $state.transitionTo('method-getResourceLiteral');
-                    else if (id === 2)
-                        $state.transitionTo('method-getContactsForFields');
-                    else
-                        $state.transitionTo('method-ButtonListener');
+                    //                    if (id === 0)
+                    //                        $state.transitionTo('method-getOSInfo');
+                    //                    else if (id === 1)
+                    //                        $state.transitionTo('method-getResourceLiteral');
+                    //                    else if (id === 2)
+                    //                        $state.transitionTo('method-getContactsForFields');
+                    //                    else
+                    //                        $state.transitionTo('method-ButtonListener');
 
-                    //                    $state.transitionTo('units-list');
+                    $state.transitionTo('units-list');
                 }
 
             }
@@ -111,7 +111,7 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
         console.log('test: ' + item);
     }*/
 
-    $scope.itemMethodListSelected = function (id) {
+    $scope.itemMethodListSelected = function (id, location) {
 
         if (currentLocation.indexOf("uiSidebarLeft") !== -1 || isAddToFavorites) {
             isAddToFavorites = false;
@@ -126,13 +126,34 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
                 if (id === methodList.list[i3].id) {
                     detailList = methodList.list[i3];
                     $scope.detail_list = detailList;
-                    console.log(detailList);
-                    $state.transitionTo('form-submit');
+                    // console.log(detailList);
+
+                    //console.log("detailList.name: " + detailList.name);
+
+                    if (detailList.name.indexOf("getOSInfo") !== -1) {
+                        $state.transitionTo('method-getOSInfo');
+                    } else if (detailList.name.indexOf("getResourceLiteral") !== -1) {
+                        $state.transitionTo('method-getResourceLiteral');
+                    } else if (detailList.name.indexOf("getContactsForFields") !== -1) {
+                        $state.transitionTo('method-getContactsForFields');
+                    } else if (detailList.name.indexOf("ButtonListener") !== -1) {
+                        $state.transitionTo('method-ButtonListener');
+                    } else {}
+
+                    //                    if (id === 0)
+                    //                        $state.transitionTo('method-getOSInfo');
+                    //                    else if (id === 1)
+                    //                        $state.transitionTo('method-getResourceLiteral');
+                    //                    else if (id === 2)
+                    //                        $state.transitionTo('method-getContactsForFields');
+                    //                    else
+                    //                        $state.transitionTo('method-ButtonListener');
+
                 }
             }
         }
 
-        console.log("isAddToFavorites: " + isAddToFavorites);
+        /* console.log("isAddToFavorites: " + isAddToFavorites);*/
 
     };
 

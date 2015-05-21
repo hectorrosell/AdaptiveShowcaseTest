@@ -100,7 +100,7 @@ var dataInfo = [
                         description: "Executes SQL transaction",
                         favorite: false
                     }
-                        ],
+                ],
                 description: "Interface for Managing the Cloud operations"
 
             },
@@ -128,69 +128,149 @@ var dataInfo = [
         ],
         description: "Description text"
     },
+
     {
         id: 4,
+        name: "Globalization",
+        list: [
+
+            {
+                id: 0,
+                name: "IGlobalization",
+                size: 1,
+                list: [
+                    {
+                        id: 0,
+                        name: "getResourceLiteral",
+                        description: "Interface for Managing the Cloud operations"
+                    }
+                ],
+                description: "Interface for Managing the Cloud operations"
+            }
+
+        ],
+        size: 1,
+        description: "Description text"
+    }
+    ,
+    {
+        id: 5,
+        name: "IOS",
+        list: [
+
+            {
+                id: 0,
+                name: "IOS",
+                size: 1,
+                list: [
+                    {
+                        id: 0,
+                        name: "getOSInfo",
+                        description: "Interface for Managing the Cloud operations"
+                    }
+                ],
+                description: "Interface for Managing the Cloud operations"
+            }
+
+        ],
+        size: 0,
+        description: "Description text"
+            },
+    {
+        id: 6,
         name: "Media",
         list: [],
         size: 0,
         description: "Description text"
             },
     {
-        id: 5,
+        id: 7,
         name: "Notification",
         list: [],
         size: 0,
         description: "Description text"
     },
     {
-        id: 6,
+        id: 8,
         name: "PIM",
-        list: [],
+        list: [
+
+            {
+                id: 0,
+                name: "Icontact",
+                size: 1,
+                list: [
+                    {
+                        id: 0,
+                        name: "getContactsForFields",
+                        description: "Interface for Managing the Cloud operations"
+                    }
+                ],
+                description: "Interface for Managing the Cloud operations"
+            }
+
+        ],
         size: 0,
         description: "Description text"
     }, {
-        id: 7,
+        id: 9,
         name: "Reader",
         list: [],
         size: 0,
         description: "Description text"
             },
     {
-        id: 8,
+        id: 10,
         name: "Security",
         list: [],
         size: 0,
         description: "Description text"
     },
     {
-        id: 9,
+        id: 11,
         name: "Sensor",
         list: [],
         size: 0,
         description: "Description text"
     },
     {
-        id: 10,
+        id: 12,
         name: "Social",
         list: [],
         size: 0,
         description: "Description text"
     }, {
-        id: 11,
+        id: 13,
         name: "System",
-        list: [],
+        list: [
+
+            {
+                id: 0,
+                name: "IDevice",
+                size: 1,
+                list: [
+                    {
+                        id: 0,
+                        name: "ButtonListener",
+                        description: "Interface for Managing the Cloud operations"
+                    }
+                ],
+                description: "Interface for Managing the Cloud operations"
+            }
+
+        ],
         size: 0,
         description: "Description text"
             },
     {
-        id: 12,
+        id: 14,
         name: "UI",
         list: [],
         size: 0,
         description: "Description text"
     },
     {
-        id: 13,
+        id: 15,
         name: "Util",
         list: [],
         size: 0,
