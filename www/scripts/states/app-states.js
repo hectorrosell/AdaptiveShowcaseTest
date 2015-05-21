@@ -78,7 +78,31 @@ app.config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider
             templateUrl: 'views/menu/home-page.html',
             //controller: 'MainController',
             //resolve: resolve
+        })
+        .state("method-getContactsForFields", {
+            url: "/method-getContactsForFields",
+            templateUrl: 'views/methods/method-getContactsForFields.html',
+            //controller: 'MainController',
+            //resolve: resolve
+        })
+        .state("method-getOSInfo", {
+            url: "/method-getOSInfo",
+            templateUrl: 'views/methods/method-getOSInfo.html',
+            //controller: 'MainController',
+            //resolve: resolve
+        }).state("method-getResourceLiteral", {
+            url: "/method-getResourceLiteral",
+            templateUrl: 'views/methods/method-getResourceLiteral.html',
+            //controller: 'MainController',
+            //resolve: resolve
+        }).state("method-ButtonListener", {
+            url: "/method-ButtonListener",
+            templateUrl: 'views/methods/method-ButtonListener.html',
+            //controller: 'MainController',
+            //resolve: resolve
         });
+
+
 }]);
 
 /*'use strict';

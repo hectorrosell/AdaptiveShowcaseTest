@@ -27,11 +27,39 @@ var app = angular.module('ADApp', [
   'ngAnimate'
 ]);
 
-$('#addFavorite').click(function () {
-    /* $(this).next('ul').slideToggle('500');*/
+app.directive('xngFocus', function () {
+    return function (scope, element, attrs) {
+        scope.$watch(attrs.xngFocus,
+            function (newValue) {
+                newValue && element.focus();
+            }, true);
+    };
+});
+
+/*$('#addFavorite').click(function () {
+     $(this).next('ul').slideToggle('500');
     $(this).toggleClass('fa-plus-circle fa-minus-circle');
     console.log("toggleClass");
-});
+});*/
+
+/*$("#openSearch").click(function () {
+    $("#inputTextSearch").trigger("click");
+
+    $(".triggerBtn").trigger("click");
+
+    console.log("trigger");
+});*/
+/*
+$(".triggerBtn").click(function () {
+
+    /* $(".inputField").trigger("focus");*/
+/* $("#inputTextSearch").focus()*/
+//console.log();
+//.triggerHandler("focus");
+
+/* $(".inputField").focus();
+ $(".inputField").click();*/
+/* console.log("triggerBtn");*/
 
 //})();
 

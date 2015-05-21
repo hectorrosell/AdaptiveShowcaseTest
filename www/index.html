@@ -36,30 +36,32 @@
 
     <!-- Sidebars -->
     <div ng-include=" 'views/sidebar.html' " ui-track-as-search-param='true' class="sidebar sidebar-left "></div>
-
+    
     <div class="app">
-
+        
         <!-- Navbars -->
-
+        
         <div class="navbar navbar-app navbar-absolute-top">
-
+            
             <div class="navbar-brand navbar-brand-center main-header" ui-yield-to="title ">
                 {{ title }}
             </div>
-
+            
             <div class="btn-group pull-left ">
                 <div ui-toggle="uiSidebarLeft " class="btn sidebar-toggle ">
                     <i class="fa fa-bars "></i>
                 </div>
             </div>
-
+            
             <div ng-hide="isHomePage() == true" class="btn-group pull-right " ui-yield-to="navbarAction ">
-                <div ui-toggle="searchBar" class="btn ">
+               <!--<span class='span8'>
+                    <input type="checkbox" id='checkbox' ng-model="isChecked">
+                </span>-->
+                <div ui-toggle="searchBar" ng-click="setFocus()" class="btn ">
                     <i class="fa fa-search"></i>
                 </div>
             </div>
-
-
+            
             <!--  <div class="btn-group pull-right " ui-yield-to="navbarAction ">
                 <div ui-toggle="searchBar " class="btn ">
                     <i class="fa fa-search "></i>
@@ -68,9 +70,9 @@
 -->
         </div>
         <div class="navbar-absolute-bottom footer">
-
+            
             <p class="fotter">&#169; 2015 Adaptive.me Forged with <span style="color: red ">&hearts;</span> in Barcelona</p>
-
+            
             <!--<span>&#169; 2015 Adative.me Forged with <img src="styles/images/love.png " class="emoji "> in Barcelona</span>-->
 
             <!--<a class="btn btn-navbar "> &#169; 2015 Adative.me Forged with <img src="styles/images/love.png " class="emoji "> in Barcelona</a>-->
@@ -96,6 +98,7 @@
     <!-- ~ .app -->
 
     <div ui-yield-to="modals "></div>
+
 
     <!--<body data-ng-app="ADApp " class="activateAppearAnimation {{bodyClass}} " ng-class="{backgroundHome: backgroundH===t rue, backgroundWhite: backgroundH !==t rue} ">
 

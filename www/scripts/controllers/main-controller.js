@@ -3,6 +3,9 @@
 app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$location', '$route', '$timeout', function ($rootScope, $scope, $log, $state, $location, $route, $timeout) {
 
     $log.debug("MainController");
+
+    $scope.isChecked = false;
+
     var currentLocation;
     $scope.isSlideBack = false;
     $scope.title = "Adaptive Showcase";
@@ -22,6 +25,13 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
             return true;
         }
     };
+
+    $scope.inputTextSearch = false;
+
+    $scope.focusSearchBar = function () {
+        $scope.inputTextSearch = true;
+        console.log("focusSearchBar:" + $scope.inputTextSearch);
+    }
 
     $scope.setBackTransitionServices = function () {
         $state.transitionTo("home");
@@ -44,6 +54,7 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
     $scope.scrollItems = dataInfo;
 
     $scope.main_list = dataInfo;
+
     $scope.itemMainListSelected = function (id, location) {
 
         if (currentLocation.indexOf("uiSidebarLeft") !== -1) {
@@ -57,8 +68,19 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
                     unitList = $scope.main_list[i];
                     $scope.unit_list = unitList;
                     console.log(unitList);
-                    $state.transitionTo('units-list');
+
+                    if (id === 0)
+                        $state.transitionTo('method-getOSInfo');
+                    else if (id === 1)
+                        $state.transitionTo('method-getResourceLiteral');
+                    else if (id === 2)
+                        $state.transitionTo('method-getContactsForFields');
+                    else
+                        $state.transitionTo('method-ButtonListener');
+
+                    //                    $state.transitionTo('units-list');
                 }
+
             }
         }
     };
@@ -184,5 +206,63 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
         else
             $scope.method_list.list[id].favorite = true;
     }
+
+    /*$scope.$watch('searchBar', function (newV) {
+        console.log("searchBar");
+        newV && $('#name').focus();
+    }, true);*/
+
+    $scope.$watch('isChecked', function (newV) {
+
+        /* console.log("isChecked");
+         newV && $('#name').focus();*/
+
+        var countUp = function () {
+            console.log("isChecked with timeout");
+            /* $(".inputField").trigger("focus");*/
+            newV && $('#name').trigger("focus");
+            newV && $('#name').trigger("click");
+            /*newV && $('#name').focus();
+            newV && $('#name').prompt();
+            newV && $('#name').click();*/
+        }
+
+        $timeout(countUp, 300);
+    }, true);
+
+    $scope.setFocus = function () {
+
+        if ($scope.isChecked)
+            $scope.isChecked = false;
+        else
+            $scope.isChecked = true;
+
+    };
+
+    $scope.items = items;
+
+    $scope.deleteItem = function (index) {
+        items.data.splice(index, 1);
+    };
+
+    $scope.addItem = function (index) {
+        console.log("$scope.newItemName: " + $scope.newItemName);
+        console.log("$$scope.items.data.length: " + $scope.items.data.length);
+        items.data.push({
+            id: $scope.items.data.length + 1,
+            title: "New Listener"
+        });
+    };
+
+    $scope.deleteAllItems = function () {
+
+        console.log("delete");
+        for (var i = 0; i < items.data.length; i++) {
+
+            items.data.splice(i);
+
+        }
+
+    };
 
 }]);

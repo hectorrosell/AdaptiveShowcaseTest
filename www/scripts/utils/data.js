@@ -197,3 +197,26 @@ var dataInfo = [
         description: "Description text"
     }
 ];
+
+var items = {};
+items.data = [{
+    id: "1",
+    title: "0 selected"
+    }, {
+    id: "2",
+    title: "0 selected"
+    }, {
+    id: "3",
+    title: "0 selected"
+    }];
+
+items.data = [{
+    id: "1",
+    title: "Listener 1"
+    }, {
+    id: "2",
+    title: "Listener 2"
+    }, {
+    id: "3",
+    title: "Listener 3"
+    }];

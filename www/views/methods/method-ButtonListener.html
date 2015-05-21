@@ -1,0 +1,135 @@
+<section class="section container-fluid">
+
+    <div class="scrollable">
+        <div class="section border-bottom-line-subtitle subToolBar">
+
+            <div class="row">
+                <div ng-click="setBackTransitionServices()" class="col-xs-4">
+                    <div class="btn btn-default back-button"> <i class="fa fa-chevron-left pull-left back-icon"></i> Back</div>
+                </div>
+                <div class="col-xs-4">
+                    <p class="align-center label-form text-center">ButtonListener</p>
+                </div>
+                <div class="col-xs-4">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="scrollable-content section list-content-form">
+
+            <form role="form" ng-submit='submit()' style="height: 100%;">
+                <fieldset style="height: 100%;">
+
+                    <p>Register a new listener that will receive button events</p>
+                    <br>
+                    <p><b>Since:</b> v2.0
+                    </p>
+                    <p><b>Author:</b> Hector Rosell
+                    </p>
+                    <br>
+                    <p><b><u>Listeners</u></b>
+                    </p>
+
+                    <!--
+                    <div>
+                        <ul ng-controller="MainController" class="nav">
+
+
+
+                            <input type="text" value="ItemName" ng-model="newItemName" placeholder="name of new item...">
+                            <button ng-click="addItem()">Add Me</button>
+
+                            <li ng-repeat="item in items.data" id="item{{item.id}}">
+                                <a href="#">{{item.title}}</a> <a ng-click="deleteItem($index)" class="delete-item">x</a>
+                            </li>
+
+                        </ul>
+                    </div>
+-->
+
+
+
+                    <div class="row">
+                        <ul ng-controller="MainController" class="nav ">
+                            <div class="col-xs-2">
+
+                                <div class=" add-item " ng-click="addItem()">
+                                    <p>+</p>
+                                </div>
+                                <div class=" delete-item" ng-click="deleteAllItems()">
+                                    <p>-</p>
+                                </div>
+
+                            </div>
+                            <div class="col-xs-10">
+                                <div ng-repeat="item in items.data" id="item{{item.id}}" style="height: 28px;padding: 3px;margin: 3px;">
+                                    <!--                                    <a href="#"> 0 Seleccionados</a>-->
+
+                                    <div style="" class="col-xs-10 form-list">
+                                        {{item.title}}
+                                    </div>
+                                    <!--
+                                    <select class="form-add">
+                                        <option>Listener 1</option>
+                                        <option>Listener 2</option>
+                                        <option>Listener 3</option>
+                                        <option>Listener 4</option>
+                                        <script>
+                                            document.write('<option> Listener' + '</option>');
+                                        </script>
+                                        <script>
+                                            for (var i = 0; i < 3; i++) {
+                                                document.write('<option> Listener' + i + '</option>');
+                                            }
+                                        </script>
+                                    </select>
+-->
+                                    <div class=" col-xs-2">
+                                        <a ng-click="deleteItem($index)" class="delete-item  ">-</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </ul>
+                    </div>
+                    <br>
+                    <div class=" row">
+                        <button type="button" class=" btn btn-danger button-message-form-response">Error messages</button>
+                    </div>
+
+                    <div class=" row">
+                        <button type="button" class=" btn btn-warning button-message-form-response">Warning messages</button>
+                    </div>
+                    <br>
+                    <div class="response-content scrollable-content">
+                        {
+                        <br /> <span style="padding: 0 20px">&nbsp;</span>“response”: {
+                        <br /> <span style="padding: 0 40px">&nbsp;</span>value: “Hello Adaptive”,
+                        <br /> <span style="padding: 0 20px">&nbsp;</span> },
+                        <br /> <span style="padding: 0 20px">&nbsp;</span>statusCode: 200
+                        <br /> <span style="padding: 0 20px">&nbsp;</span>statusMessage: "OK"
+                        <br /> }
+                        <br />
+                    </div>
+
+                </fieldset>
+
+            </form>
+            <div style="margin-left: 0px;margin-right: 0px;margin-top: 0%;margin-bottom: 0px;">
+                <button class="btn btn-primary btn-block footer-submit " ui-turn-on="modal2 ">
+                    SUBMIT
+                </button>
+            </div>
+            <!--
+margin-left: 15px;margin-right: 15px;margin-top: 0%;margin-bottom: 0px;
+-->
+
+        </div>
+    </div>
+
+</section>
+
+<div ui-content-for="modals ">
+    <div ng-include=" 'views/modal1.html' "></div>
+    <div ng-include=" 'views/modal2.html' "></div>
+</div>
