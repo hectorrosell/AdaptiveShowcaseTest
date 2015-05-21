@@ -25,107 +25,8 @@ var dataInfo = [
     {
         id: 3,
         name: "Data",
-        size: 8,
-        list: [
-            {
-                id: 0,
-                name: "ICloud",
-                size: 0,
-                list: [],
-                description: "Interface for Managing the Cloud operations"
-            },
-            {
-                id: 1,
-                name: "IDataStream",
-                size: 0,
-                list: [],
-                description: "Interface for Managing the DataStream operations"
-            },
-            {
-                id: 2,
-                name: "IDatabase",
-                size: 9,
-                list: [
-                    {
-                        id: 0,
-                        name: "createDatabase",
-                        description: "Creates a database on default path",
-                        favorite: false
-                    },
-                    {
-                        id: 1,
-                        name: "deleteDatabase",
-                        description: "Deletes a database on default path",
-                        favorite: false
-                    },
-                    {
-                        id: 2,
-                        name: "DatabaseTable",
-                        description: "create a table on default path",
-                        favorite: false
-                    },
-                    {
-                        id: 3,
-                        name: "existsDatabase",
-                        description: "Checks if databaseTable exists",
-                        favorite: false
-                    },
-                    {
-                        id: 4,
-                        name: "createTable",
-                        description: "Creates a databaseTable inside a database",
-                        favorite: false
-                    },
-                    {
-                        id: 5,
-                        name: "deleteTable",
-                        description: "Deletes a databaseTable inside a database",
-                        favorite: false
-                    },
-                    {
-                        id: 6,
-                        name: "existsTable",
-                        description: "Checks if databaseTable exists",
-                        favorite: false
-                    },
-                    {
-                        id: 7,
-                        name: "executeSqlStatement",
-                        description: "Executes SQL statement",
-                        favorite: false
-                    },
-                    {
-                        id: 8,
-                        name: "executeSqlTransactions",
-                        description: "Executes SQL transaction",
-                        favorite: false
-                    }
-                ],
-                description: "Interface for Managing the Cloud operations"
-
-            },
-            {
-                id: 3,
-                name: "IFilePath",
-                size: 0,
-                list: [],
-                description: "Base application for Notification purposes"
-            },
-            {
-                id: 4,
-                name: "IFileSystem",
-                size: 0,
-                list: [],
-                description: "Interface for Managing the File System operations"
-            },
-            {
-                id: 5,
-                name: "IXML",
-                size: 0,
-                list: [],
-                description: "Interface for Managing the XML operations"
-            }
-        ],
+        size: 0,
+        list: [],
         description: "Description text"
     },
 
@@ -138,8 +39,7 @@ var dataInfo = [
                 id: 0,
                 name: "IGlobalization",
                 size: 1,
-                list: [
-                    {
+                list: [{
                         id: 0,
                         name: "getResourceLiteral",
                         description: "Interface for Managing the Cloud operations"
