@@ -19,6 +19,23 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
     $scope.isHomePage = function () {
         // console.log("******************************");
         //console.log("Home Page: " + $state.is("home"));
+
+
+        var heightMethodContent = $('.method-content').innerHeight();
+        var heightFormMethodContent = $('.form-method-content').innerHeight();
+        var offSetY = 10;
+
+        console.log("win: " + $(window).height() + ", meth: " + heightMethodContent + ", Final height: " + (($(window).height()) - heightMethodContent));
+
+        if ((heightFormMethodContent - heightMethodContent - offSetY) > 75)
+
+            $('.response-content').css({
+            //        'height': (($(window).height()) - heightMethodContent) + 'px'
+            'height': (heightFormMethodContent - heightMethodContent) + 'px'
+
+        });
+
+
         if ($state.is("home") || $state.is("units-list") || $state.is("methods-list")) {
             return false;
         } else {
@@ -285,5 +302,26 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
         }
 
     };
+
+    $scope.$watch(function () {
+        return window.innerWidth;
+    }, function (value) {
+        console.log(value);
+
+        var heightMethodContent = $('.method-content').innerHeight();
+        var heightFormMethodContent = $('.form-method-content').innerHeight();
+        var offSetY = 10;
+
+        console.log("win: " + $(window).height() + ", meth: " + heightMethodContent + ", Final height: " + (($(window).height()) - heightMethodContent));
+
+        if ((heightFormMethodContent - heightMethodContent - offSetY) > 85)
+
+            $('.response-content').css({
+            //        'height': (($(window).height()) - heightMethodContent) + 'px'
+            'height': (heightFormMethodContent - heightMethodContent - offSetY) + 'px'
+
+        });
+
+    });
 
 }]);

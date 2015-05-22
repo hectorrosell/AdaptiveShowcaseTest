@@ -36,6 +36,28 @@ app.directive('xngFocus', function () {
     };
 });
 
+$(window).resize(function () {
+    //alert(window.innerWidth);
+
+    var heightMethodContent = $('.method-content').innerHeight();
+    var heightFormMethodContent = $('.form-method-content').innerHeight();
+    var offSetY = 10;
+
+    console.log("win: " + $(window).height() + ", meth: " + heightMethodContent + ", Final height: " + (($(window).height()) - heightMethodContent));
+
+    if ((heightFormMethodContent - heightMethodContent - offSetY) > 75)
+
+        $('.response-content').css({
+        //        'height': (($(window).height()) - heightMethodContent) + 'px'
+        'height': (heightFormMethodContent - heightMethodContent ) + 'px'
+
+    });
+
+    //    $scope.$apply(function () {
+    //       //do something to update current scope based on the new innerWidth and let angular update the view.
+    //    });
+});
+
 /*$('#addFavorite').click(function () {
      $(this).next('ul').slideToggle('500');
     $(this).toggleClass('fa-plus-circle fa-minus-circle');
