@@ -61,7 +61,6 @@ var dataInfo = [
         id: 8,
         name: "PIM",
         list: [
-
             {
                 id: 0,
                 name: "Icontact",
@@ -75,9 +74,8 @@ var dataInfo = [
                 ],
                 description: "Interface for Managing the Cloud operations"
             }
-
         ],
-        size: 0,
+        size: 1,
         description: "Description text"
     }, {
         id: 9,
@@ -179,4 +177,4 @@ items.data = [{
     }, {
     id: "3",
     title: "Listener 3"
-    }];
+}];

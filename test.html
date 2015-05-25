@@ -1,0 +1,573 @@
+<div class="blob-wrapper data type-java">
+ 
+                            <div>
+                                <div id="L1" class="blob-num js-line-number" data-line-number="1"></div>
+                                <div id="LC1" class="blob-code blob-code-inner js-file-line"><span class="pl-c">/*</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L2" class="blob-num js-line-number" data-line-number="2"></div>
+                                <div id="LC2" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> * =| ADAPTIVE RUNTIME PLATFORM</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L3" class="blob-num js-line-number" data-line-number="3"></div>
+                                <div id="LC3" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> *</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L4" class="blob-num js-line-number" data-line-number="4"></div>
+                                <div id="LC4" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> * (C) Copyright 2013-2014 Carlos Lozano Diez t/a Adaptive.me &lt;http://adaptive.me&gt;.</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L5" class="blob-num js-line-number" data-line-number="5"></div>
+                                <div id="LC5" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> *</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L6" class="blob-num js-line-number" data-line-number="6"></div>
+                                <div id="LC6" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L7" class="blob-num js-line-number" data-line-number="7"></div>
+                                <div id="LC7" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> * the License. You may obtain a copy of the License at</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L8" class="blob-num js-line-number" data-line-number="8"></div>
+                                <div id="LC8" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> *</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L9" class="blob-num js-line-number" data-line-number="9"></div>
+                                <div id="LC9" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> *     http://www.apache.org/licenses/LICENSE-2.0</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L10" class="blob-num js-line-number" data-line-number="10"></div>
+                                <div id="LC10" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> *</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L11" class="blob-num js-line-number" data-line-number="11"></div>
+                                <div id="LC11" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> * Unless required by applicable law or agreed to in writing, software disdivibuted under the License is disdivibuted on</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L12" class="blob-num js-line-number" data-line-number="12"></div>
+                                <div id="LC12" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L13" class="blob-num js-line-number" data-line-number="13"></div>
+                                <div id="LC13" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> * specific language governing permissions and limitations under the License.</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L14" class="blob-num js-line-number" data-line-number="14"></div>
+                                <div id="LC14" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> *</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L15" class="blob-num js-line-number" data-line-number="15"></div>
+                                <div id="LC15" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> * Original author:</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L16" class="blob-num js-line-number" data-line-number="16"></div>
+                                <div id="LC16" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> *</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L17" class="blob-num js-line-number" data-line-number="17"></div>
+                                <div id="LC17" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> *     * Carlos Lozano Diez</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L18" class="blob-num js-line-number" data-line-number="18"></div>
+                                <div id="LC18" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> *                 &lt;http://github.com/carloslozano&gt;</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L19" class="blob-num js-line-number" data-line-number="19"></div>
+                                <div id="LC19" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> *                 &lt;http://twitter.com/adaptivecoder&gt;</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L20" class="blob-num js-line-number" data-line-number="20"></div>
+                                <div id="LC20" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> *                 &lt;mailto:carlos@adaptive.me&gt;</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L21" class="blob-num js-line-number" data-line-number="21"></div>
+                                <div id="LC21" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> *</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L22" class="blob-num js-line-number" data-line-number="22"></div>
+                                <div id="LC22" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> * Condivibutors:</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L23" class="blob-num js-line-number" data-line-number="23"></div>
+                                <div id="LC23" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> *</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L24" class="blob-num js-line-number" data-line-number="24"></div>
+                                <div id="LC24" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> *     * Ferran Vila Conesa</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L25" class="blob-num js-line-number" data-line-number="25"></div>
+                                <div id="LC25" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> *                 &lt;http://github.com/fnva&gt;</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L26" class="blob-num js-line-number" data-line-number="26"></div>
+                                <div id="LC26" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> *                 &lt;http://twitter.com/ferran_vila&gt;</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L27" class="blob-num js-line-number" data-line-number="27"></div>
+                                <div id="LC27" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> *                 &lt;mailto:ferran.vila.conesa@gmail.com&gt;</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L28" class="blob-num js-line-number" data-line-number="28"></div>
+                                <div id="LC28" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> *</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L29" class="blob-num js-line-number" data-line-number="29"></div>
+                                <div id="LC29" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> *     * Aryslan</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L30" class="blob-num js-line-number" data-line-number="30"></div>
+                                <div id="LC30" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> *                 &lt;http://github.com/Aryslan&gt;</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L31" class="blob-num js-line-number" data-line-number="31"></div>
+                                <div id="LC31" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> *                 &lt;http://twitter.com/Aryslan&gt;</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L32" class="blob-num js-line-number" data-line-number="32"></div>
+                                <div id="LC32" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> *                 &lt;mailto:ddbc@gft.com&gt;</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L33" class="blob-num js-line-number" data-line-number="33"></div>
+                                <div id="LC33" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> *</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L34" class="blob-num js-line-number" data-line-number="34"></div>
+                                <div id="LC34" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> *     * Francisco Javier Martin Bueno</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L35" class="blob-num js-line-number" data-line-number="35"></div>
+                                <div id="LC35" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> *                 &lt;https://github.com/kechis&gt;</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L36" class="blob-num js-line-number" data-line-number="36"></div>
+                                <div id="LC36" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> *                 &lt;mailto:kechis@gmail.com&gt;</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L37" class="blob-num js-line-number" data-line-number="37"></div>
+                                <div id="LC37" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> *</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L38" class="blob-num js-line-number" data-line-number="38"></div>
+                                <div id="LC38" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> * </span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L39" class="blob-num js-line-number" data-line-number="39"></div>
+                                <div id="LC39" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> */</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L40" class="blob-num js-line-number" data-line-number="40"></div>
+                                <div id="LC40" class="blob-code blob-code-inner js-file-line">
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L41" class="blob-num js-line-number" data-line-number="41"></div>
+                                <div id="LC41" class="blob-code blob-code-inner js-file-line"><span class="pl-k">package</span> <span class="pl-smi">me.adaptive.arp.api</span>;</div>
+                            </div>
+                            <div>
+                                <div id="L42" class="blob-num js-line-number" data-line-number="42"></div>
+                                <div id="LC42" class="blob-code blob-code-inner js-file-line">
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L43" class="blob-num js-line-number" data-line-number="43"></div>
+                                <div id="LC43" class="blob-code blob-code-inner js-file-line"><span class="pl-c">/**</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L44" class="blob-num js-line-number" data-line-number="44"></div>
+                                <div id="LC44" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> * Represents the basic information about the operating system.</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L45" class="blob-num js-line-number" data-line-number="45"></div>
+                                <div id="LC45" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> *</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L46" class="blob-num js-line-number" data-line-number="46"></div>
+                                <div id="LC46" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> * @author Francisco Javier Martin Bueno</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L47" class="blob-num js-line-number" data-line-number="47"></div>
+                                <div id="LC47" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> * @since v2.0</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L48" class="blob-num js-line-number" data-line-number="48"></div>
+                                <div id="LC48" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> */</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L49" class="blob-num js-line-number" data-line-number="49"></div>
+                                <div id="LC49" class="blob-code blob-code-inner js-file-line"><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">OSInfo</span> <span class="pl-k">extends</span> <span class="pl-e">APIBean</span> {</div>
+                            </div>
+                            <div>
+                                <div id="L50" class="blob-num js-line-number" data-line-number="50"></div>
+                                <div id="LC50" class="blob-code blob-code-inner js-file-line">
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L51" class="blob-num js-line-number" data-line-number="51"></div>
+                                <div id="LC51" class="blob-code blob-code-inner js-file-line"> <span class="pl-c">/**</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L52" class="blob-num js-line-number" data-line-number="52"></div>
+                                <div id="LC52" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * The name of the operating system.</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L53" class="blob-num js-line-number" data-line-number="53"></div>
+                                <div id="LC53" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     */</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L54" class="blob-num js-line-number" data-line-number="54"></div>
+                                <div id="LC54" class="blob-code blob-code-inner js-file-line"> <span class="pl-k">private</span> <span class="pl-c1">IOS</span><span class="pl-k">.</span><span class="pl-smi">Type</span> name;</div>
+                            </div>
+                            <div>
+                                <div id="L55" class="blob-num js-line-number" data-line-number="55"></div>
+                                <div id="LC55" class="blob-code blob-code-inner js-file-line">
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L56" class="blob-num js-line-number" data-line-number="56"></div>
+                                <div id="LC56" class="blob-code blob-code-inner js-file-line"> <span class="pl-c">/**</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L57" class="blob-num js-line-number" data-line-number="57"></div>
+                                <div id="LC57" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * The version/identifier of the operating system.</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L58" class="blob-num js-line-number" data-line-number="58"></div>
+                                <div id="LC58" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     */</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L59" class="blob-num js-line-number" data-line-number="59"></div>
+                                <div id="LC59" class="blob-code blob-code-inner js-file-line"> <span class="pl-k">private</span> <span class="pl-smi">Sdiving</span> version;</div>
+                            </div>
+                            <div>
+                                <div id="L60" class="blob-num js-line-number" data-line-number="60"></div>
+                                <div id="LC60" class="blob-code blob-code-inner js-file-line">
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L61" class="blob-num js-line-number" data-line-number="61"></div>
+                                <div id="LC61" class="blob-code blob-code-inner js-file-line"> <span class="pl-c">/**</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L62" class="blob-num js-line-number" data-line-number="62"></div>
+                                <div id="LC62" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * The vendor of the operating system.</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L63" class="blob-num js-line-number" data-line-number="63"></div>
+                                <div id="LC63" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     */</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L64" class="blob-num js-line-number" data-line-number="64"></div>
+                                <div id="LC64" class="blob-code blob-code-inner js-file-line"> <span class="pl-k">private</span> <span class="pl-smi">Sdiving</span> vendor;</div>
+                            </div>
+                            <div>
+                                <div id="L65" class="blob-num js-line-number" data-line-number="65"></div>
+                                <div id="LC65" class="blob-code blob-code-inner js-file-line">
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L66" class="blob-num js-line-number" data-line-number="66"></div>
+                                <div id="LC66" class="blob-code blob-code-inner js-file-line"> <span class="pl-c">/**</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L67" class="blob-num js-line-number" data-line-number="67"></div>
+                                <div id="LC67" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * Default consdivuctor</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L68" class="blob-num js-line-number" data-line-number="68"></div>
+                                <div id="LC68" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     *</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L69" class="blob-num js-line-number" data-line-number="69"></div>
+                                <div id="LC69" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * @since v2.0</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L70" class="blob-num js-line-number" data-line-number="70"></div>
+                                <div id="LC70" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     */</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L71" class="blob-num js-line-number" data-line-number="71"></div>
+                                <div id="LC71" class="blob-code blob-code-inner js-file-line"> <span class="pl-k">public</span> <span class="pl-en">OSInfo</span>() {</div>
+                            </div>
+                            <div>
+                                <div id="L72" class="blob-num js-line-number" data-line-number="72"></div>
+                                <div id="LC72" class="blob-code blob-code-inner js-file-line"> }</div>
+                            </div>
+                            <div>
+                                <div id="L73" class="blob-num js-line-number" data-line-number="73"></div>
+                                <div id="LC73" class="blob-code blob-code-inner js-file-line">
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L74" class="blob-num js-line-number" data-line-number="74"></div>
+                                <div id="LC74" class="blob-code blob-code-inner js-file-line"> <span class="pl-c">/**</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L75" class="blob-num js-line-number" data-line-number="75"></div>
+                                <div id="LC75" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * Consdivuctor used by implementation to set the OS information.</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L76" class="blob-num js-line-number" data-line-number="76"></div>
+                                <div id="LC76" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     *</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L77" class="blob-num js-line-number" data-line-number="77"></div>
+                                <div id="LC77" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * @param name    of the OS.</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L78" class="blob-num js-line-number" data-line-number="78"></div>
+                                <div id="LC78" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * @param version of the OS.</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L79" class="blob-num js-line-number" data-line-number="79"></div>
+                                <div id="LC79" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * @param vendor  of the OS.</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L80" class="blob-num js-line-number" data-line-number="80"></div>
+                                <div id="LC80" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * @since v2.0</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L81" class="blob-num js-line-number" data-line-number="81"></div>
+                                <div id="LC81" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     */</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L82" class="blob-num js-line-number" data-line-number="82"></div>
+                                <div id="LC82" class="blob-code blob-code-inner js-file-line"> <span class="pl-k">public</span> <span class="pl-en">OSInfo</span>(<span class="pl-smi">IOS</span>.<span class="pl-smi">Type</span> <span class="pl-v">name</span>, <span class="pl-smi">Sdiving</span> <span class="pl-v">version</span>, <span class="pl-smi">Sdiving</span> <span class="pl-v">vendor</span>) {</div>
+                            </div>
+                            <div>
+                                <div id="L83" class="blob-num js-line-number" data-line-number="83"></div>
+                                <div id="LC83" class="blob-code blob-code-inner js-file-line"> <span class="pl-v">this</span><span class="pl-k">.</span>name <span class="pl-k">=</span> name;</div>
+                            </div>
+                            <div>
+                                <div id="L84" class="blob-num js-line-number" data-line-number="84"></div>
+                                <div id="LC84" class="blob-code blob-code-inner js-file-line"> <span class="pl-v">this</span><span class="pl-k">.</span>version <span class="pl-k">=</span> version;</div>
+                            </div>
+                            <div>
+                                <div id="L85" class="blob-num js-line-number" data-line-number="85"></div>
+                                <div id="LC85" class="blob-code blob-code-inner js-file-line"> <span class="pl-v">this</span><span class="pl-k">.</span>vendor <span class="pl-k">=</span> vendor;</div>
+                            </div>
+                            <div>
+                                <div id="L86" class="blob-num js-line-number" data-line-number="86"></div>
+                                <div id="LC86" class="blob-code blob-code-inner js-file-line"> }</div>
+                            </div>
+                            <div>
+                                <div id="L87" class="blob-num js-line-number" data-line-number="87"></div>
+                                <div id="LC87" class="blob-code blob-code-inner js-file-line">
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L88" class="blob-num js-line-number" data-line-number="88"></div>
+                                <div id="LC88" class="blob-code blob-code-inner js-file-line"> <span class="pl-c">/**</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L89" class="blob-num js-line-number" data-line-number="89"></div>
+                                <div id="LC89" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * Returns the name of the operating system.</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L90" class="blob-num js-line-number" data-line-number="90"></div>
+                                <div id="LC90" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     *</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L91" class="blob-num js-line-number" data-line-number="91"></div>
+                                <div id="LC91" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * @return OS name.</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L92" class="blob-num js-line-number" data-line-number="92"></div>
+                                <div id="LC92" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * @since v2.0</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L93" class="blob-num js-line-number" data-line-number="93"></div>
+                                <div id="LC93" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     */</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L94" class="blob-num js-line-number" data-line-number="94"></div>
+                                <div id="LC94" class="blob-code blob-code-inner js-file-line"> <span class="pl-k">public</span> <span class="pl-smi">IOS</span>.<span class="pl-smi">Type</span> <span class="pl-en">getName</span>() {</div>
+                            </div>
+                            <div>
+                                <div id="L95" class="blob-num js-line-number" data-line-number="95"></div>
+                                <div id="LC95" class="blob-code blob-code-inner js-file-line"> <span class="pl-k">return</span> name;</div>
+                            </div>
+                            <div>
+                                <div id="L96" class="blob-num js-line-number" data-line-number="96"></div>
+                                <div id="LC96" class="blob-code blob-code-inner js-file-line"> }</div>
+                            </div>
+                            <div>
+                                <div id="L97" class="blob-num js-line-number" data-line-number="97"></div>
+                                <div id="LC97" class="blob-code blob-code-inner js-file-line">
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L98" class="blob-num js-line-number" data-line-number="98"></div>
+                                <div id="LC98" class="blob-code blob-code-inner js-file-line"> <span class="pl-c">/**</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L99" class="blob-num js-line-number" data-line-number="99"></div>
+                                <div id="LC99" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * Returns the version of the operating system.</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L100" class="blob-num js-line-number" data-line-number="100"></div>
+                                <div id="LC100" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     *</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L101" class="blob-num js-line-number" data-line-number="101"></div>
+                                <div id="LC101" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * @return OS version.</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L102" class="blob-num js-line-number" data-line-number="102"></div>
+                                <div id="LC102" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * @since v2.0</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L103" class="blob-num js-line-number" data-line-number="103"></div>
+                                <div id="LC103" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     */</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L104" class="blob-num js-line-number" data-line-number="104"></div>
+                                <div id="LC104" class="blob-code blob-code-inner js-file-line"> <span class="pl-k">public</span> <span class="pl-smi">Sdiving</span> <span class="pl-en">getVersion</span>() {</div>
+                            </div>
+                            <div>
+                                <div id="L105" class="blob-num js-line-number" data-line-number="105"></div>
+                                <div id="LC105" class="blob-code blob-code-inner js-file-line"> <span class="pl-k">return</span> version;</div>
+                            </div>
+                            <div>
+                                <div id="L106" class="blob-num js-line-number" data-line-number="106"></div>
+                                <div id="LC106" class="blob-code blob-code-inner js-file-line"> }</div>
+                            </div>
+                            <div>
+                                <div id="L107" class="blob-num js-line-number" data-line-number="107"></div>
+                                <div id="LC107" class="blob-code blob-code-inner js-file-line">
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L108" class="blob-num js-line-number" data-line-number="108"></div>
+                                <div id="LC108" class="blob-code blob-code-inner js-file-line"> <span class="pl-c">/**</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L109" class="blob-num js-line-number" data-line-number="109"></div>
+                                <div id="LC109" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * Returns the vendor of the operating system.</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L110" class="blob-num js-line-number" data-line-number="110"></div>
+                                <div id="LC110" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     *</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L111" class="blob-num js-line-number" data-line-number="111"></div>
+                                <div id="LC111" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * @return OS vendor.</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L112" class="blob-num js-line-number" data-line-number="112"></div>
+                                <div id="LC112" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * @since v2.0</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L113" class="blob-num js-line-number" data-line-number="113"></div>
+                                <div id="LC113" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     */</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L114" class="blob-num js-line-number" data-line-number="114"></div>
+                                <div id="LC114" class="blob-code blob-code-inner js-file-line"> <span class="pl-k">public</span> <span class="pl-smi">Sdiving</span> <span class="pl-en">getVendor</span>() {</div>
+                            </div>
+                            <div>
+                                <div id="L115" class="blob-num js-line-number" data-line-number="115"></div>
+                                <div id="LC115" class="blob-code blob-code-inner js-file-line"> <span class="pl-k">return</span> vendor;</div>
+                            </div>
+                            <div>
+                                <div id="L116" class="blob-num js-line-number" data-line-number="116"></div>
+                                <div id="LC116" class="blob-code blob-code-inner js-file-line"> }</div>
+                            </div>
+                            <div>
+                                <div id="L117" class="blob-num js-line-number" data-line-number="117"></div>
+                                <div id="LC117" class="blob-code blob-code-inner js-file-line">
+                                </div>
+                            </div>
+                            <div>
+                                <div id="L118" class="blob-num js-line-number" data-line-number="118"></div>
+                                <div id="LC118" class="blob-code blob-code-inner js-file-line">}</div>
+                            </div>
+
+
+                        </div>

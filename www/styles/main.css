@@ -1463,3 +1463,20 @@ a {
     margin-left: 3px;
     margin-top: 10px;
 }
+
+.blob-code-inner {
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 12px;
+    color: #333;
+    /* white-space: pre; */
+
+    overflow: visible;
+    word-wrap: normal;
+}
+
+.blob-code {
+    position: relative;
+    padding-left: 10px;
+    padding-right: 10px;
+    vertical-align: top;
+}

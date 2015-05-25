@@ -2,55 +2,6 @@
 
     <div class="scrollable" ui-state="searchBar">
 
-        <div ng-if="Ui.active('searchBar')" type="search" class="wrapper-search">
-
-            <input ng-model="searchText" class="form-control scrollable-header" placeholder="Search.." />
-
-            <!-- <div class="scrollable-content">
-                <div class="list-group">
-
-                    <div ng-repeat="item in scrollItems | filter:searchText" ng-click="itemMainListSelected($index)" class="list-group-item name-item-list">
-
-                        <div class="row">
-                            <div class="col-xs-10 name-item-list">
-                                <p> testing {{item.name}} ({{item.size}})</p>
-                                <p class="description-item-list">{{item.description}}</p>
-                            </div>
-                            <div class="col-xs-2  arrow-list-center">
-                                <i class="fa fa-chevron-right pull-right"></i>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>-->
-
-            <div class="scrollable-content list-content">
-                <div class="list-group">
-                    <div ng-repeat="item in unit_list.list | filter:searchText" ng-click="itemUnitListSelected(item.id)" class="list-group-item item-list">
-
-                        <!-- {{item.name}} ({{item.size}})
-                   <i class="fa fa-chevron-right pull-right"></i>-->
-
-                        <div class="row">
-                            <div class="col-xs-10">
-                                <p class="name-item-list">{{item.name}} ({{item.size}})</p>
-                                <p class="description-item-list">{{item.description}}</p>
-                            </div>
-                            <div class="col-xs-2  arrow-list-center">
-                                <i class="fa fa-chevron-right pull-right"></i>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-
-
-        </div>
-
         <div class="section border-bottom-line-subtitle subToolBar">
 
             <!--<div class="section">
@@ -81,7 +32,53 @@
 
         </div>
 
-        <div class="scrollable-content list-content">
+        <div ng-if="Ui.active('searchBar')" type="search" class="wrapper-search">
+
+            <input ng-model="searchText" class="form-control scrollable-header" placeholder="Search.." style="margin-top: 39px; margin-bottom: -28px;" />
+
+            <!-- <div class="scrollable-content">
+                <div class="list-group">
+
+                    <div ng-repeat="item in scrollItems | filter:searchText" ng-click="itemMainListSelected($index)" class="list-group-item name-item-list">
+
+                        <div class="row">
+                            <div class="col-xs-10 name-item-list">
+                                <p> testing {{item.name}} ({{item.size}})</p>
+                                <p class="description-item-list">{{item.description}}</p>
+                            </div>
+                            <div class="col-xs-2  arrow-list-center">
+                                <i class="fa fa-chevron-right pull-right"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>-->
+
+            <div class="scrollable-content list-content">
+                <div class="list-group">
+                    <div ng-repeat="item in unit_list.list | filter:searchText" ng-click="itemUnitListSelected(item.id)" class="list-group-item item-list">
+
+                        <!-- {{item.name}} ({{item.size}})
+                   <i class="fa fa-chevron-right pull-right"></i>-->
+
+                        <div class="row">
+                            <div class="col-xs-10">
+                                <p class="name-item-list">{{item.name}} ({{item.size}})</p>
+                                <p class="description-item-list">{{item.description}}</p>
+                            </div>
+                            <div class="col-xs-2  arrow-list-center">
+                                <i class="fa fa-chevron-right pull-right"></i>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div ng-if="!Ui.active('searchBar')" class="scrollable-content list-content">
             <div class="list-group">
                 <div ng-repeat="item in unit_list.list" ng-click="itemUnitListSelected($index)" class="list-group-item item-list">
 

@@ -100,8 +100,12 @@ app.config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider
             templateUrl: 'views/methods/method-ButtonListener.html',
             //controller: 'MainController',
             //resolve: resolve
+        }).state("descriptor-method", {
+            url: "/descriptor-method",
+            templateUrl: 'views/methods/descriptor-method.html',
+            //controller: 'MainController',
+            //resolve: resolve
         });
-
 
 }]);
 

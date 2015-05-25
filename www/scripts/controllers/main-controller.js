@@ -5,51 +5,48 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
     $log.debug("MainController");
 
     $scope.isChecked = false;
-
     var currentLocation;
     $scope.isSlideBack = false;
     $scope.title = "Adaptive Showcase";
     $scope.status = statusNextSlice;
     var isAddToFavorites = false;
-
+    
     $scope.go = function (location) {
         $state.transitionTo(location);
     };
-
+    
     $scope.isHomePage = function () {
         // console.log("******************************");
         //console.log("Home Page: " + $state.is("home"));
-
-
+        
         var heightMethodContent = $('.method-content').innerHeight();
         var heightFormMethodContent = $('.form-method-content').innerHeight();
         var offSetY = 10;
-
+        
         console.log("win: " + $(window).height() + ", meth: " + heightMethodContent + ", Final height: " + (($(window).height()) - heightMethodContent));
-
+        
         if ((heightFormMethodContent - heightMethodContent - offSetY) > 75)
-
+            
             $('.response-content').css({
             //        'height': (($(window).height()) - heightMethodContent) + 'px'
             'height': (heightFormMethodContent - heightMethodContent) + 'px'
-
+            
         });
-
-
+ 
         if ($state.is("home") || $state.is("units-list") || $state.is("methods-list")) {
             return false;
         } else {
             return true;
         }
     };
-
+    
     $scope.inputTextSearch = false;
-
+    
     $scope.focusSearchBar = function () {
         $scope.inputTextSearch = true;
         console.log("focusSearchBar:" + $scope.inputTextSearch);
     }
-
+    
     $scope.setBackTransitionServices = function () {
         $state.transitionTo("home");
     };
@@ -57,25 +54,29 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
     $scope.setBackTransitionUnits = function () {
         $state.transitionTo("units-list");
     };
-
+    
     $scope.setBackTransitionMethods = function () {
         $state.transitionTo("methods-list");
     };
-
+    
+    $scope.setBackTransitionForm = function () {
+        $state.transitionTo("form-submit");
+    };
+    
     if (isFirstState) {
         oldLocation = "home";
         isFirstState = false;
     }
-
+    
     $scope.status = statusNextSlice;
     $scope.scrollItems = dataInfo;
-
+    
     $scope.main_list = dataInfo;
-
+    
     $scope.itemMainListSelected = function (id) {
-
+        
         if (currentLocation.indexOf("uiSidebarLeft") !== -1) {
-
+            
         } else {
             $log.debug("itemMainListSelected");
             var lengthList = dataInfo.length;
@@ -103,15 +104,15 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
     };
 
     $scope.itemUnitListSelected = function (id) {
-
+        
         if (currentLocation.indexOf("uiSidebarLeft") !== -1) {
-
+            
         } else {
             console.log('else');
             $scope.isSlideBack = false;
             statusNextSlice = false;
             var lengthList2 = unitList.list.length;
-
+            
             for (var i2 = 0; i2 < lengthList2; i2++) {
 
                 if (id === unitList.list[i2].id) {
@@ -123,11 +124,11 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
             }
         }
     };
-
+    
     /*$scope.itemUnitListSelected = function (item) {
         console.log('test: ' + item);
     }*/
-
+    
     $scope.itemMethodListSelected = function (id, location) {
 
         if (currentLocation.indexOf("uiSidebarLeft") !== -1 || isAddToFavorites) {
@@ -171,6 +172,21 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
         }
 
         /* console.log("isAddToFavorites: " + isAddToFavorites);*/
+
+    };
+
+    $scope.returnToMethodPage = function () {
+
+
+        if (detailList.name.indexOf("getOSInfo") !== -1) {
+            $state.transitionTo('method-getOSInfo');
+        } else if (detailList.name.indexOf("getResourceLiteral") !== -1) {
+            $state.transitionTo('method-getResourceLiteral');
+        } else if (detailList.name.indexOf("getContactsForFields") !== -1) {
+            $state.transitionTo('method-getContactsForFields');
+        } else if (detailList.name.indexOf("ButtonListener") !== -1) {
+            $state.transitionTo('method-ButtonListener');
+        } else {}
 
     };
 
@@ -233,16 +249,16 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
 
     $scope.addFavorites = function (id) {
 
-        
+
         isAddToFavorites = true;
- 
+
 
         if ($scope.method_list.list[id].favorite)
             $scope.method_list.list[id].favorite = false;
         else
             $scope.method_list.list[id].favorite = true;
     }
-  
+
     $scope.$watch('isChecked', function (newV) {
 
         /* console.log("isChecked");
@@ -262,7 +278,7 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
     }, true);
 
     $scope.setFocus = function () {
-
+        //        $('.wrapper-search').css('padding-top', "0px");
         if ($scope.isChecked)
             $scope.isChecked = false;
         else
