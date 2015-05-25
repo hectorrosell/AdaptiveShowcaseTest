@@ -1340,7 +1340,7 @@ a {
     border-radius: 26%;
     text-align: center;
     width: 28px;
-    margin-left: 1px;
+    margin-left: -6px;
     margin-top: 10px;
 }
 
@@ -1375,7 +1375,7 @@ a {
 .form-add {
     /* display: block; */
 
-    width: 79%;
+    width: 80%;
     /* height: 29px; */
 
     padding: 3px 8px;
@@ -1406,7 +1406,8 @@ a {
     vertical-align: middle;
     background-color: #fff;
     background-image: mediumblue;
-    border-top: 1px solid #ccc;
+    /*    border-top: 1px solid #ccc;*/
+
     border-radius: 0px;
     /* -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); */
     /* box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); */
@@ -1437,4 +1438,28 @@ a {
     font-size: 1em;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
+}
+
+.delete-all-item {
+    margin-right: -11px;
+    color: #fff;
+    background-color: #FC6A6A;
+    padding: 6px 8px;
+    border-radius: 26%;
+    text-align: center;
+    width: 28px;
+    margin-left: 1px;
+    margin-top: 10px;
+}
+
+.delete-item-defauld {
+    margin-right: 0px;
+    color: #fff;
+    background-color: #FC6A6A;
+    padding: 6px 8px;
+    border-radius: 26%;
+    text-align: center;
+    width: 28px;
+    margin-left: 3px;
+    margin-top: 10px;
 }

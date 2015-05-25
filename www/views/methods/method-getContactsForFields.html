@@ -32,7 +32,9 @@
                         <br>
                         <p><b><u>Parameters</u></b>
                         </p>
-                        <p><b>fields </b>[FieldsGroup...]: to get for each Contact</p>
+                        <p><b>fields </b>[<a style="color: #428BCA;" href="">FieldsGroup</a> ...]: to get for each Contact</p>
+
+
 
                         <!--
                     <div>
@@ -57,7 +59,7 @@
                                     <a class="add-item" ng-click="addItem()"><i class="fa fa-plus"></i></a>
                                 </div>
 
-                                <div class="col-xs-10">
+                                <div class="col-xs-10" style="margin-left: -4px; padding-right: 0px;">
                                     <li ng-repeat="item in items.data" id="item{{item.id}}" style="height: 28px;padding: 3px;margin: 3px;">
                                         <!--                                    <a href="#"> 0 Seleccionados</a>-->
                                         <select class="form-add">
@@ -70,7 +72,7 @@
                                             <option>Field 5</option>
 
                                         </select>
-                                        <a ng-click="deleteItem($index)" class="delete-item"><i class="fa fa-minus"></i></a>
+                                        <a ng-click="deleteItem($index)" class="delete-item-defauld"><i class="fa fa-minus"></i></a>
                                     </li>
                                 </div>
 

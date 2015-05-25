@@ -43,7 +43,7 @@ $(window).resize(function () {
     var heightFormMethodContent = $('.form-method-content').innerHeight();
     var offSetY = 10;
 
-    console.log("win: " + $(window).height() + ", meth: " + heightMethodContent + ", Final height: " + (($(window).height()) - heightMethodContent));
+    //console.log("win: " + $(window).height() + ", meth: " + heightMethodContent + ", Final height: " + (($(window).height()) - heightMethodContent));
 
     if ((heightFormMethodContent - heightMethodContent - offSetY) > 75)
 

@@ -2,8 +2,22 @@ var dataInfo = [
     {
         id: 0,
         name: "Application",
-        list: [],
-        size: 0,
+        list: [
+            {
+                id: 0,
+                name: "IGlobalization",
+                size: 1,
+                list: [{
+                        id: 0,
+                        name: "getResourceLiteral",
+                        description: "Interface for Managing the Cloud operations"
+                    }
+                ],
+                description: "Interface for Managing the Cloud operations"
+            }
+
+        ],
+        size: 1,
         description: "Description text for service Application"
     },
     {
@@ -29,53 +43,6 @@ var dataInfo = [
         list: [],
         description: "Description text"
     },
-
-    {
-        id: 4,
-        name: "Globalization",
-        list: [
-
-            {
-                id: 0,
-                name: "IGlobalization",
-                size: 1,
-                list: [{
-                        id: 0,
-                        name: "getResourceLiteral",
-                        description: "Interface for Managing the Cloud operations"
-                    }
-                ],
-                description: "Interface for Managing the Cloud operations"
-            }
-
-        ],
-        size: 1,
-        description: "Description text"
-    }
-    ,
-    {
-        id: 5,
-        name: "IOS",
-        list: [
-
-            {
-                id: 0,
-                name: "IOS",
-                size: 1,
-                list: [
-                    {
-                        id: 0,
-                        name: "getOSInfo",
-                        description: "Interface for Managing the Cloud operations"
-                    }
-                ],
-                description: "Interface for Managing the Cloud operations"
-            }
-
-        ],
-        size: 0,
-        description: "Description text"
-            },
     {
         id: 6,
         name: "Media",
@@ -156,10 +123,23 @@ var dataInfo = [
                     }
                 ],
                 description: "Interface for Managing the Cloud operations"
+            },
+            {
+                id: 1,
+                name: "IOS",
+                size: 1,
+                list: [
+                    {
+                        id: 0,
+                        name: "getOSInfo",
+                        description: "Interface for Managing the Cloud operations"
+                    }
+                ],
+                description: "Interface for Managing the Cloud operations"
             }
 
         ],
-        size: 0,
+        size: 2,
         description: "Description text"
             },
     {

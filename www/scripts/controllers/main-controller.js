@@ -233,23 +233,16 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
 
     $scope.addFavorites = function (id) {
 
-        console.log("add favorites");
+        
         isAddToFavorites = true;
-
-        console.log($scope.method_list.list[id]);
-        console.log($scope.method_list.list[id]);
+ 
 
         if ($scope.method_list.list[id].favorite)
             $scope.method_list.list[id].favorite = false;
         else
             $scope.method_list.list[id].favorite = true;
     }
-
-    /*$scope.$watch('searchBar', function (newV) {
-        console.log("searchBar");
-        newV && $('#name').focus();
-    }, true);*/
-
+  
     $scope.$watch('isChecked', function (newV) {
 
         /* console.log("isChecked");
@@ -284,8 +277,8 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
     };
 
     $scope.addItem = function (index) {
-        console.log("$scope.newItemName: " + $scope.newItemName);
-        console.log("$$scope.items.data.length: " + $scope.items.data.length);
+        //console.log("$scope.newItemName: " + $scope.newItemName);
+        //console.log("$$scope.items.data.length: " + $scope.items.data.length);
         items.data.push({
             id: $scope.items.data.length + 1,
             title: "New Listener"
@@ -294,7 +287,7 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
 
     $scope.deleteAllItems = function () {
 
-        console.log("delete");
+        //console.log("delete");
         for (var i = 0; i < items.data.length; i++) {
 
             items.data.splice(i);
@@ -306,13 +299,13 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
     $scope.$watch(function () {
         return window.innerWidth;
     }, function (value) {
-        console.log(value);
+        //console.log(value);
 
         var heightMethodContent = $('.method-content').innerHeight();
         var heightFormMethodContent = $('.form-method-content').innerHeight();
         var offSetY = 10;
 
-        console.log("win: " + $(window).height() + ", meth: " + heightMethodContent + ", Final height: " + (($(window).height()) - heightMethodContent));
+        //console.log("win: " + $(window).height() + ", meth: " + heightMethodContent + ", Final height: " + (($(window).height()) - heightMethodContent));
 
         if ((heightFormMethodContent - heightMethodContent - offSetY) > 85)
 

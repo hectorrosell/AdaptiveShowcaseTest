@@ -37,8 +37,6 @@
                     <div>
                         <ul ng-controller="MainController" class="nav">
 
-
-
                             <input type="text" value="ItemName" ng-model="newItemName" placeholder="name of new item...">
                             <button ng-click="addItem()">Add Me</button>
 
@@ -58,14 +56,15 @@
                                         <p><i class="fa fa-plus"></i>
                                         </p>
                                     </div>
-                                    <div class=" delete-item" ng-click="deleteAllItems()">
+                                    <div class=" delete-all-item" ng-click="deleteAllItems()">
                                         <p><i class="fa fa-minus"></i>
                                         </p>
                                     </div>
 
                                 </div>
-                                <div class="col-xs-10">
-                                    <div ng-repeat="item in items.data" id="item{{item.id}}" style="height: 28px;padding: 3px;margin: 3px;">
+                                <div class="col-xs-10" style="
+    margin-left: -16px; padding-right: 0px; margin-bottom: 0.8em;">
+                                    <div ng-repeat="item in items.data" id="item{{item.id}}" style="height: 33px;padding-top: 7px; padding-bottom: 7px; margin-top: -1px; border: 1px solid #E2E2E2;">
                                         <!--                                    <a href="#"> 0 Seleccionados</a>-->
 
                                         <div style="" class="col-xs-10 form-list">
