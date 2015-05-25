@@ -1,6 +1,6 @@
 node_modules/
 bower_components/
-dist/
+dist/www/
 .idea/
 .tmp/
 .sass-cache/

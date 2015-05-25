@@ -18,7 +18,7 @@ module.exports = function (grunt) {
     // configurable paths
     var yeomanConfig = {
         app: 'www',
-        dist: 'dist',
+        dist: 'dist/www',
         doc: 'doc'
     };
 	
@@ -29,6 +29,7 @@ module.exports = function (grunt) {
     grunt.initConfig({
         yeoman: yeomanConfig,
         watch: {
+			 
             compass: {
                 files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
                 tasks: ['compass:server', 'autoprefixer'],
@@ -48,7 +49,8 @@ module.exports = function (grunt) {
                     '{.tmp,<%= yeoman.app %>}/styles/**/*.css',
                     '<%= yeoman.app %>/scripts/**/*.js',
                     '<%= yeoman.app %>/resources/**/*',
-                    '<%= yeoman.app %>/styles/images/**/*.{png,jpg,jpeg,gif,webp,svg}'
+                    '<%= yeoman.app %>/styles/images/**/*.{png,jpg,jpeg,gif,webp,svg}',
+					['<%= yeoman.app %>/scripts/*.ts']
                 ]
             },
             //            karma: {
@@ -65,6 +67,24 @@ module.exports = function (grunt) {
             //                tasks: ['docular', 'open:doc']
             //}
         },
+		
+		// Compile Typescript
+        ts: {
+          default : {
+            src: ["'<%= yeoman.app %>/**/*.ts","<%= yeoman.app %>/*.ts", "!node_modules/**/*.ts"],
+            watch: '<%= yeoman.app %>',
+            out: "<%= yeoman.app %>/main.min.js"
+              
+          }
+        },
+         typescript: {
+            base: {
+            src: ['<%= yeoman.app %>/scripts/**/*.ts'],
+            dest: '<%= yeoman.app %>/scripts/',
+            options: { declaration: false, sourceMap: false, module: 'commonjs', target: 'es5', basePath: '<%= yeoman.app %>/scripts/', }
+          }
+        },
+		
         autoprefixer: {
             options: ['last 1 version'],
             dist: {
@@ -481,6 +501,8 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-docular');
     grunt.loadNpmTasks('grunt-connect-proxy');
     grunt.loadNpmTasks('grunt-contrib-jshint');
+	grunt.loadNpmTasks("grunt-ts");
+    grunt.loadNpmTasks('grunt-typescript');
 
     grunt.registerTask('server', function (target) {
         if (target === 'dist') {
@@ -499,6 +521,7 @@ module.exports = function (grunt) {
     });
 
     grunt.registerTask('test', [
+	    'typescript',
         'clean:server',
         'concurrent:test',
         'autoprefixer',
@@ -525,6 +548,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('dist', [
         'clean:dist',
+		'typescript',
         'compass:dist',
         'autoprefixer',
         'useminPrepare',
@@ -544,4 +568,6 @@ module.exports = function (grunt) {
     grunt.registerTask('default', [
         'server'
     ]);
+	
+	grunt.registerTask("ts", ["ts"]);
 };
