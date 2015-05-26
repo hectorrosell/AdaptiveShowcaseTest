@@ -2,20 +2,69 @@
 
     <div class="scrollable" ui-state="searchBar">
         <div ng-if="Ui.active('searchBar')" type="search" class="wrapper-search">
-            
+
             <!--<input id="inputTextSearch" type="text" pattern="\-?\d+(\.\d{0,})?" ng-model="searchText" class="form-control scrollable-header inputField" placeholder="Search.." autofocus />-->
-            
+
             <input id="name" ng-model="searchText" type="text" pattern="\-?\d+(\.\d{0,})?" class="form-control scrollable-header inputField" placeholder="Search.." />
-            
+
             <!--<input xng-focus='isChecked2'>-->
-            
+
             <div class="scrollable-content">
                 <div class="list-group">
-                    
+
                     <div ng-repeat="item in scrollItems | filter:searchText" ng-click="itemMainListSelected(item.id)" class="list-group-item item-list">
 
                         <div class="row">
-                            <div class="col-xs-10 ">
+
+                            <div ng-if="$index==0" class="col-xs-2  arrow-list-center text-center">
+                                <i class="fa fa-mobile fa-3x emoji" styles="font-size: 2em;"></i>
+                            </div>
+                            <div ng-if="$index==1" class="col-xs-2  arrow-list-center text-center">
+                                <i class="fa fa-shopping-cart fa-2x emoji" styles="font-size: 2em;"></i>
+                            </div>
+                            <div ng-if="$index==2" class="col-xs-2  arrow-list-center text-center">
+                                <i class="fa fa-user fa-2x emoji" styles="font-size: 2em;"></i>
+                            </div>
+                            <div ng-if="$index==3" class="col-xs-2  arrow-list-center text-center">
+                                <i class="fa fa-database fa-2x emoji" styles="font-size: 2em;"></i>
+                            </div>
+                            <div ng-if="$index==4" class="col-xs-2  arrow-list-center text-center">
+                                <i class="fa fa-laptop fa-2x emoji" styles="font-size: 2em;"></i>
+                            </div>
+                            <div ng-if="$index==5" class="col-xs-2  arrow-list-center text-center">
+                                <i class="fa fa-exclamation-circle fa-2x emoji" styles="font-size: 2em;"></i>
+                            </div>
+                            <div ng-if="$index==6" class="col-xs-2  arrow-list-center text-center">
+                                <i class="fa fa-book fa-2x emoji" styles="font-size: 2em;"></i>
+                            </div>
+                            <div ng-if="$index==7" class="col-xs-2  arrow-list-center text-center">
+                                <i class="fa fa-rss fa-2x emoji" styles="font-size: 2em;"></i>
+                            </div>
+                            <div ng-if="$index==8" class="col-xs-2  arrow-list-center text-center">
+                                <i class="fa fa-lock fa-2x emoji" styles="font-size: 2em;"></i>
+                            </div>
+                            <div ng-if="$index==9" class="col-xs-2  arrow-list-center text-center">
+                                <i class="fa fa-send-o fa-2x emoji" styles="font-size: 2em;"></i>
+                            </div>
+                            <div ng-if="$index==10" class="col-xs-2  arrow-list-center text-center">
+                                <i class="fa fa-users fa-2x emoji" styles="font-size: 2em;"></i>
+                            </div>
+                            <div ng-if="$index==11" class="col-xs-2  arrow-list-center text-center">
+                                <i class="fa fa-desktop fa-2x emoji" styles="font-size: 2em;"></i>
+                            </div>
+                            <div ng-if="$index==12" class="col-xs-2  arrow-list-center text-center">
+                                <i class="fa fa-paint-brush fa-2x emoji" styles="font-size: 2em;"></i>
+                            </div>
+                            <div ng-if="$index==13" class="col-xs-2  arrow-list-center text-center">
+                                <i class="fa fa-cog fa-2x emoji" styles="font-size: 2em;"></i>
+                            </div>
+                            <div ng-if="$index==14" class="col-xs-2  arrow-list-center text-center">
+                                <i class="fa fa-paint-brush fa-2x emoji" styles="font-size: 2em;"></i>
+                            </div>
+
+
+
+                            <div class="col-xs-8 " style="padding-left: 0px;">
                                 <p class="name-item-list"> {{item.name}} ({{item.size}})</p>
                                 <p class="description-item-list">{{item.description}}</p>
                             </div>
@@ -23,14 +72,17 @@
                                 <i class="fa fa-chevron-right pull-right"></i>
                             </div>
                         </div>
+
+
+
                     </div>
                 </div>
             </div>
         </div>
-        
+
         <div class="scrollable-content main-list-content">
             <div class="list-group">
-                
+
                 <!--<div ng-click="itemMainListSelected(0)" class="list-group-item item-list">
                     <div class="row">
                         <div class="col-xs-2  arrow-list-center text-center">

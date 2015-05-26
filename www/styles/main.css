@@ -1464,7 +1464,7 @@ a {
     margin-top: 10px;
 }
 
-.blob-code-inner {
+.descriptor-text-method {
     font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
     font-size: 12px;
     color: #333;
@@ -1472,9 +1472,6 @@ a {
 
     overflow: visible;
     word-wrap: normal;
-}
-
-.blob-code {
     position: relative;
     padding-left: 10px;
     padding-right: 10px;

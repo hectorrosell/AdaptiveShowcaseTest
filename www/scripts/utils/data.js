@@ -135,7 +135,7 @@ var dataInfo = [
                 ],
                 description: "Interface for Managing the Cloud operations"
             }
-
+            
         ],
         size: 2,
         description: "Description text"
