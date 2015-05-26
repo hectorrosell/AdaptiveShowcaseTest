@@ -7,8 +7,15 @@ var oldLocation = '';
 
 var counterStates = 0;
 var isFirstState = true;
+var firstTime;
 
-//(function () {
+var currentServiceId;
+var currentUnitId;
+var currentMethodId;
+
+/*var currentServiceId;
+var currentUnitId;
+var currentMethodId;*/
 
 /*var resolve = {
     delay: function ($q, $timeout) {
@@ -49,7 +56,7 @@ $(window).resize(function () {
 
         $('.response-content').css({
         //        'height': (($(window).height()) - heightMethodContent) + 'px'
-        'height': (heightFormMethodContent - heightMethodContent ) + 'px'
+        'height': (heightFormMethodContent - heightMethodContent) + 'px'
 
     });
 

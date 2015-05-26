@@ -2,7 +2,27 @@
 
 app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$location', '$route', '$timeout', function ($rootScope, $scope, $log, $state, $location, $route, $timeout) {
 
+    $scope.favoritesMethods = [];
+
     $log.debug("MainController");
+
+    console.log("firstTime: " + localStorage.getItem("firstTime"));
+
+    if (localStorage.getItem("firstTime") === null) {
+        localStorage.setItem("data", JSON.stringify(dataInfo));
+        localStorage.setItem("firstTime", false);
+        console.log("firstTime 2 test");
+
+    } else if (!localStorage.getItem("firstTime")) {
+        localStorage.setItem("data", JSON.stringify(dataInfo));
+        localStorage.setItem("firstTime", false);
+        console.log("firstTime test");
+
+    } else {
+        var retrieveData = localStorage.getItem("data");
+        dataInfo = JSON.parse(retrieveData);
+        console.log("no firstTime");
+    }
 
     $scope.isChecked = false;
     var currentLocation;
@@ -10,43 +30,72 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
     $scope.title = "Adaptive Showcase";
     $scope.status = statusNextSlice;
     var isAddToFavorites = false;
-    
+
     $scope.go = function (location) {
+
+        $scope.favoritesMethods = [];
+
+        for (var i = 0; i < dataInfo.length; i++) {
+
+            console.log("test 1: " + dataInfo.length);
+
+            for (var j = 0; j < dataInfo[i].list.length; j++) {
+
+                console.log("test 2: " + dataInfo[i].list.length);
+                console.log("test 22: " + dataInfo[i].list[j].name);
+
+                for (var y = 0; y < dataInfo[i].list[j].size; y++) {
+
+                    //for (var x = 0; x < dataInfo[i].list[j].list[y].length; x++) {
+
+                    console.log("test 3: " + dataInfo[i].list[j].list[y].name);
+                    console.log("test 33: " + dataInfo[i].list[j].list[y].favorite);
+
+                    if (dataInfo[i].list[j].list[y].favorite)
+                        $scope.favoritesMethods.push(dataInfo[i].list[j].list[y]);
+
+                    // }
+                }
+            }
+        }
+
         $state.transitionTo(location);
     };
-    
+
     $scope.isHomePage = function () {
         // console.log("******************************");
         //console.log("Home Page: " + $state.is("home"));
-        
+
         var heightMethodContent = $('.method-content').innerHeight();
         var heightFormMethodContent = $('.form-method-content').innerHeight();
         var offSetY = 10;
-        
-        console.log("win: " + $(window).height() + ", meth: " + heightMethodContent + ", Final height: " + (($(window).height()) - heightMethodContent));
-        
+
+        /*
+                console.log("win: " + $(window).height() + ", meth: " + heightMethodContent + ", Final height: " + (($(window).height()) - heightMethodContent));
+        */
+
         if ((heightFormMethodContent - heightMethodContent - offSetY) > 75)
-            
+
             $('.response-content').css({
             //        'height': (($(window).height()) - heightMethodContent) + 'px'
             'height': (heightFormMethodContent - heightMethodContent) + 'px'
-            
+
         });
- 
+
         if ($state.is("home") || $state.is("units-list") || $state.is("methods-list")) {
             return false;
         } else {
             return true;
         }
     };
-    
+
     $scope.inputTextSearch = false;
-    
+
     $scope.focusSearchBar = function () {
         $scope.inputTextSearch = true;
         console.log("focusSearchBar:" + $scope.inputTextSearch);
     }
-    
+
     $scope.setBackTransitionServices = function () {
         $state.transitionTo("home");
     };
@@ -54,29 +103,32 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
     $scope.setBackTransitionUnits = function () {
         $state.transitionTo("units-list");
     };
-    
+
     $scope.setBackTransitionMethods = function () {
         $state.transitionTo("methods-list");
     };
-    
+
     $scope.setBackTransitionForm = function () {
         $state.transitionTo("form-submit");
     };
-    
+
     if (isFirstState) {
         oldLocation = "home";
         isFirstState = false;
     }
-    
+
     $scope.status = statusNextSlice;
     $scope.scrollItems = dataInfo;
-    
     $scope.main_list = dataInfo;
-    
+
     $scope.itemMainListSelected = function (id) {
-        
+
+        currentServiceId = id;
+
+        $log.debug("test test currentServiceId: " + currentServiceId);
+
         if (currentLocation.indexOf("uiSidebarLeft") !== -1) {
-            
+
         } else {
             $log.debug("itemMainListSelected");
             var lengthList = dataInfo.length;
@@ -86,16 +138,6 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
                     unitList = $scope.main_list[i];
                     $scope.unit_list = unitList;
                     console.log(unitList);
-
-                    //                    if (id === 0)
-                    //                        $state.transitionTo('method-getOSInfo');
-                    //                    else if (id === 1)
-                    //                        $state.transitionTo('method-getResourceLiteral');
-                    //                    else if (id === 2)
-                    //                        $state.transitionTo('method-getContactsForFields');
-                    //                    else
-                    //                        $state.transitionTo('method-ButtonListener');
-
                     $state.transitionTo('units-list');
                 }
 
@@ -104,15 +146,17 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
     };
 
     $scope.itemUnitListSelected = function (id) {
-        
+
+        currentUnitId = id;
+
         if (currentLocation.indexOf("uiSidebarLeft") !== -1) {
-            
+
         } else {
             console.log('else');
             $scope.isSlideBack = false;
             statusNextSlice = false;
             var lengthList2 = unitList.list.length;
-            
+
             for (var i2 = 0; i2 < lengthList2; i2++) {
 
                 if (id === unitList.list[i2].id) {
@@ -124,12 +168,10 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
             }
         }
     };
-    
-    /*$scope.itemUnitListSelected = function (item) {
-        console.log('test: ' + item);
-    }*/
-    
+
     $scope.itemMethodListSelected = function (id, location) {
+
+        currentMethodId = id;
 
         if (currentLocation.indexOf("uiSidebarLeft") !== -1 || isAddToFavorites) {
             isAddToFavorites = false;
@@ -158,15 +200,6 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
                         $state.transitionTo('method-ButtonListener');
                     } else {}
 
-                    //                    if (id === 0)
-                    //                        $state.transitionTo('method-getOSInfo');
-                    //                    else if (id === 1)
-                    //                        $state.transitionTo('method-getResourceLiteral');
-                    //                    else if (id === 2)
-                    //                        $state.transitionTo('method-getContactsForFields');
-                    //                    else
-                    //                        $state.transitionTo('method-ButtonListener');
-
                 }
             }
         }
@@ -176,7 +209,6 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
     };
 
     $scope.returnToMethodPage = function () {
-
 
         if (detailList.name.indexOf("getOSInfo") !== -1) {
             $state.transitionTo('method-getOSInfo');
@@ -216,74 +248,73 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
 
             var newLocation = next;
 
-            if (newLocation.indexOf(oldLocation) !== -1) {
-                //isDownwaids = true;
-                //$log.debug("Is equal state, " + "isDownwards: " + $scope.isSlideBack);
-                //$log.debug("Is equal state, " + "isDownwards: " + $scope.isSlideBack);
-
-            } else {
-                //$log.debug("Is no equal state, " + "isDownwards: " + $scope.isSlideBack);
-                //$log.debug("Is equal state, " + "isDownwards: " + $scope.isSlideBack);
-            }
-            /*$scope.isDownwards = isDownwards;*/
-
-            /* if (counterStates == 0) {
-                $log.debug("counterStates 1: " + counterStates);
-                counterStates++;
-
-            } else {
-                $log.debug("counterStates 2: " + counterStates);
-                oldLocation = newLocation;
-                counterStates = 0;
-            }
-*/
-            // oldLocation = newLocation;
-
+            if (newLocation.indexOf(oldLocation) !== -1) {} else {}
         }
-
-        //$rootScope.isSlideBack = false;
-        //$scope.isSlideBack = false;
-        //$rootScope.isDownwards = isDownwaids;
-
     });
 
+    // add method to favorites
     $scope.addFavorites = function (id) {
 
+        currentMethodId = id;
 
         isAddToFavorites = true;
 
+        var data;
 
-        if ($scope.method_list.list[id].favorite)
+        if ($scope.method_list.list[id].favorite) {
+            if (localStorage.getItem("data") !== null) {
+
+                var retrieveData = localStorage.getItem("data");
+                data = JSON.parse(retrieveData);
+
+                data[currentServiceId].list[currentUnitId].list[currentMethodId].favorite = false;
+                localStorage.setItem("data", JSON.stringify(data));
+
+            }
+            console.log("delete to Favorites");
             $scope.method_list.list[id].favorite = false;
-        else
+
+        } else {
+
+            if (localStorage.getItem("data") !== null) {
+
+                var retrieveData = localStorage.getItem("data");
+                data = JSON.parse(retrieveData);
+
+                console.log("testing 1: " + data);
+
+                console.log("testing 2: " + data[currentServiceId].name);
+
+                console.log("testing 2: " + currentServiceId);
+
+                console.log("testing 3: " + data[currentServiceId].list[currentUnitId]);
+
+                data[currentServiceId].list[currentUnitId].list[currentMethodId].favorite = true;
+                localStorage.setItem("data", JSON.stringify(data));
+
+            }
+
+            console.log("add to Favorites");
             $scope.method_list.list[id].favorite = true;
+        }
     }
 
     $scope.$watch('isChecked', function (newV) {
 
-        /* console.log("isChecked");
-         newV && $('#name').focus();*/
-
         var countUp = function () {
             console.log("isChecked with timeout");
-            /* $(".inputField").trigger("focus");*/
             newV && $('#name').trigger("focus");
             newV && $('#name').trigger("click");
-            /*newV && $('#name').focus();
-            newV && $('#name').prompt();
-            newV && $('#name').click();*/
         }
 
         $timeout(countUp, 300);
     }, true);
 
     $scope.setFocus = function () {
-        //        $('.wrapper-search').css('padding-top', "0px");
         if ($scope.isChecked)
             $scope.isChecked = false;
         else
             $scope.isChecked = true;
-
     };
 
     $scope.items = items;
@@ -293,8 +324,6 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
     };
 
     $scope.addItem = function (index) {
-        //console.log("$scope.newItemName: " + $scope.newItemName);
-        //console.log("$$scope.items.data.length: " + $scope.items.data.length);
         items.data.push({
             id: $scope.items.data.length + 1,
             title: "New Listener"
@@ -305,11 +334,8 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
 
         //console.log("delete");
         for (var i = 0; i < items.data.length; i++) {
-
             items.data.splice(i);
-
         }
-
     };
 
     $scope.$watch(function () {
@@ -321,12 +347,9 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
         var heightFormMethodContent = $('.form-method-content').innerHeight();
         var offSetY = 10;
 
-        //console.log("win: " + $(window).height() + ", meth: " + heightMethodContent + ", Final height: " + (($(window).height()) - heightMethodContent));
-
         if ((heightFormMethodContent - heightMethodContent - offSetY) > 85)
 
             $('.response-content').css({
-            //        'height': (($(window).height()) - heightMethodContent) + 'px'
             'height': (heightFormMethodContent - heightMethodContent - offSetY) + 'px'
 
         });

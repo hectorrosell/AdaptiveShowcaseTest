@@ -10,7 +10,8 @@ var dataInfo = [
                 list: [{
                         id: 0,
                         name: "getResourceLiteral",
-                        description: "Interface for Managing the Cloud operations"
+                        description: "Interface for Managing the Cloud operations",
+                        favorite: false
                     }
                 ],
                 description: "Interface for Managing the Cloud operations"
@@ -44,21 +45,21 @@ var dataInfo = [
         description: "Description text"
     },
     {
-        id: 6,
+        id: 4,
         name: "Media",
         list: [],
         size: 0,
         description: "Description text"
             },
     {
-        id: 7,
+        id: 5,
         name: "Notification",
         list: [],
         size: 0,
         description: "Description text"
     },
     {
-        id: 8,
+        id: 6,
         name: "PIM",
         list: [
             {
@@ -69,7 +70,8 @@ var dataInfo = [
                     {
                         id: 0,
                         name: "getContactsForFields",
-                        description: "Interface for Managing the Cloud operations"
+                        description: "Interface for Managing the Cloud operations",
+                        favorite: false
                     }
                 ],
                 description: "Interface for Managing the Cloud operations"
@@ -78,34 +80,34 @@ var dataInfo = [
         size: 1,
         description: "Description text"
     }, {
-        id: 9,
+        id: 7,
         name: "Reader",
         list: [],
         size: 0,
         description: "Description text"
             },
     {
-        id: 10,
+        id: 8,
         name: "Security",
         list: [],
         size: 0,
         description: "Description text"
     },
     {
-        id: 11,
+        id: 9,
         name: "Sensor",
         list: [],
         size: 0,
         description: "Description text"
     },
     {
-        id: 12,
+        id: 10,
         name: "Social",
         list: [],
         size: 0,
         description: "Description text"
     }, {
-        id: 13,
+        id: 11,
         name: "System",
         list: [
 
@@ -117,7 +119,8 @@ var dataInfo = [
                     {
                         id: 0,
                         name: "ButtonListener",
-                        description: "Interface for Managing the Cloud operations"
+                        description: "Interface for Managing the Cloud operations",
+                        favorite: false
                     }
                 ],
                 description: "Interface for Managing the Cloud operations"
@@ -130,25 +133,26 @@ var dataInfo = [
                     {
                         id: 0,
                         name: "getOSInfo",
-                        description: "Interface for Managing the Cloud operations"
+                        description: "Interface for Managing the Cloud operations",
+                        favorite: false
                     }
                 ],
                 description: "Interface for Managing the Cloud operations"
             }
-            
+
         ],
         size: 2,
         description: "Description text"
             },
     {
-        id: 14,
+        id: 12,
         name: "UI",
         list: [],
         size: 0,
         description: "Description text"
     },
     {
-        id: 15,
+        id: 13,
         name: "Util",
         list: [],
         size: 0,

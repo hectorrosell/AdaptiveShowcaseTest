@@ -1,18 +1,45 @@
 <section class="section container-fluid">
 
-    <div class="scrollable">
+    <div class="scrollable" ui-state="searchBar">
 
-        <!--<div class="section border-bottom-line-subtitle subToolBarMenu">
+        <!-- <div class="section border-bottom-line-subtitle subToolBar">
+
             <div class="row">
-                <div class="col-xs-4">
+                <div ng-click="setBackTransitionUnits()" class="col-xs-4">
+                    <div class="btn btn-default back-button"> <i class="fa fa-chevron-left pull-left back-icon"></i> Back</div>
                 </div>
                 <div class="col-xs-4">
-                    <p class="align-center label-form text-center">Favorites</p>
+                    <p class="align-center label-form text-center">{{method_list.name}}</p>
                 </div>
                 <div class="col-xs-4">
                 </div>
             </div>
+
         </div>-->
 
+        <div class="scrollable-content subtitle-content list-content">
+            <div class="list-group">
+                <!--<a ng-repeat="item in favoritesMethods" href ng-click="itemMethodListSelected($index)" class="list-group-item item-list">-->
+                <a ng-repeat="item in favoritesMethods" class="list-group-item item-list">
+                    <div class="row">
+
+                        <div class="col-xs-10">
+                            <p class="name-item-list">{{item.name}}</p>
+                            <p class="description-item-list">{{item.description}}</p>
+                        </div>
+
+                        <!--<div class="col-xs-2  arrow-list-center" ng-click="addFavorites(item.id)">
+                            <i ng-class="{starIcon: !item.favorite, starIconFavorite: item.favorite }" class="pull-right"></i>
+                        </div>-->
+
+                        <div class="col-xs-2  arrow-list-center">
+                            <i class="fa fa-chevron-right pull-right"></i>
+                        </div>
+
+                    </div>
+
+                </a>
+            </div>
+        </div>
     </div>
 </section>
