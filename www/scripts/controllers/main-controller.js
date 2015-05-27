@@ -2,7 +2,7 @@
 
 app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$location', '$route', '$timeout', function ($rootScope, $scope, $log, $state, $location, $route, $timeout) {
 
-    $scope.favoritesMethods = [];
+    /*$scope.favoritesMethods = [];*/
 
     $log.debug("MainController");
 
@@ -33,46 +33,49 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
 
     $scope.go = function (location) {
 
+        $state.transitionTo(location);
+
+        console.log("test 0");
+
+        if ($state.is("favorites")) {
+            isFavoriteState = true;
+        } else {
+            isFavoriteState = false;
+        }
+
+        $log.debug("isFavoriteState: " + isFavoriteState);
+
+        console.log("test 01");
         $scope.favoritesMethods = [];
+        var retrieveData = localStorage.getItem("data");
+        dataInfo = JSON.parse(retrieveData);
 
         for (var i = 0; i < dataInfo.length; i++) {
 
-            console.log("test 1: " + dataInfo.length);
+            console.log("test 1");
 
             for (var j = 0; j < dataInfo[i].list.length; j++) {
-
-                console.log("test 2: " + dataInfo[i].list.length);
-                console.log("test 22: " + dataInfo[i].list[j].name);
+                console.log("test 2");
 
                 for (var y = 0; y < dataInfo[i].list[j].size; y++) {
+                    console.log("test 3");
 
-                    //for (var x = 0; x < dataInfo[i].list[j].list[y].length; x++) {
+                    if (dataInfo[i].list[j].list[y].favorite) {
+                        console.log("test 4");
 
-                    console.log("test 3: " + dataInfo[i].list[j].list[y].name);
-                    console.log("test 33: " + dataInfo[i].list[j].list[y].favorite);
-
-                    if (dataInfo[i].list[j].list[y].favorite)
                         $scope.favoritesMethods.push(dataInfo[i].list[j].list[y]);
-
-                    // }
+                    }
                 }
             }
         }
+        /* }*/
 
-        $state.transitionTo(location);
     };
 
     $scope.isHomePage = function () {
-        // console.log("******************************");
-        //console.log("Home Page: " + $state.is("home"));
-
         var heightMethodContent = $('.method-content').innerHeight();
         var heightFormMethodContent = $('.form-method-content').innerHeight();
         var offSetY = 10;
-
-        /*
-                console.log("win: " + $(window).height() + ", meth: " + heightMethodContent + ", Final height: " + (($(window).height()) - heightMethodContent));
-        */
 
         if ((heightFormMethodContent - heightMethodContent - offSetY) > 75)
 
@@ -94,7 +97,7 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
     $scope.focusSearchBar = function () {
         $scope.inputTextSearch = true;
         console.log("focusSearchBar:" + $scope.inputTextSearch);
-    }
+    };
 
     $scope.setBackTransitionServices = function () {
         $state.transitionTo("home");
@@ -105,7 +108,11 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
     };
 
     $scope.setBackTransitionMethods = function () {
-        $state.transitionTo("methods-list");
+
+        if (isFavoriteState)
+            $state.transitionTo("favorites");
+        else
+            $state.transitionTo("methods-list");
     };
 
     $scope.setBackTransitionForm = function () {
@@ -171,25 +178,79 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
 
     $scope.itemMethodListSelected = function (id, location) {
 
-        currentMethodId = id;
-
+        //disable the functions of the other page
         if (currentLocation.indexOf("uiSidebarLeft") !== -1 || isAddToFavorites) {
+
             isAddToFavorites = false;
+
+            $log.debug("itemMethodListSelected uiSidebarLeft");
+
+        } else if ($state.is("favorites")) {
+
+            isFavoriteState = true;
+            $log.debug("isFavoriteState: " + isFavoriteState);
+
+            $scope.isSlideBack = false;
+            $log.debug("itemMethodListSelected favorites");
+
+            if (id.indexOf("getOSInfo") !== -1) {
+                $state.transitionTo('method-getOSInfo');
+            } else if (id.indexOf("getResourceLiteral") !== -1) {
+                $state.transitionTo('method-getResourceLiteral');
+            } else if (id.indexOf("getContactsForFields") !== -1) {
+                $state.transitionTo('method-getContactsForFields');
+            } else if (id.indexOf("ButtonListener") !== -1) {
+                $state.transitionTo('method-ButtonListener');
+            } else {}
+
+            /*var lengthList3 = $scope.favoritesMethods.length;
+            $log.debug("itemMethodListSelected favorites: " + lengthList3);
+
+            for (var i3 = 0; i3 < lengthList3; i3++) {
+
+                if (id === $scope.favoritesMethods[i3].id) {
+
+                    $log.debug("itemMethodListSelected  favorites id: " + id);
+                    $log.debug("itemMethodListSelected  favorites $scope.favoritesMethods[i3].id: " + $scope.favoritesMethods[i3].id);
+
+                    detailList = $scope.favoritesMethods[i3];
+                    $scope.detail_list = detailList;
+                    console.log("detailList: " + detailList);
+                    console.log("detailList.name: " + detailList.name);
+                    if (detailList.name.indexOf("getOSInfo") !== -1) {
+                        $state.transitionTo('method-getOSInfo');
+                    } else if (detailList.name.indexOf("getResourceLiteral") !== -1) {
+                        $state.transitionTo('method-getResourceLiteral');
+                    } else if (detailList.name.indexOf("getContactsForFields") !== -1) {
+                        $state.transitionTo('method-getContactsForFields');
+                    } else if (detailList.name.indexOf("ButtonListener") !== -1) {
+                        $state.transitionTo('method-ButtonListener');
+                    } else {}
+
+                }
+            }*/
 
         } else {
 
+            isFavoriteState = false;
+            $log.debug("isFavoriteState: " + isFavoriteState);
+
+            currentMethodId = id;
+
             $scope.isSlideBack = false;
-            $log.debug("itemMethodListSelected");
+
             var lengthList3 = methodList.list.length;
+
+
+
             for (var i3 = 0; i3 < lengthList3; i3++) {
 
+
+
                 if (id === methodList.list[i3].id) {
+
                     detailList = methodList.list[i3];
                     $scope.detail_list = detailList;
-                    // console.log(detailList);
-
-                    //console.log("detailList.name: " + detailList.name);
-
                     if (detailList.name.indexOf("getOSInfo") !== -1) {
                         $state.transitionTo('method-getOSInfo');
                     } else if (detailList.name.indexOf("getResourceLiteral") !== -1) {
@@ -203,8 +264,6 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
                 }
             }
         }
-
-        /* console.log("isAddToFavorites: " + isAddToFavorites);*/
 
     };
 
@@ -256,46 +315,83 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
     $scope.addFavorites = function (id) {
 
         currentMethodId = id;
-
         isAddToFavorites = true;
-
         var data;
 
-        if ($scope.method_list.list[id].favorite) {
-            if (localStorage.getItem("data") !== null) {
+        if ($state.is("favorites")) {
 
-                var retrieveData = localStorage.getItem("data");
-                data = JSON.parse(retrieveData);
+            //favoritesMethods
 
-                data[currentServiceId].list[currentUnitId].list[currentMethodId].favorite = false;
-                localStorage.setItem("data", JSON.stringify(data));
+            if ($scope.favoritesMethods[id].favorite) {
+                if (localStorage.getItem("data") !== null) {
+                    var retrieveData = localStorage.getItem("data");
+                    data = JSON.parse(retrieveData);
 
+
+                    if ($scope.favoritesMethods[id].name.indexOf("getOSInfo") !== -1) {
+                        data[11].list[1].list[0].favorite = false;
+                    } else if ($scope.favoritesMethods[id].name.indexOf("getResourceLiteral") !== -1) {
+                        data[0].list[0].list[0].favorite = false;
+                    } else if ($scope.favoritesMethods[id].name.indexOf("getContactsForFields") !== -1) {
+                        data[6].list[0].list[0].favorite = false;
+                    } else if ($scope.favoritesMethods[id].name.indexOf("ButtonListener") !== -1) {
+                        data[11].list[0].list[0].favorite = false;
+                    } else {}
+
+                    localStorage.setItem("data", JSON.stringify(data));
+                    $scope.favoritesMethods[id].favorite = false;
+                }
+            } else {
+                if (localStorage.getItem("data") !== null) {
+                    var retrieveData = localStorage.getItem("data");
+                    data = JSON.parse(retrieveData);
+
+
+                    if ($scope.favoritesMethods[id].name.indexOf("getOSInfo") !== -1) {
+                        data[11].list[1].list[0].favorite = true;
+                    } else if ($scope.favoritesMethods[id].name.indexOf("getResourceLiteral") !== -1) {
+                        data[0].list[0].list[0].favorite = true;
+                    } else if ($scope.favoritesMethods[id].name.indexOf("getContactsForFields") !== -1) {
+                        data[6].list[0].list[0].favorite = true;
+                    } else if ($scope.favoritesMethods[id].name.indexOf("ButtonListener") !== -1) {
+                        data[11].list[0].list[0].favorite = true;
+                    } else {}
+
+                    localStorage.setItem("data", JSON.stringify(data));
+                    $scope.favoritesMethods[id].favorite = true;
+                }
             }
-            console.log("delete to Favorites");
-            $scope.method_list.list[id].favorite = false;
 
         } else {
 
-            if (localStorage.getItem("data") !== null) {
+            if ($scope.method_list.list[id].favorite) {
 
-                var retrieveData = localStorage.getItem("data");
-                data = JSON.parse(retrieveData);
+                if (localStorage.getItem("data") !== null) {
 
-                console.log("testing 1: " + data);
+                    var retrieveData = localStorage.getItem("data");
+                    data = JSON.parse(retrieveData);
+                    data[currentServiceId].list[currentUnitId].list[currentMethodId].favorite = false;
+                    localStorage.setItem("data", JSON.stringify(data));
 
-                console.log("testing 2: " + data[currentServiceId].name);
+                }
 
-                console.log("testing 2: " + currentServiceId);
+                console.log("delete to Favorites");
+                $scope.method_list.list[id].favorite = false;
 
-                console.log("testing 3: " + data[currentServiceId].list[currentUnitId]);
+            } else {
 
-                data[currentServiceId].list[currentUnitId].list[currentMethodId].favorite = true;
-                localStorage.setItem("data", JSON.stringify(data));
+                if (localStorage.getItem("data") !== null) {
 
+                    var retrieveData = localStorage.getItem("data");
+                    data = JSON.parse(retrieveData);
+                    data[currentServiceId].list[currentUnitId].list[currentMethodId].favorite = true;
+                    localStorage.setItem("data", JSON.stringify(data));
+
+                }
+
+                console.log("add to Favorites");
+                $scope.method_list.list[id].favorite = true;
             }
-
-            console.log("add to Favorites");
-            $scope.method_list.list[id].favorite = true;
         }
     }
 
@@ -332,7 +428,6 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
 
     $scope.deleteAllItems = function () {
 
-        //console.log("delete");
         for (var i = 0; i < items.data.length; i++) {
             items.data.splice(i);
         }

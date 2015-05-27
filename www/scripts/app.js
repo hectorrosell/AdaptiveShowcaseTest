@@ -12,6 +12,7 @@ var firstTime;
 var currentServiceId;
 var currentUnitId;
 var currentMethodId;
+var isFavoriteState = false;
 
 /*var currentServiceId;
 var currentUnitId;
