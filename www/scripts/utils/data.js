@@ -5,7 +5,7 @@ var dataInfo = [
         list: [
             {
                 id: 0,
-                name: "IGlobalization",
+                name: "Globalization",
                 size: 1,
                 list: [{
                         id: 0,
@@ -64,7 +64,7 @@ var dataInfo = [
         list: [
             {
                 id: 0,
-                name: "Icontact",
+                name: "IContact",
                 size: 1,
                 list: [
                     {

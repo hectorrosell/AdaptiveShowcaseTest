@@ -36,9 +36,9 @@
                     <div class="response-content scrollable-content-response-method">
                         {
                         <p> <span style="padding: 0 20px">&nbsp;</span>“response”: {</p>
-                        <p> <span style="padding: 0 40px">&nbsp;</span>name: “iOS”,</p>
-                        <p> <span style="padding: 0 40px">&nbsp;</span>versi&oacute;n: “8.0”</p>
-                        <p> <span style="padding: 0 40px">&nbsp;</span>vendor: “Apple”,</p>
+                        <p> <span style="padding: 0 40px">&nbsp;</span>name: “{{response.name }}”,</p>
+                        <p> <span style="padding: 0 40px">&nbsp;</span>versi&oacute;n: “{{response.version}}”</p>
+                        <p> <span style="padding: 0 40px">&nbsp;</span>vendor: “{{response.vendor }}”,</p>
                         <p> <span style="padding: 0 20px">&nbsp;</span> },</p>
                         <p> <span style="padding: 0 20px">&nbsp;</span>statusCode: 200</p>
                         <p> <span style="padding: 0 20px">&nbsp;</span>statusMessage: "OK"</p>
@@ -50,7 +50,8 @@
 
             </form>
             <div style="margin-left: 0px;margin-right: 0px;margin-top: 0%;margin-bottom: 0px;">
-                <button class="btn btn-primary btn-block footer-submit " ui-turn-on="modal2 ">
+               <!-- <button  class="btn btn-primary btn-block footer-submit " ui-turn-on="modal2 ">-->
+                <button  class="btn btn-primary btn-block footer-submit" ng-click="sendRequestMethod()">
                     SUBMIT
                 </button>
             </div>

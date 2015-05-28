@@ -17,7 +17,8 @@
 		"mobile-angular-ui": "1.2.x",
 		"font-awesome": "4.2",
 		"bootstrap": "3.x",
-		"fastclick": "1.0.6"
+		"fastclick": "1.0.6",
+        "adaptiveme": "latest"
     },
     "devDependencies": {
         "angular-mocks": "1.2.20",

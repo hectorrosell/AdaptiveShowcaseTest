@@ -1345,29 +1345,13 @@ a {
 }
 
 .add-item {
-    /*
-
-    padding: 7px 11px;
-    background-color: #5FC765;
-    border-radius: 26%;
-
-    text-align: center;
-    width: 28px;
-    margin-left: 0px;
-    margin-top: 10px;
-*/
-    /* float: right; */
-    /* margin-right: 2px; */
-    /* color: #fff; */
-
     padding: 7px 10px;
     background-color: #5FC765;
     border-radius: 26%;
-    /* margin: 6px; */
-
     text-align: center;
     width: 28px;
-    margin-left: 0px;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 8px;
     display: block;
 }

@@ -88,7 +88,7 @@ app.config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider
         .state("method-getOSInfo", {
             url: "/method-getOSInfo",
             templateUrl: 'views/methods/method-getOSInfo.html',
-            //controller: 'MainController',
+            controller: 'MethodController'
             //resolve: resolve
         }).state("method-getResourceLiteral", {
             url: "/method-getResourceLiteral",
