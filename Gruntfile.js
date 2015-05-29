@@ -410,24 +410,7 @@ module.exports = function (grunt) {
                     dest: '<%= yeoman.dist %>/resources/i18n/angular',
                     src: ['angular-locale_en-us.js'
                     ]
-                }/*, {
-                    expand: true,
-                    cwd: '<%= yeoman.app %>/bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap',
-                    dest: '<%= yeoman.dist %>styles/fonts',
-                    src: [
-                        '*'
-                    ]
                 }
-				*/
-				/*, {
-                    expand: true,
-                    cwd: '<%= yeoman.app %>/bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap',
-                    dest: '<%= yeoman.dist %>/fonts',
-                    src: [
-                        '*'
-                    ]
-                }
-				*/
 				, {
                     expand: true,
                     cwd: '<%= yeoman.app %>/bower_components/jquery-ui/themes/smoothness/images',
@@ -435,7 +418,24 @@ module.exports = function (grunt) {
                     src: [
                         '*'
                     ]
-                }]
+                }
+                , {
+                    expand: true,
+                    cwd: 'config',
+                    dest: 'dist/config',
+                    src: [
+                        '*'
+                    ]
+                }
+                , {
+                    expand: true,
+                    cwd: 'assets',
+                    dest: 'dist/assets',
+                    src: [
+                        '*'
+                    ]
+                }
+                ]
             },
             i18n: {
                 expand: true,
@@ -548,7 +548,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('dist', [
         'clean:dist',
-		'typescript',
+		//'typescript',
         'compass:dist',
         'autoprefixer',
         'useminPrepare',

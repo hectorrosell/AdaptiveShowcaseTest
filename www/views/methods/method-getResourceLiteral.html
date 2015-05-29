@@ -13,16 +13,11 @@
                 <div class="col-xs-2">
                 </div>
             </div>
-
         </div>
-
         <div class="scrollable-content section list-content-form">
-
             <form role="form" ng-submit='submit()' style="height: 100%;" class="form-method-content">
                 <fieldset style="height: 100%;">
-
                     <div class="method-content">
-
                         <p>Gets the text/message corresponding to the given key and locale</p>
                         <br>
                         <p><b>Returns:</b> [String] Localized text.
@@ -35,54 +30,42 @@
                         <p><b><u>Parameters</u></b>
                         </p>
                         <p><b>Key </b>[  <a style="color: #428BCA;" href="">String</a> ]: to match text</p>
-
                         <div>
-                            <input class="form-control" type="text">
+                            <input ng-model="inputTextParam" class="form-control" type="text">
                         </div>
-
                         <p><b>locale </b>[locale]: The locale to get localized message, or the locale descriptor ("language" or "language-country" two-letters ISO codes).</p>
-
                         <div class="parameters-content">
-
                             <br /> <b>country</b> [String]: A valid ISO Country Code.
                             <div>
                                 <input class="form-control" type="text"> </div>
                             <b>language</b> [String]: A valid ISO Language Code.
                             <div>
                                 <input class="form-control" type="text"> </div>
-
                         </div>
-
                     </div>
-
                     <div class="response-content scrollable-content-response-method">
                         {
                         <br /> <span style="padding: 0 20px">&nbsp;</span>“response”: {
-                        <br /> <span style="padding: 0 40px">&nbsp;</span>value: “Hello Adaptive”,
+                        <br /> <span style="padding: 0 40px">&nbsp;</span>value: “{{ paramResponse }}”,
                         <br /> <span style="padding: 0 20px">&nbsp;</span> },
                         <br /> <span style="padding: 0 20px">&nbsp;</span>statusCode: 200
                         <br /> <span style="padding: 0 20px">&nbsp;</span>statusMessage: "OK"
                         <br /> }
                         <br />
                     </div>
-
                 </fieldset>
-
             </form>
             <div style="margin-left: 0px;margin-right: 0px;margin-top: 0%;margin-bottom: 0px;">
-                <button class="btn btn-primary btn-block footer-submit " ui-turn-on="modal2 ">
+                <button class="btn btn-primary btn-block footer-submit" ui-turn-on="modal2" ng-click="sendRequestMethod('getResourceLiteral')">
                     SUBMIT
                 </button>
             </div>
             <!--
 margin-left: 15px;margin-right: 15px;margin-top: 0%;margin-bottom: 0px;
 -->
-
         </div>
     </div>
-
 </section>
-
 <div ui-content-for="modals ">
     <div ng-include=" 'views/modal1.html' "></div>
     <div ng-include=" 'views/modal2.html' "></div>

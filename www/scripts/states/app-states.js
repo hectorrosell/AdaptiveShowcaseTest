@@ -93,7 +93,7 @@ app.config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider
         }).state("method-getResourceLiteral", {
             url: "/method-getResourceLiteral",
             templateUrl: 'views/methods/method-getResourceLiteral.html',
-            //controller: 'MainController',
+            controller: 'MethodController'
             //resolve: resolve
         }).state("method-ButtonListener", {
             url: "/method-ButtonListener",
