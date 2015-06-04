@@ -118,7 +118,7 @@ var dataInfo = [
                 list: [
                     {
                         id: 0,
-                        name: "ButtonListener",
+                        name: "DeviceOrientationListener",
                         description: "Interface for Managing the Cloud operations",
                         favorite: false
                     }

@@ -21,7 +21,7 @@ module.exports = function (grunt) {
         dist: 'dist/www',
         doc: 'doc'
     };
-	
+
     try {
         yeomanConfig.app = require('./bower.json').appPath || yeomanConfig.app;
     } catch (e) {}
@@ -29,7 +29,7 @@ module.exports = function (grunt) {
     grunt.initConfig({
         yeoman: yeomanConfig,
         watch: {
-			 
+			
             compass: {
                 files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
                 tasks: ['compass:server', 'autoprefixer'],
@@ -126,31 +126,21 @@ module.exports = function (grunt) {
                             mountFolder(connect, '.tmp'),
                             mountFolder(connect, yeomanConfig.app),
                             function (request, response, next) {
-
                                 console.log("request method: " + JSON.stringify(request.method));
                                 var rawpath = request.url.split('?')[0];
                                 console.log("request url: " + JSON.stringify(request.url));
                                 var path = require('path').resolve(__dirname, 'app/' + rawpath);
-
                                 console.log("request path : " + JSON.stringify(path));
-
                                 console.log("request current dir : " + JSON.stringify(__dirname));
-
                                 if ((request.method === 'PUT' || request.method === 'POST')) {
-
                                     console.log('inside put/post');
-
                                     request.content = '';
-
                                     request.addListener("data", function (chunk) {
                                         request.content += chunk;
                                     });
-
                                     request.addListener("end", function () {
                                         console.log("request content: " + JSON.stringify(request.content));
-
                                         if (fs.existsSync(path)) {
-
                                             fs.writeFile(path, request.content, function (err) {
                                                 if (err) {
                                                     throw err;
@@ -162,11 +152,8 @@ module.exports = function (grunt) {
                                         }
 
                                         if (request.url === '/log') {
-
                                             var filePath = 'server/log/server.log';
-
                                             var logData = JSON.parse(request.content);
-
                                             fs.appendFile(filePath, logData.logUrl + '\n' + logData.logMessage + '\n', function (err) {
                                                 if (err) {
                                                     throw err;
@@ -247,14 +234,14 @@ module.exports = function (grunt) {
         compass: {
             options: {
                 sassDir: '<%= yeoman.app %>/styles',
-                cssDir: 'www/styles', //'.tmp/styles',
+                cssDir: 'www/styles',
                 generatedImagesDir: '.tmp/images/generated',
                 imagesDir: '<%= yeoman.app %>/images',
                 javascriptsDir: '<%= yeoman.app %>/scripts',
                 fontsDir: '<%= yeoman.app %>/styles/fonts',
                 importPath: '<%= yeoman.app %>/bower_components',
-                httpImagesPath: '/styles/images',//hrrl
-                httpGeneratedImagesPath: '/styles/images/images/generated',//hrrl
+                httpImagesPath: '/styles/images',
+                httpGeneratedImagesPath: '/styles/images/images/generated',
                 httpFontsPath: '/styles/fonts',
                 relativeAssets: false
             },
@@ -272,18 +259,6 @@ module.exports = function (grunt) {
         uglify: {
             dist: {
                 files: {
-                    //'<%= yeoman.dist %>/scripts/api/angular-jqm.js': ['<%= yeoman.app %>/scripts/api/angular-jqm.js'],
-                    //'<%= yeoman.dist %>/bower_components/angular-animate/angular-animate.js': ['<%= yeoman.app %>/bower_components/angular-animate/angular-animate.js'],
-                    //'<%= yeoman.dist %>/bower_components/angular-route/angular-route.js': ['<%= yeoman.app %>/bower_components/angular-route/angular-route.js'],
-                    //'<%= yeoman.dist %>/bower_components/angular-touch/angular-touch.js': ['<%= yeoman.app %>/bower_components/angular-touch/angular-touch.js'],
-					//'<%= yeoman.dist %>/bower_components/angular-animate/angular-animate.min.js': ['<%= yeoman.app %>/bower_components/angular-animate/angular-animate.min.js'],
-					//'<%= yeoman.dist %>/bower_components/angular/angular.js': ['<%= yeoman.app %>/bower_components/angular/angular.js']
-					//'<%= yeoman.dist %>/bower_components/angular-route/angular-route.min.js': ['<%= yeoman.app %>/bower_components/angular-route/angular-route.min.js'],
-					//'<%= yeoman.dist %>/bower_components/mobile-angular-ui/dist/js/mobile-angular-ui.min.js': ['<%= yeoman.app %>/bower_components/mobile-angular-ui/dist/js/mobile-angular-ui.min.js'],
-					//'<%= yeoman.dist %>/bower_components/mobile-angular-ui/dist/js/mobile-angular-ui.gestures.min.js': ['<%= yeoman.app %>/bower_components/mobile-angular-ui/dist/js/mobile-angular-ui.gestures.min.js'],
-					//'<%= yeoman.dist %>/bower_components/jquery/dist/jquery.min.js': ['<%= yeoman.app %>/bower_components/jquery/dist/jquery.min.js'],
-					//'<%= yeoman.dist %>/bower_components/jquery-ui/ui/minified/jquery-ui.min.js': ['<%= yeoman.app %>/bower_components/jquery-ui/ui/minified/jquery-ui.min.js'],
-					//'<%= yeoman.dist %>/bower_components/angular/angular.js': ['<%= yeoman.app %>/bower_components/angular/angular.js'] 
 					
                 }
             }
@@ -295,7 +270,6 @@ module.exports = function (grunt) {
                         '<%= yeoman.dist %>/scripts/*.js',
                         '<%= yeoman.dist %>/styles/*.css',
                         '<%= yeoman.dist %>/styles/images/*.{png,gif,jpg,jpeg}'
-      //'!<%= yeoman.dist %>/styles/images/ajax-loader.gif'
                     ]
                 }
             }
@@ -389,13 +363,8 @@ module.exports = function (grunt) {
                         '*.{ico,png,txt,html}',
                         '.htaccess',
                         'resources/**',
-                        //'styles/fonts/**',
 						'fonts/**',
-                        'views/**/*.html',
-                        //'bower_components/angular-touch/angular-touch.min.js',
-                        //'bower_components/angular-animate/angular-animate.min.js'
-                        //'bower_components/angular-route/angular-route.min.js',
-                        //'scripts/api/angular-jqm.min.js'
+                        'views/**/*.html'
                     ]
                 }, {
                     expand: true,

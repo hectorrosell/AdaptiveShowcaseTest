@@ -4,22 +4,17 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
 
     $log.debug("MainController");
 
-    console.log("firstTime: " + localStorage.getItem("firstTime"));
-
     if (localStorage.getItem("firstTime") === null) {
         localStorage.setItem("data", JSON.stringify(dataInfo));
         localStorage.setItem("firstTime", false);
-        console.log("firstTime 2 test");
 
     } else if (!localStorage.getItem("firstTime")) {
         localStorage.setItem("data", JSON.stringify(dataInfo));
         localStorage.setItem("firstTime", false);
-        console.log("firstTime test");
 
     } else {
         var retrieveData = localStorage.getItem("data");
         dataInfo = JSON.parse(retrieveData);
-        console.log("no firstTime");
     }
 
     $scope.isChecked = false;
@@ -32,8 +27,6 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
     $scope.go = function (location) {
 
         $state.transitionTo(location);
-
-        console.log("test 0");
 
         if ($state.is("favorites")) {
             isFavoriteState = true;
@@ -116,8 +109,6 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
 
         currentServiceId = id;
 
-        $log.debug("test test currentServiceId: " + currentServiceId);
-
         if (currentLocation.indexOf("uiSidebarLeft") !== -1) {
 
         } else {
@@ -128,7 +119,6 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
                 if (id === $scope.main_list[i].id) {
                     unitList = $scope.main_list[i];
                     $scope.unit_list = unitList;
-                    console.log(unitList);
                     $state.transitionTo('units-list');
                 }
 
@@ -141,7 +131,7 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
         currentUnitId = id;
         if (currentLocation.indexOf("uiSidebarLeft") !== -1) {
         } else {
-            console.log('else');
+
             $scope.isSlideBack = false;
             statusNextSlice = false;
             var lengthList2 = unitList.list.length;
@@ -151,7 +141,7 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
                 if (id === unitList.list[i2].id) {
                     methodList = unitList.list[i2];
                     $scope.method_list = methodList;
-                    console.log(methodList);
+
                     $state.transitionTo('methods-list');
                 }
             }
@@ -164,35 +154,26 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
         if (currentLocation.indexOf("uiSidebarLeft") !== -1 || isAddToFavorites) {
 
             isAddToFavorites = false;
-            $log.debug("itemMethodListSelected uiSidebarLeft");
 
         } else if ($state.is("favorites")) {
 
             isFavoriteState = true;
-            $log.debug("isFavoriteState: " + isFavoriteState);
-
             $scope.isSlideBack = false;
-            $log.debug("itemMethodListSelected favorites");
-
             if (id.indexOf("getOSInfo") !== -1) {
                 $state.transitionTo('method-getOSInfo');
             } else if (id.indexOf("getResourceLiteral") !== -1) {
                 $state.transitionTo('method-getResourceLiteral');
             } else if (id.indexOf("getContactsForFields") !== -1) {
                 $state.transitionTo('method-getContactsForFields');
-            } else if (id.indexOf("ButtonListener") !== -1) {
-                $state.transitionTo('method-ButtonListener');
+            } else if (id.indexOf("DeviceOrientationListener") !== -1) {
+                $state.transitionTo('method-DeviceOrientationListener');
             } else {}
 
         } else {
 
             isFavoriteState = false;
-            $log.debug("isFavoriteState: " + isFavoriteState);
-
             currentMethodId = id;
-
             $scope.isSlideBack = false;
-
             var lengthList3 = methodList.list.length;
             for (var i3 = 0; i3 < lengthList3; i3++) {
                 if (id === methodList.list[i3].id) {
@@ -205,8 +186,8 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
                         $state.transitionTo('method-getResourceLiteral');
                     } else if (detailList.name.indexOf("getContactsForFields") !== -1) {
                         $state.transitionTo('method-getContactsForFields');
-                    } else if (detailList.name.indexOf("ButtonListener") !== -1) {
-                        $state.transitionTo('method-ButtonListener');
+                    } else if (detailList.name.indexOf("DeviceOrientationListener") !== -1) {
+                        $state.transitionTo('method-DeviceOrientationListener');
                     } else {}
 
                 }
@@ -222,8 +203,8 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
             $state.transitionTo('method-getResourceLiteral');
         } else if (detailList.name.indexOf("getContactsForFields") !== -1) {
             $state.transitionTo('method-getContactsForFields');
-        } else if (detailList.name.indexOf("ButtonListener") !== -1) {
-            $state.transitionTo('method-ButtonListener');
+        } else if (detailList.name.indexOf("DeviceOrientationListener") !== -1) {
+            $state.transitionTo('method-DeviceOrientationListener');
         } else {}
 
     };
@@ -271,7 +252,7 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
                         data[0].list[0].list[0].favorite = false;
                     } else if ($scope.favoritesMethods[id].name.indexOf("getContactsForFields") !== -1) {
                         data[6].list[0].list[0].favorite = false;
-                    } else if ($scope.favoritesMethods[id].name.indexOf("ButtonListener") !== -1) {
+                    } else if ($scope.favoritesMethods[id].name.indexOf("DeviceOrientationListener") !== -1) {
                         data[11].list[0].list[0].favorite = false;
                     } else {}
 
@@ -289,7 +270,7 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
                         data[0].list[0].list[0].favorite = true;
                     } else if ($scope.favoritesMethods[id].name.indexOf("getContactsForFields") !== -1) {
                         data[6].list[0].list[0].favorite = true;
-                    } else if ($scope.favoritesMethods[id].name.indexOf("ButtonListener") !== -1) {
+                    } else if ($scope.favoritesMethods[id].name.indexOf("DeviceOrientationListener") !== -1) {
                         data[11].list[0].list[0].favorite = true;
                     } else {}
 
@@ -334,7 +315,7 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
     $scope.$watch('isChecked', function (newV) {
 
         var countUp = function () {
-            console.log("isChecked with timeout");
+
             newV && $('#name').trigger("focus");
             newV && $('#name').trigger("click");
         }

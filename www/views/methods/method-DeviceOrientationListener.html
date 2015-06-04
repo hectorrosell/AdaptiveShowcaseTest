@@ -8,12 +8,11 @@
                     <div class="btn btn-default back-button"> <i class="fa fa-chevron-left pull-left back-icon"></i> Back</div>
                 </div>
                 <div class="col-xs-8">
-                    <p class="align-center label-form text-center">ButtonListener</p>
+                    <p class="align-center label-form text-center">DeviceOrientationListener</p>
                 </div>
                 <div class="col-xs-2">
                 </div>
             </div>
-
         </div>
 
         <div class="scrollable-content section list-content-form">
@@ -23,32 +22,17 @@
 
                     <div class="method-content">
 
-                        <p>Register a new listener that will receive button events</p>
+                        <p>Interface for handling device orientation change events.</p>
                         <br>
                         <p><b>Since:</b> v2.0
                         </p>
                         <p><b>Author:</b> Hector Rosell
                         </p>
                         <br>
-                        <p><b><u>Listeners</u></b>
-                        </p>
+                      <!--  <p><b><u>Listeners</u></b>
+                        </p>-->
 
-                        <!--
-                    <div>
-                        <ul ng-controller="MainController" class="nav">
-
-                            <input type="text" value="ItemName" ng-model="newItemName" placeholder="name of new item...">
-                            <button ng-click="addItem()">Add Me</button>
-
-                            <li ng-repeat="item in items.data" id="item{{item.id}}">
-                                <a href="#">{{item.title}}</a> <a ng-click="deleteItem($index)" class="delete-item">x</a>
-                            </li>
-
-                        </ul>
-                    </div>
--->
-
-                        <div class="row">
+                        <!--div class="row">
                             <ul ng-controller="MainController" class="nav ">
                                 <div class="col-xs-2">
 
@@ -65,53 +49,37 @@
                                 <div class="col-xs-10" style="
     margin-left: -16px; padding-right: 0px; margin-bottom: 0.8em;">
                                     <div ng-repeat="item in items.data" id="item{{item.id}}" style="height: 33px;padding-top: 7px; padding-bottom: 7px; margin-top: -1px; border: 1px solid #E2E2E2;">
-                                        <!--                                    <a href="#"> 0 Seleccionados</a>-->
 
                                         <div style="" class="col-xs-10 form-list">
                                             {{item.title}}
                                         </div>
-                                        <!--
-                                    <select class="form-add">
-                                        <option>Listener 1</option>
-                                        <option>Listener 2</option>
-                                        <option>Listener 3</option>
-                                        <option>Listener 4</option>
-                                        <script>
-                                            document.write('<option> Listener' + '</option>');
-                                        </script>
-                                        <script>
-                                            for (var i = 0; i < 3; i++) {
-                                                document.write('<option> Listener' + i + '</option>');
-                                            }
-                                        </script>
-                                    </select>
--->
+
                                         <div class=" col-xs-2" style="padding-right: 0px;">
                                             <a ng-click="deleteItem($index)" class="delete-item  "><i class="fa fa-minus"></i></a>
                                         </div>
                                     </div>
                                 </div>
                             </ul>
-                        </div>
+                        </div-->
 
                         <div ng-hide="true" class=" row">
                             <button type="button" class=" btn btn-danger button-message-form-response">Error messages</button>
                         </div>
-
                         <div ng-hide="true" class=" row">
                             <button type="button" class=" btn btn-warning button-message-form-response">Warning messages</button>
                         </div>
-
 
                     </div>
 
                     <div class="response-content scrollable-content-response-method">
                         {
-                        <br /> <span style="padding: 0 20px">&nbsp;</span>“response”: {
-                        <br /> <span style="padding: 0 40px">&nbsp;</span>value: “Hello Adaptive”,
+                        <br /> <span style="padding: 0 20px">&nbsp;</span> response: {
+
+                        <br /> <span style="padding: 0 40px">&nbsp;</span>value: {{paramResponse}},
+                        <div id="textarea-1"></div>
                         <br /> <span style="padding: 0 20px">&nbsp;</span> },
-                        <br /> <span style="padding: 0 20px">&nbsp;</span>statusCode: 200
-                        <br /> <span style="padding: 0 20px">&nbsp;</span>statusMessage: "OK"
+                        <br /> <span style="padding: 0 20px">&nbsp;</span>statusCode:
+                        <br /> <span style="padding: 0 20px">&nbsp;</span>statusMessage: {{paramResponseOk}}
                         <br /> }
                         <br />
                     </div>
@@ -120,9 +88,12 @@
 
             </form>
             <div style="margin-left: 0px;margin-right: 0px;margin-top: 0%;margin-bottom: 0px;">
-                <button class="btn btn-primary btn-block footer-submit " ui-turn-on="modal2 ">
+                <button class="btn btn-primary btn-block footer-submit" ng-click="sendRequestMethod('DeviceOrientationListener')">
                     SUBMIT
                 </button>
+                <!--<button class="btn btn-primary btn-block footer-submit" ui-turn-on="modal2" ng-click="sendRequestMethod('ButtonListener')">
+                    SUBMIT>
+                </button-->
             </div>
             <!--
 margin-left: 15px;margin-right: 15px;margin-top: 0%;margin-bottom: 0px;

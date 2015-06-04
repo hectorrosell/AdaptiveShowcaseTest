@@ -95,10 +95,10 @@ app.config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider
             templateUrl: 'views/methods/method-getResourceLiteral.html',
             controller: 'MethodController'
             //resolve: resolve
-        }).state("method-ButtonListener", {
-            url: "/method-ButtonListener",
-            templateUrl: 'views/methods/method-ButtonListener.html',
-            //controller: 'MainController',
+        }).state("method-DeviceOrientationListener", {
+            url: "/method-DeviceOrientationListener",
+            templateUrl: 'views/methods/method-DeviceOrientationListener.html',
+            controller: 'MethodController'
             //resolve: resolve
         }).state("descriptor-method", {
             url: "/descriptor-method",

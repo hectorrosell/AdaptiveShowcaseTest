@@ -48,15 +48,18 @@
                         <br /> <span style="padding: 0 20px">&nbsp;</span>“response”: {
                         <br /> <span style="padding: 0 40px">&nbsp;</span>value: “{{ paramResponse }}”,
                         <br /> <span style="padding: 0 20px">&nbsp;</span> },
-                        <br /> <span style="padding: 0 20px">&nbsp;</span>statusCode: 200
-                        <br /> <span style="padding: 0 20px">&nbsp;</span>statusMessage: "OK"
+                        <br /> <span style="padding: 0 20px">&nbsp;</span>statusCode:
+                        <br /> <span style="padding: 0 20px">&nbsp;</span>statusMessage: {{ paramResponseOk }}”
                         <br /> }
                         <br />
                     </div>
                 </fieldset>
             </form>
             <div style="margin-left: 0px;margin-right: 0px;margin-top: 0%;margin-bottom: 0px;">
-                <button class="btn btn-primary btn-block footer-submit" ui-turn-on="modal2" ng-click="sendRequestMethod('getResourceLiteral')">
+                <!--<button class="btn btn-primary btn-block footer-submit" ui-turn-on="modal2" ng-click="sendRequestMethod('getResourceLiteral')">
+                    SUBMIT
+                </button>-->
+                <button class="btn btn-primary btn-block footer-submit" ng-click="sendRequestMethod('getResourceLiteral')">
                     SUBMIT
                 </button>
             </div>
