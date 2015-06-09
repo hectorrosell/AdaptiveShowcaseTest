@@ -82,7 +82,7 @@ app.config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider
         .state("method-getContactsForFields", {
             url: "/method-getContactsForFields",
             templateUrl: 'views/methods/method-getContactsForFields.html',
-            //controller: 'MainController',
+            controller: 'MethodController'
             //resolve: resolve
         })
         .state("method-getOSInfo", {
@@ -105,7 +105,13 @@ app.config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider
             templateUrl: 'views/methods/descriptor-method.html',
             //controller: 'MainController',
             //resolve: resolve
-        });
+        }).state("method-createDatabase", {
+            url: "/method-createDatabase",
+            templateUrl: 'views/methods/method-createDatabase.html',
+            controller: 'MethodController'
+            //resolve: resolve
+        }
+    );
 
 }]);
 

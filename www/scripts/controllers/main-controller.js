@@ -1,3 +1,5 @@
+/// <reference path="../../bower_components/adaptiveme/adaptive.d.ts" />
+/// <reference path="../angular.d.ts" />
 'use strict';
 app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$location', '$route', '$timeout', function ($rootScope, $scope, $log, $state, $location, $route, $timeout) {
     $log.debug("MainController");
@@ -117,6 +119,7 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
         }
     };
     $scope.itemMethodListSelected = function (id, location) {
+        console.log("id: " + id);
         //disable the functions of the other page
         if (currentLocation.indexOf("uiSidebarLeft") !== -1 || isAddToFavorites) {
             isAddToFavorites = false;
@@ -135,6 +138,9 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
             }
             else if (id.indexOf("DeviceOrientationListener") !== -1) {
                 $state.transitionTo('method-DeviceOrientationListener');
+            }
+            else if (id.indexOf("createDatabase") !== -1) {
+                $state.transitionTo('method-createDatabase');
             }
             else {
             }
@@ -160,7 +166,11 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
                     else if (detailList.name.indexOf("DeviceOrientationListener") !== -1) {
                         $state.transitionTo('method-DeviceOrientationListener');
                     }
+                    else if (detailList.name.indexOf("createDatabase") !== -1) {
+                        $state.transitionTo('method-createDatabase');
+                    }
                     else {
+                        console.log("id: " + id);
                     }
                 }
             }
@@ -297,20 +307,22 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
             $scope.isChecked = true;
     };
     $scope.items = items;
-    $scope.deleteItem = function (index) {
-        items.data.splice(index, 1);
-    };
-    $scope.addItem = function (index) {
-        items.data.push({
-            id: $scope.items.data.length + 1,
-            title: "New Listener"
-        });
-    };
-    $scope.deleteAllItems = function () {
-        for (var i = 0; i < items.data.length; i++) {
-            items.data.splice(i);
-        }
-    };
+    /* $scope.deleteItem = function (index) {
+         items.data.splice(index, 1);
+     };
+ 
+     $scope.addItem = function (index) {
+         items.data.push({
+             id: $scope.items.data.length + 1,
+             title: "New Listener"
+         });
+     };
+ 
+     $scope.deleteAllItems = function () {
+         for (var i = 0; i < items.data.length; i++) {
+             items.data.splice(i);
+         }
+     };*/
     $scope.$watch(function () {
         return window.innerWidth;
     }, function (value) {

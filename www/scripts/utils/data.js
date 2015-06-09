@@ -40,8 +40,25 @@ var dataInfo = [
     {
         id: 3,
         name: "Data",
-        size: 0,
-        list: [],
+        size: 1,
+        list: [
+
+            {
+                id: 0,
+                name: "Database",
+                size: 1,
+                list: [
+                    {
+                        id: 0,
+                        name: "createDatabase",
+                        description: "Interface for ...",
+                        favorite: false
+                    }
+                ],
+                description: "Interface for Managing the ..."
+            }
+
+        ],
         description: "Description text"
     },
     {
@@ -113,6 +130,21 @@ var dataInfo = [
 
             {
                 id: 0,
+                name: "ICapabilities",
+                size: 1,
+                list: [
+                    {
+                        id: 0,
+                        name: "getOrientationDefault",
+                        description: "Obtains the default orientation of the device/display",
+                        favorite: false
+                    }
+                ],
+                description: "Interface for testing the Capabilities operations"
+            },
+
+            {
+                id: 1,
                 name: "IDevice",
                 size: 1,
                 list: [
@@ -126,7 +158,7 @@ var dataInfo = [
                 description: "Interface for Managing the Cloud operations"
             },
             {
-                id: 1,
+                id: 2,
                 name: "IOS",
                 size: 1,
                 list: [
@@ -141,7 +173,7 @@ var dataInfo = [
             }
 
         ],
-        size: 2,
+        size: 3,
         description: "Description text"
             },
     {
@@ -163,13 +195,17 @@ var dataInfo = [
 var items = {};
 items.data = [{
     id: "1",
-    title: "0 selected"
+    title: "0 selected",
+    ContactFieldGroup: ""
+
     }, {
     id: "2",
-    title: "0 selected"
+    title: "0 selected",
+    ContactFieldGroup: ""
     }, {
     id: "3",
-    title: "0 selected"
+    title: "0 selected",
+    ContactFieldGroup: ""
     }];
 
 items.data = [{

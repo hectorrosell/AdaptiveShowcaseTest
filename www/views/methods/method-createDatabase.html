@@ -3,12 +3,14 @@
     <div class="scrollable">
         <div class="section border-bottom-line-subtitle subToolBar">
 
+
+
             <div class="row">
                 <div ng-click="setBackTransitionMethods()" class="col-xs-2">
                     <div class="btn btn-default back-button"> <i class="fa fa-chevron-left pull-left back-icon"></i> Back</div>
                 </div>
                 <div class="col-xs-8">
-                    <p class="align-center label-form text-center">getResourceLiteral</p>
+                    <p class="align-center label-form text-center">createDatabase</p>
                 </div>
                 <div class="col-xs-2">
                 </div>
@@ -16,55 +18,59 @@
         </div>
         <div class="scrollable-content section list-content-form">
             <form role="form" ng-submit='submit()' style="height: 100%;" class="form-method-content">
+
                 <fieldset style="height: 100%;">
+
                     <div class="method-content">
-                        <p>Gets the text/message corresponding to the given key and locale</p>
+
+                        <p>Creates a database on default path for every platform.</p>
                         <br>
-                        <p><b>Returns:</b> [String] Localized text.
+                        <p><b>Returns:</b> []
                         </p>
                         <p><b>Since:</b> v2.0
                         </p>
-                        <p><b>Author:</b> Hector Rosell
+                        <p><b>Author:</b> Hector R.
                         </p>
                         <br>
                         <p><b><u>Parameters</u></b>
                         </p>
-                        <p><b>Key </b>[  <a style="color: #428BCA;" href="">String</a> ]: to match text</p>
+                        <p><b>Name of Database </b>[  <a style="color: #428BCA;" href="">String</a> ]: to match text</p>
+
                         <div>
                             <input ng-model="inputTextParam" class="form-control" type="text">
                         </div>
-                        <p><b>locale </b>[locale]: The locale to get localized message, or the locale descriptor ("language" or "language-country" two-letters ISO codes).</p>
-                        <div class="parameters-content">
-                            <br /> <b>country</b> [String]: A valid ISO Country Code.
-                            <div>
-                                <input class="form-control" type="text"> </div>
-                            <b>language</b> [String]: A valid ISO Language Code.
-                            <div>
-                                <input class="form-control" type="text"> </div>
-                        </div>
-                    </div>
+
                     <div class="response-content scrollable-content-response-method">
-                        <div  ng-if= "paramResponseOk == 'OK' || paramResponseOk == 'ERROR'">
-                    {
-                    <br /> <span style="padding: 0 20px">&nbsp;</span>response: {
-                    <br /> <span style="padding: 0 40px">&nbsp;</span>value: {{ paramResponse }},
-                    <br /> <span style="padding: 0 20px">&nbsp;</span> },
-                    <br /> <span style="padding: 0 20px">&nbsp;</span>statusCode:
-                    <br /> <span style="padding: 0 20px">&nbsp;</span>statusMessage: {{ paramResponseOk }}
-                    <br /> }
-                    <br />
-                </div>
+
+                        <div ng-if="response.name==!undefined">
+
+                            {
+                            <br /> <span style="padding: 0 20px">&nbsp;</span>"response": {
+                            <br /> <span style="padding: 0 40px">&nbsp;</span>value: {{ paramResponse }},
+                            <br /> <span style="padding: 0 20px">&nbsp;</span> },
+                            <br /> <span style="padding: 0 20px">&nbsp;</span>statusCode:
+                            <br /> <span style="padding: 0 20px">&nbsp;</span>statusMessage: {{ paramResponseOk }}
+                            <br /> }
+
+                        </div>
+
+                        <br />
                     </div>
+
                 </fieldset>
+
             </form>
+
             <div style="margin-left: 0px;margin-right: 0px;margin-top: 0%;margin-bottom: 0px;">
+
                 <!--<button class="btn btn-primary btn-block footer-submit" ui-turn-on="modal2" ng-click="sendRequestMethod('getResourceLiteral')">
                     SUBMIT
                 </button>-->
-                <button class="btn btn-primary btn-block footer-submit" ng-click="sendRequestMethod('getResourceLiteral')">
+                <button class="btn btn-primary btn-block footer-submit" ng-click="sendRequestMethod('createDatabase')">
                     SUBMIT
                 </button>
             </div>
+
             <!--
 margin-left: 15px;margin-right: 15px;margin-top: 0%;margin-bottom: 0px;
 -->

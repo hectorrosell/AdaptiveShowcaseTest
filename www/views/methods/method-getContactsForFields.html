@@ -14,14 +14,10 @@
                 </div>
             </div>
         </div>
-
         <div class="scrollable-content section list-content-form">
-
             <form role="form" ng-submit='submit()' style="height: 100%;" class="form-method-content">
                 <fieldset style="height: 100%;">
-
                     <div class="method-content">
-
                         <p>Gets marked fields of all contacts</p>
                         <br>
                         <p><b>Since:</b> v2.0
@@ -32,7 +28,6 @@
                         <p><b><u>Parameters</u></b>
                         </p>
                         <p><b>fields </b>[<a style="color: #428BCA;" href="">FieldsGroup</a> ...]: to get for each Contact</p>
-
                         <!--
                     <div>
                         <ul ng-controller="MainController" class="nav">
@@ -46,62 +41,61 @@
 
                         </ul>
                     </div>
--->
+                        -->
 
                         <div class="row">
 
-                            <ul ng-controller="MainController" class="nav">
-
+                            <ul class="nav">
                                 <div class="col-xs-2">
                                     <a class="add-item" ng-click="addItem()"><i class="fa fa-plus"></i></a>
                                 </div>
-
                                 <div class="col-xs-10" style="margin-left: -4px; padding-right: 0px;">
                                     <li ng-repeat="item in items.data" id="item{{item.id}}" style="height: 28px;padding: 3px;margin: 3px; margin-left: -16px; padding-right: 0px;">
 
                                         <!--                                    <a href="#"> 0 Seleccionados</a>-->
-                                        <select class="form-add">
+                                        <select ng-options="field.value for field in fields" ng-model="selectedBoxes[$index]" class="form-add">
 
-                                            <option selected>0 selected</option>
-                                            <option>Field 1</option>
-                                            <option>Field 2</option>
-                                            <option>Field 3</option>
-                                            <option>Field 4</option>
-                                            <option>Field 5</option>
+                                            <!-- <option>{{fields[0].value}}</option>
+                                            <option>{{fields[1].value}}</option>
+                                            <option>{{fields[2].value}}</option>
+                                            <option>{{fields[3].value}}</option>
+                                            <option>{{fields[4].value}}</option>-->
 
                                         </select>
                                         <a ng-click="deleteItem($index)" class="delete-item-defauld"><i class="fa fa-minus"></i></a>
                                     </li>
                                 </div>
-
                             </ul>
                         </div>
-
                         <div ng-hide="true" class=" row">
                             <button type="button" class=" btn btn-danger button-message-form-response">Error messages</button>
                         </div>
-
                         <div ng-hide="true" class=" row">
                             <button type="button" class=" btn btn-warning button-message-form-response">Warning messages</button>
                         </div>
-
                     </div>
-                    <div class="response-content scrollable-content-response-method">
+
+                    <!--<div class="response-content scrollable-content-response-method">
                         {
-                        <br /> <span style="padding: 0 20px">&nbsp;</span>“response”: {
-                        <br /> <span style="padding: 0 40px">&nbsp;</span>value: “Hello Adaptive”,
+                        <br /> <span style="padding: 0 20px">&nbsp;</span>"response": {
+                        <br /> <span style="padding: 0 40px">&nbsp;</span>value: "{{ paramResponse }}",
+                        <div id="contacts-lists"></div>
+                        <div id="contacts-info" ></div>
                         <br /> <span style="padding: 0 20px">&nbsp;</span> },
-                        <br /> <span style="padding: 0 20px">&nbsp;</span>statusCode: 200
-                        <br /> <span style="padding: 0 20px">&nbsp;</span>statusMessage: "OK"
+                        <br /> <span style="padding: 0 20px">&nbsp;</span>statusCode:
+                        <br /> <span style="padding: 0 20px">&nbsp;</span>statusMessage: {{ paramResponseOk }}
                         <br /> }
                         <br />
+                    </div>-->
+                    <div class="response-content scrollable-content-response-method">
+                        <div id="contacts-lists"></div>
+                        <div id="contacts-info" ></div>
+                        <br />
                     </div>
-
                 </fieldset>
-
             </form>
             <div style="margin-left: 0px;margin-right: 0px;margin-top: 0%;margin-bottom: 0px;">
-                <button class="btn btn-primary btn-block footer-submit " ui-turn-on="modal2 ">
+                <button class="btn btn-primary btn-block footer-submit" ng-click="sendRequestMethod('getContactsForFields')">
                     SUBMIT
                 </button>
             </div>

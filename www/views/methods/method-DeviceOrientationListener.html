@@ -26,7 +26,7 @@
                         <br>
                         <p><b>Since:</b> v2.0
                         </p>
-                        <p><b>Author:</b> Hector Rosell
+                        <p><b>Author:</b> Hector R.
                         </p>
                         <br>
                       <!--  <p><b><u>Listeners</u></b>
@@ -72,17 +72,20 @@
                     </div>
 
                     <div class="response-content scrollable-content-response-method">
-                        {
-                        <br /> <span style="padding: 0 20px">&nbsp;</span> response: {
 
-                        <br /> <span style="padding: 0 40px">&nbsp;</span>value: {{paramResponse}},
-                        <div id="textarea-1"></div>
-                        <br /> <span style="padding: 0 20px">&nbsp;</span> },
-                        <br /> <span style="padding: 0 20px">&nbsp;</span>statusCode:
-                        <br /> <span style="padding: 0 20px">&nbsp;</span>statusMessage: {{paramResponseOk}}
-                        <br /> }
-                        <br />
-                    </div>
+                       <!-- <div  ng-if= "paramResponseOk == 'OK' ">-->
+                            {
+                            <br /> <span style="padding: 0 20px">&nbsp;</span> response: {
+
+                            <br /> <span style="padding: 0 40px">&nbsp;</span>value: {{paramResponse}}
+                            <div id="textarea-1"></div>
+                            <br /> <span style="padding: 0 20px">&nbsp;</span> },
+                            <br /> <span style="padding: 0 20px">&nbsp;</span>statusCode:
+                            <br /> <span style="padding: 0 20px">&nbsp;</span>statusMessage: {{paramResponseOk}}
+                            <br /> }
+                            <br />
+                        </div>
+                    <!--</div>-->
 
                 </fieldset>
 

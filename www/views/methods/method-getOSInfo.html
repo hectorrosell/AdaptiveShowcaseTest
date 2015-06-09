@@ -33,21 +33,29 @@
                         </p>
                         <br>
                     </div>
+
                     <div class="response-content scrollable-content-response-method">
-                        {
-                        <p> <span style="padding: 0 20px">&nbsp;</span>“response”: {</p>
-                        <p> <span style="padding: 0 40px">&nbsp;</span>name: “{{response.name }}”,</p>
-                        <p> <span style="padding: 0 40px">&nbsp;</span>versi&oacute;n: “{{response.version}}”</p>
-                        <p> <span style="padding: 0 40px">&nbsp;</span>vendor: “{{response.vendor }}”,</p>
-                        <p> <span style="padding: 0 20px">&nbsp;</span> },</p>
-                        <p> <span style="padding: 0 20px">&nbsp;</span>statusCode: </p>
-                        <p> <span style="padding: 0 20px">&nbsp;</span>statusMessage: {{paramResponseOk}}</p>
-                        <p> }</p>
+
+                        <div  ng-if= "paramResponseOk == 'OK' ">
+                            {
+                            <p> <span style="padding: 0 20px">&nbsp;</span>response: {</p>
+                            <p> <span style="padding: 0 40px">&nbsp;</span>name: {{response.name }},</p>
+                            <p> <span style="padding: 0 40px">&nbsp;</span>versi&oacute;n: {{response.version}}</p>
+
+                            <p> <span style="padding: 0 40px">&nbsp;</span>vendor: {{response.vendor }},</p>
+                            <p> <span style="padding: 0 20px">&nbsp;</span> },</p>
+                            <p> <span style="padding: 0 20px">&nbsp;</span>statusCode: </p>
+                            <p> <span style="padding: 0 20px">&nbsp;</span>statusMessage: {{paramResponseOk}}</p>
+                            <p> }</p>
+
+                        </div>
+
+
 
                     </div>
 
                 </fieldset>
-                2
+
             </form>
             <div style="margin-left: 0px;margin-right: 0px;margin-top: 0%;margin-bottom: 0px;">
                <!-- <button  class="btn btn-primary btn-block footer-submit " ui-turn-on="modal2 ">-->

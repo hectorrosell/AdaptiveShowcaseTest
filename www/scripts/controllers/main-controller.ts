@@ -1,3 +1,6 @@
+/// <reference path="../../bower_components/adaptiveme/adaptive.d.ts" />
+/// <reference path="../angular.d.ts" />
+
 'use strict';
 
 app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$location', '$route', '$timeout', function ($rootScope, $scope, $log, $state, $location, $route, $timeout) {
@@ -150,6 +153,8 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
 
     $scope.itemMethodListSelected = function (id, location) {
 
+        console.log("id: "+id);
+
         //disable the functions of the other page
         if (currentLocation.indexOf("uiSidebarLeft") !== -1 || isAddToFavorites) {
 
@@ -159,15 +164,19 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
 
             isFavoriteState = true;
             $scope.isSlideBack = false;
-            if (id.indexOf("getOSInfo") !== -1) {
+            if (id.indexOf("getOSInfo") !== -1)                         {
                 $state.transitionTo('method-getOSInfo');
-            } else if (id.indexOf("getResourceLiteral") !== -1) {
+            } else if (id.indexOf("getResourceLiteral") !== -1)         {
                 $state.transitionTo('method-getResourceLiteral');
-            } else if (id.indexOf("getContactsForFields") !== -1) {
+            } else if (id.indexOf("getContactsForFields") !== -1)       {
                 $state.transitionTo('method-getContactsForFields');
-            } else if (id.indexOf("DeviceOrientationListener") !== -1) {
+            } else if (id.indexOf("DeviceOrientationListener") !== -1)  {
                 $state.transitionTo('method-DeviceOrientationListener');
-            } else {}
+            } else if (id.indexOf("createDatabase") !== -1) {
+                $state.transitionTo('method-createDatabase');
+            }
+            else {
+            }
 
         } else {
 
@@ -188,7 +197,13 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
                         $state.transitionTo('method-getContactsForFields');
                     } else if (detailList.name.indexOf("DeviceOrientationListener") !== -1) {
                         $state.transitionTo('method-DeviceOrientationListener');
-                    } else {}
+                    } else if (detailList.name.indexOf("createDatabase") !== -1) {
+                        $state.transitionTo('method-createDatabase');
+                    }
+                    else {
+                        console.log("id: "+id);
+
+                    }
 
                 }
             }
@@ -332,7 +347,7 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
 
     $scope.items = items;
 
-    $scope.deleteItem = function (index) {
+   /* $scope.deleteItem = function (index) {
         items.data.splice(index, 1);
     };
 
@@ -344,11 +359,10 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
     };
 
     $scope.deleteAllItems = function () {
-
         for (var i = 0; i < items.data.length; i++) {
             items.data.splice(i);
         }
-    };
+    };*/
 
     $scope.$watch(function () {
         return window.innerWidth;
@@ -360,7 +374,6 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
         if ((heightFormMethodContent - heightMethodContent - offSetY) > 85)
             $('.response-content').css({
                 'height': (heightFormMethodContent - heightMethodContent - offSetY) + 'px'
-
             });
     });
 }]);
