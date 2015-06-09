@@ -51,7 +51,6 @@ app.controller('MethodController', [ '$rootScope','$scope',function ($rootScope,
         Adaptive.IContactFieldGroup.Tags,
         Adaptive.IContactFieldGroup.Websites
     ];
-
     $scope.selectedBoxes = ["none","none","none"];
 
     var tempScope = $scope;
@@ -76,7 +75,7 @@ app.controller('MethodController', [ '$rootScope','$scope',function ($rootScope,
     //
 
     $scope.sendRequestMethod = function sendRequestMethod(method){
-        console.log("sendRequestMethod: "+method);
+       // console.log("sendRequestMethod: "+method);
         switch(method){
 
             case 'getOSInfo':
@@ -109,27 +108,26 @@ app.controller('MethodController', [ '$rootScope','$scope',function ($rootScope,
 
             case 'getContactsForFields':
 
-                console.log("$scope.selectedBoxes: "+$scope.selectedBoxes);
+                console.log("$scope.selectedBoxes lenght: "+$scope.selectedBoxes);
 
                 var newFields = [];
 
-                angular.forEach( $scope.selectedBoxes , function( value, key){
-                    console.log("value of selected options: " + value);
+                angular.forEach( $scope.fields , function( value, key){
+                    //console.log("value of selected options: " + value);
 
-                    var arraycontainsgroup = ($scope.fields.indexOf(value) > -1);
+                    var arraycontainsgroup = ($scope.selectedBoxes.indexOf(value) > -1);
 
-                    //console.log("arraycontainsgroup: " + arraycontainsgroup);
-
+                    //console.log("current selectBoxes arraycontainsgroup value: " + value);
                     //console.log("fields.value: " + $scope.fields);
 
                     if (arraycontainsgroup){
                         newFields.push(value);
-                        console.log("newFields: " + newFields);
+                        console.log("newFields value: " + value);
                     }
 
                 });
 
-                console.log("case getContactsForFields");
+               // console.log("case getContactsForFields");
                 var contact:Adaptive.IContact = Adaptive.AppRegistryBridge.getInstance().getContactBridge();
                 // Asynchronous Method (callback) (getContacts)
                 var callback:Adaptive.IContactResultCallback = new Adaptive.ContactResultCallback(
@@ -142,8 +140,8 @@ app.controller('MethodController', [ '$rootScope','$scope',function ($rootScope,
                     },
                     function onResult(contacts:Adaptive.Contact[]) {
 
-                        //log(Adaptive.ILoggingLogLevel.Debug,JSON.stringify(contacts));
-                        console.log("case onResult getContactsForFields");
+
+                        console.log("case onResult getContactsForFields, contacts: "+contacts.length);
                         $scope.parseContacts(contacts);
                         //$("#contacts-lists").listview('refresh');
 
@@ -158,6 +156,7 @@ app.controller('MethodController', [ '$rootScope','$scope',function ($rootScope,
                     }
                 );
                 time = new Date();
+
                 //contact.getContact(new Adaptive.ContactUid(),callback);
 
                 //Filter the array of
@@ -236,7 +235,7 @@ app.controller('MethodController', [ '$rootScope','$scope',function ($rootScope,
 
     $scope.parseContacts = function parseContacts(contacts:Adaptive.Contact[]):void {
 
-        console.log("case parseContacts");
+        //console.log("case parseContacts");
         $('#contacts-info').html("tooks "+(new Date().getTime()-time.getTime())+" ms ["+contacts.length+"]").show();
         $('#contacts-lists').html("");
 
@@ -291,6 +290,7 @@ app.controller('MethodController', [ '$rootScope','$scope',function ($rootScope,
     $scope.items = items;
     $scope.deleteItem = function (index) {
         items.data.splice(index, 1);
+        $scope.selectedBoxes.splice(index, 1);
     };
 
     $scope.addItem = function (index) {

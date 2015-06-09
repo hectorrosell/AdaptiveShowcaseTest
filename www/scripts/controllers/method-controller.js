@@ -68,7 +68,6 @@ app.controller('MethodController', ['$rootScope', '$scope', function ($rootScope
     device.addDeviceOrientationListener(orientationListener);
     //
     $scope.sendRequestMethod = function sendRequestMethod(method) {
-        console.log("sendRequestMethod: " + method);
         switch (method) {
             case 'getOSInfo':
                 var os = Adaptive.AppRegistryBridge.getInstance().getOSBridge();
@@ -92,19 +91,19 @@ app.controller('MethodController', ['$rootScope', '$scope', function ($rootScope
                 device.addDeviceOrientationListener(orientationListener);
                 break;
             case 'getContactsForFields':
-                console.log("$scope.selectedBoxes: " + $scope.selectedBoxes);
+                console.log("$scope.selectedBoxes lenght: " + $scope.selectedBoxes);
                 var newFields = [];
-                angular.forEach($scope.selectedBoxes, function (value, key) {
-                    console.log("value of selected options: " + value);
-                    var arraycontainsgroup = ($scope.fields.indexOf(value) > -1);
-                    //console.log("arraycontainsgroup: " + arraycontainsgroup);
+                angular.forEach($scope.fields, function (value, key) {
+                    //console.log("value of selected options: " + value);
+                    var arraycontainsgroup = ($scope.selectedBoxes.indexOf(value) > -1);
+                    //console.log("current selectBoxes arraycontainsgroup value: " + value);
                     //console.log("fields.value: " + $scope.fields);
                     if (arraycontainsgroup) {
                         newFields.push(value);
-                        console.log("newFields: " + newFields);
+                        console.log("newFields value: " + value);
                     }
                 });
-                console.log("case getContactsForFields");
+                // console.log("case getContactsForFields");
                 var contact = Adaptive.AppRegistryBridge.getInstance().getContactBridge();
                 // Asynchronous Method (callback) (getContacts)
                 var callback = new Adaptive.ContactResultCallback(function onError(error) {
@@ -114,8 +113,7 @@ app.controller('MethodController', ['$rootScope', '$scope', function ($rootScope
                     //$('#contacts-error').html("ERROR: " + error.toString()).show();
                     //$("#contacts-lists").listview('refresh');
                 }, function onResult(contacts) {
-                    //log(Adaptive.ILoggingLogLevel.Debug,JSON.stringify(contacts));
-                    console.log("case onResult getContactsForFields");
+                    console.log("case onResult getContactsForFields, contacts: " + contacts.length);
                     $scope.parseContacts(contacts);
                     //$("#contacts-lists").listview('refresh');
                 }, function onWarning(contacts, warning) {
@@ -181,7 +179,7 @@ app.controller('MethodController', ['$rootScope', '$scope', function ($rootScope
         $textArea.html("printDeviceOrientationEvents:" + ': ' + event.getOrigin() + ' > ' + event.getDestination() + ' [' + event.getState() + ']\n');
     };
     $scope.parseContacts = function parseContacts(contacts) {
-        console.log("case parseContacts");
+        //console.log("case parseContacts");
         $('#contacts-info').html("tooks " + (new Date().getTime() - time.getTime()) + " ms [" + contacts.length + "]").show();
         $('#contacts-lists').html("");
         for (var i = 0; i < contacts.length; i++) {
@@ -218,6 +216,7 @@ app.controller('MethodController', ['$rootScope', '$scope', function ($rootScope
     $scope.items = items;
     $scope.deleteItem = function (index) {
         items.data.splice(index, 1);
+        $scope.selectedBoxes.splice(index, 1);
     };
     $scope.addItem = function (index) {
         items.data.push({
