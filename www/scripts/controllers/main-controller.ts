@@ -174,6 +174,8 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
                 $state.transitionTo('method-DeviceOrientationListener');
             } else if (id.indexOf("createDatabase") !== -1) {
                 $state.transitionTo('method-createDatabase');
+            } else if (id.indexOf("getOrientationDefault") !== -1) {
+                $state.transitionTo('method-getOrientationDefault');
             }
             else {
             }
@@ -199,10 +201,11 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
                         $state.transitionTo('method-DeviceOrientationListener');
                     } else if (detailList.name.indexOf("createDatabase") !== -1) {
                         $state.transitionTo('method-createDatabase');
+                    } else if (detailList.name.indexOf("getOrientationDefault") !== -1) {
+                        $state.transitionTo('method-getOrientationDefault');
                     }
                     else {
                         console.log("id: "+id);
-
                     }
 
                 }
@@ -269,7 +272,12 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
                         data[6].list[0].list[0].favorite = false;
                     } else if ($scope.favoritesMethods[id].name.indexOf("DeviceOrientationListener") !== -1) {
                         data[11].list[0].list[0].favorite = false;
-                    } else {}
+                    } else if ($scope.favoritesMethods[id].name.indexOf("createDatabase") !== -1) {
+                        data[3].list[0].list[0].favorite = false;
+                    } else if ($scope.favoritesMethods[id].name.indexOf("getOrientationDefault") !== -1) {
+                        data[11].list[0].list[0].favorite = false;
+                    } else {
+                    }
 
                     localStorage.setItem("data", JSON.stringify(data));
                     $scope.favoritesMethods[id].favorite = false;
@@ -286,6 +294,10 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
                     } else if ($scope.favoritesMethods[id].name.indexOf("getContactsForFields") !== -1) {
                         data[6].list[0].list[0].favorite = true;
                     } else if ($scope.favoritesMethods[id].name.indexOf("DeviceOrientationListener") !== -1) {
+                        data[11].list[0].list[0].favorite = true;
+                    } else if ($scope.favoritesMethods[id].name.indexOf("createDatabase") !== -1) {
+                        data[3].list[0].list[0].favorite = true;
+                    } else if ($scope.favoritesMethods[id].name.indexOf("getOrientationDefault") !== -1) {
                         data[11].list[0].list[0].favorite = true;
                     } else {}
 

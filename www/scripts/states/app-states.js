@@ -110,8 +110,14 @@ app.config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider
             templateUrl: 'views/methods/method-createDatabase.html',
             controller: 'MethodController'
             //resolve: resolve
-        }
-    );
+        }).state("method-getOrientationDefault", {
+            url: "/method-getOrientationDefault",
+            templateUrl: 'views/methods/method-getOrientationDefault.html',
+            controller: 'MethodController'
+            //resolve: resolve
+        })
+
+    ;
 
 }]);
 

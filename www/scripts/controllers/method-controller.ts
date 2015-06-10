@@ -14,12 +14,10 @@ app.controller('MethodController', [ '$rootScope','$scope',function ($rootScope,
         {
             group: Adaptive.IContactFieldGroup.PersonalInfo,
             selected: false
-        },
-        {
+        }, {
             group: Adaptive.IContactFieldGroup.ProfessionalInfo,
             selected: false
-        },
-        {
+        }, {
             group: Adaptive.IContactFieldGroup.Addresses,
             selected: false
         }, {
@@ -38,7 +36,6 @@ app.controller('MethodController', [ '$rootScope','$scope',function ($rootScope,
             group: Adaptive.IContactFieldGroup.Websites,
             selected: false
         }
-
     ];
 
     $scope.fields = [
@@ -109,16 +106,10 @@ app.controller('MethodController', [ '$rootScope','$scope',function ($rootScope,
             case 'getContactsForFields':
 
                 console.log("$scope.selectedBoxes lenght: "+$scope.selectedBoxes);
-
                 var newFields = [];
-
                 angular.forEach( $scope.fields , function( value, key){
-                    //console.log("value of selected options: " + value);
 
                     var arraycontainsgroup = ($scope.selectedBoxes.indexOf(value) > -1);
-
-                    //console.log("current selectBoxes arraycontainsgroup value: " + value);
-                    //console.log("fields.value: " + $scope.fields);
 
                     if (arraycontainsgroup){
                         newFields.push(value);
@@ -127,43 +118,29 @@ app.controller('MethodController', [ '$rootScope','$scope',function ($rootScope,
 
                 });
 
-               // console.log("case getContactsForFields");
                 var contact:Adaptive.IContact = Adaptive.AppRegistryBridge.getInstance().getContactBridge();
                 // Asynchronous Method (callback) (getContacts)
                 var callback:Adaptive.IContactResultCallback = new Adaptive.ContactResultCallback(
                     function onError(error:Adaptive.IContactResultCallbackError) {
-                        //console.log(JSON.stringify(error));
-                        //log(Adaptive.ILoggingLogLevel.Error, error.toString());
+
                         console.log("case onError getContactsForFields");
-                        //$('#contacts-error').html("ERROR: " + error.toString()).show();
-                        //$("#contacts-lists").listview('refresh');
+
                     },
                     function onResult(contacts:Adaptive.Contact[]) {
 
-
                         console.log("case onResult getContactsForFields, contacts: "+contacts.length);
                         $scope.parseContacts(contacts);
-                        //$("#contacts-lists").listview('refresh');
 
                     },
                     function onWarning(contacts:Adaptive.Contact[], warning:Adaptive.IContactResultCallbackWarning) {
-                        //console.log(JSON.stringify(warning));
-                        // log(Adaptive.ILoggingLogLevel.Warn,JSON.stringify(contacts));
-                        // $('#contacts-warning').html("WARNING: " + warning.toString()).show();
+
                         console.log("case onWarning getContactsForFields");
                         $scope.parseContacts(contacts);
-                        // $("#contacts-lists").listview('refresh');
+
                     }
                 );
                 time = new Date();
-
-                //contact.getContact(new Adaptive.ContactUid(),callback);
-
-                //Filter the array of
-
-                //contact.getContactsForFields(callback, $scope.fields ) ;
                 contact.getContactsForFields(callback, newFields ) ;
-                //contact.getContactsForFields(callback, [ Adaptive.IContactFieldGroup.PersonalInfo, Adaptive.IContactFieldGroup.ProfessionalInfo, Adaptive.IContactFieldGroup.Addresses, Adaptive.IContactFieldGroup.Emails, Adaptive.IContactFieldGroup.Phones, Adaptive.IContactFieldGroup.Socials, Adaptive.IContactFieldGroup.Tags, Adaptive.IContactFieldGroup.Websites ] );
                 break;
 
             case 'getResourceLiteral' :
@@ -192,27 +169,38 @@ app.controller('MethodController', [ '$rootScope','$scope',function ($rootScope,
                 var newDatabase = new Adaptive.Database($scope.inputTextParam,false) ;
                 var database2:Adaptive.Database = new Adaptive.Database();
 
-                console.log("inputTextParam: "+$scope.inputTextParam );
-
-                //newDatabase.setName($scope.inputTextParam );
-                // Asynchronous Method (callback) (getContacts)
-
                 var callbackDatabase:Adaptive.IDatabaseResultCallback = new Adaptive.DatabaseResultCallback (
+
                     function onError(error:Adaptive.IDatabaseResultCallbackError) {
                         console.log("case onError createDatabase");
                     },
                     function onResult(databases:Adaptive.Database ) {
-                        console.log("case onResult createDatabases: " + databases);
+                        $('#response').html ( 'Created Database: '+databases.getName()+'.'  );
                     },
                     function onWarning(databases:Adaptive.Database, warning:Adaptive.IContactPhotoResultCallbackWarning) {
                         console.log("case onWarning createDatabase");
                     }
                 );
 
-                database.createDatabase( newDatabase , callbackDatabase );
+                console.log("inputTextParam:" + typeof ( $('#inputTextParam').val() ) +"." );
+
+                if (  ($('#inputTextParam').val() === '') )
+                    console.log("testing inputTextParam: " + $('#inputTextParam').val());
+
+                if ( ($('#inputTextParam').val() === '') || ($('#inputTextParam')).val() === ' ' ) {
+                    $('#response').html('Error.');
+                }else
+                    database.createDatabase( newDatabase , callbackDatabase );
+
                 break;
 
-            case 'capabilitiesDelegate':
+            case 'getOrientationDefault' :
+
+                var device2:Adaptive.ICapabilities =  Adaptive.AppRegistryBridge.getInstance().getCapabilitiesBridge();
+                var orientation:Adaptive.ICapabilitiesOrientation = device2.getOrientationDefault() ;
+                console.log("getOrientationDefault: "+ orientation);
+                $scope.response.name = orientation.value ;
+                $scope.paramResponseOk = "OK";
 
                 break;
 

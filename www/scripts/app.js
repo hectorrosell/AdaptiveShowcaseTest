@@ -34,7 +34,7 @@ app.directive('xngFocus', function () {
 $(window).resize(function () {
 
     //alert(window.innerWidth);
-
+    
     var heightMethodContent = $('.method-content').innerHeight();
     var heightFormMethodContent = $('.form-method-content').innerHeight();
     var offSetY = 10;

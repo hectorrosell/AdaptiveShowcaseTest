@@ -94,40 +94,24 @@ app.controller('MethodController', ['$rootScope', '$scope', function ($rootScope
                 console.log("$scope.selectedBoxes lenght: " + $scope.selectedBoxes);
                 var newFields = [];
                 angular.forEach($scope.fields, function (value, key) {
-                    //console.log("value of selected options: " + value);
                     var arraycontainsgroup = ($scope.selectedBoxes.indexOf(value) > -1);
-                    //console.log("current selectBoxes arraycontainsgroup value: " + value);
-                    //console.log("fields.value: " + $scope.fields);
                     if (arraycontainsgroup) {
                         newFields.push(value);
                         console.log("newFields value: " + value);
                     }
                 });
-                // console.log("case getContactsForFields");
                 var contact = Adaptive.AppRegistryBridge.getInstance().getContactBridge();
                 // Asynchronous Method (callback) (getContacts)
                 var callback = new Adaptive.ContactResultCallback(function onError(error) {
-                    //console.log(JSON.stringify(error));
-                    //log(Adaptive.ILoggingLogLevel.Error, error.toString());
                     console.log("case onError getContactsForFields");
-                    //$('#contacts-error').html("ERROR: " + error.toString()).show();
-                    //$("#contacts-lists").listview('refresh');
                 }, function onResult(contacts) {
                     console.log("case onResult getContactsForFields, contacts: " + contacts.length);
                     $scope.parseContacts(contacts);
-                    //$("#contacts-lists").listview('refresh');
                 }, function onWarning(contacts, warning) {
-                    //console.log(JSON.stringify(warning));
-                    // log(Adaptive.ILoggingLogLevel.Warn,JSON.stringify(contacts));
-                    // $('#contacts-warning').html("WARNING: " + warning.toString()).show();
                     console.log("case onWarning getContactsForFields");
                     $scope.parseContacts(contacts);
-                    // $("#contacts-lists").listview('refresh');
                 });
                 time = new Date();
-                //contact.getContact(new Adaptive.ContactUid(),callback);
-                //Filter the array of
-                //contact.getContactsForFields(callback, $scope.fields ) ;
                 contact.getContactsForFields(callback, newFields);
                 break;
             case 'getResourceLiteral':
@@ -151,19 +135,28 @@ app.controller('MethodController', ['$rootScope', '$scope', function ($rootScope
                 var database = Adaptive.AppRegistryBridge.getInstance().getDatabaseBridge();
                 var newDatabase = new Adaptive.Database($scope.inputTextParam, false);
                 var database2 = new Adaptive.Database();
-                console.log("inputTextParam: " + $scope.inputTextParam);
-                //newDatabase.setName($scope.inputTextParam );
-                // Asynchronous Method (callback) (getContacts)
                 var callbackDatabase = new Adaptive.DatabaseResultCallback(function onError(error) {
                     console.log("case onError createDatabase");
                 }, function onResult(databases) {
-                    console.log("case onResult createDatabases: " + databases);
+                    $('#response').html('Created Database: ' + databases.getName() + '.');
                 }, function onWarning(databases, warning) {
                     console.log("case onWarning createDatabase");
                 });
-                database.createDatabase(newDatabase, callbackDatabase);
+                console.log("inputTextParam:" + typeof ($('#inputTextParam').val()) + ".");
+                if (($('#inputTextParam').val() === ''))
+                    console.log("testing inputTextParam: " + $('#inputTextParam').val());
+                if (($('#inputTextParam').val() === '') || ($('#inputTextParam')).val() === ' ') {
+                    $('#response').html('Error.');
+                }
+                else
+                    database.createDatabase(newDatabase, callbackDatabase);
                 break;
-            case 'capabilitiesDelegate':
+            case 'getOrientationDefault':
+                var device2 = Adaptive.AppRegistryBridge.getInstance().getCapabilitiesBridge();
+                var orientation = device2.getOrientationDefault();
+                console.log("getOrientationDefault: " + orientation);
+                $scope.response.name = orientation.value;
+                $scope.paramResponseOk = "OK";
                 break;
             default:
                 break;

@@ -10,16 +10,16 @@ var dataInfo = [
                 list: [{
                         id: 0,
                         name: "getResourceLiteral",
-                        description: "Interface for Managing the Cloud operations",
+                        description: "Description text",
                         favorite: false
                     }
                 ],
-                description: "Interface for Managing the Cloud operations"
+                description: "Description text"
             }
 
         ],
         size: 1,
-        description: "Description text for service Application"
+        description: "Description text"
     },
     {
         id: 1,
@@ -51,11 +51,11 @@ var dataInfo = [
                     {
                         id: 0,
                         name: "createDatabase",
-                        description: "Interface for ...",
+                        description: "Description text",
                         favorite: false
                     }
                 ],
-                description: "Interface for Managing the ..."
+                description: "Description text"
             }
 
         ],
@@ -87,11 +87,11 @@ var dataInfo = [
                     {
                         id: 0,
                         name: "getContactsForFields",
-                        description: "Interface for Managing the Cloud operations",
+                        description: "Description text",
                         favorite: false
                     }
                 ],
-                description: "Interface for Managing the Cloud operations"
+                description: "Description text"
             }
         ],
         size: 1,
@@ -136,11 +136,11 @@ var dataInfo = [
                     {
                         id: 0,
                         name: "getOrientationDefault",
-                        description: "Obtains the default orientation of the device/display",
+                        description: "Description text",
                         favorite: false
                     }
                 ],
-                description: "Interface for testing the Capabilities operations"
+                description: "Description text"
             },
 
             {
@@ -151,11 +151,11 @@ var dataInfo = [
                     {
                         id: 0,
                         name: "DeviceOrientationListener",
-                        description: "Interface for Managing the Cloud operations",
+                        description: "Description text",
                         favorite: false
                     }
                 ],
-                description: "Interface for Managing the Cloud operations"
+                description: "Description text"
             },
             {
                 id: 2,
@@ -165,11 +165,11 @@ var dataInfo = [
                     {
                         id: 0,
                         name: "getOSInfo",
-                        description: "Interface for Managing the Cloud operations",
+                        description: "Description text",
                         favorite: false
                     }
                 ],
-                description: "Interface for Managing the Cloud operations"
+                description: "Description text"
             }
 
         ],
