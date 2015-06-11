@@ -4,11 +4,14 @@
 var time:Date;
 app.controller('MethodController', [ '$rootScope','$scope',function ($rootScope, $scope) {
 
+    // Set text in some cases
     $scope.response ={
         name: "" ,
         version: "",
         vendor: ""
     };
+
+    //Data for some select input
 
     $scope.itemSelectForContactFieldGroup = [
         {
@@ -48,6 +51,8 @@ app.controller('MethodController', [ '$rootScope','$scope',function ($rootScope,
         Adaptive.IContactFieldGroup.Tags,
         Adaptive.IContactFieldGroup.Websites
     ];
+
+
     $scope.selectedBoxes = ["none","none","none"];
 
     var tempScope = $scope;
@@ -56,7 +61,6 @@ app.controller('MethodController', [ '$rootScope','$scope',function ($rootScope,
 
     // Activate the Device Orientation Listener listener
 
-    //$scope.paramResponse = "Orientation listener activated";
     var device:Adaptive.IDevice = Adaptive.AppRegistryBridge.getInstance().getDeviceBridge();
     console.log("case DeviceOrientationListener");
     var orientationListener:Adaptive.IDeviceOrientationListener = new Adaptive.DeviceOrientationListener(
@@ -69,13 +73,16 @@ app.controller('MethodController', [ '$rootScope','$scope',function ($rootScope,
     );
     device.addDeviceOrientationListener(orientationListener);
 
-    //
+    // button 'Submit' is clicked
 
     $scope.sendRequestMethod = function sendRequestMethod(method){
-       // console.log("sendRequestMethod: "+method);
+
         switch(method){
 
+            // Methods for testing Adaptive methods
+
             case 'getOSInfo':
+
                 var os:Adaptive.IOS = Adaptive.AppRegistryBridge.getInstance().getOSBridge();
                 var osInfo:Adaptive.OSInfo = os.getOSInfo();
                 console.log(osInfo);
@@ -83,10 +90,10 @@ app.controller('MethodController', [ '$rootScope','$scope',function ($rootScope,
                 $scope.response.version = osInfo.getVersion();
                 $scope.response.vendor = osInfo.getVendor();
                 $scope.paramResponseOk = "OK";
-
                 break;
 
             case 'DeviceOrientationListener':
+
                 $scope.paramResponse = "Orientation listener activated";
                 var device:Adaptive.IDevice = Adaptive.AppRegistryBridge.getInstance().getDeviceBridge();
                 console.log("case DeviceOrientationListener");
@@ -100,7 +107,6 @@ app.controller('MethodController', [ '$rootScope','$scope',function ($rootScope,
                 );
                 device.addDeviceOrientationListener(orientationListener);
                 //device.removeDeviceOrientationListener(orientationListener);
-
                 break;
 
             case 'getContactsForFields':
@@ -108,35 +114,26 @@ app.controller('MethodController', [ '$rootScope','$scope',function ($rootScope,
                 console.log("$scope.selectedBoxes lenght: "+$scope.selectedBoxes);
                 var newFields = [];
                 angular.forEach( $scope.fields , function( value, key){
-
                     var arraycontainsgroup = ($scope.selectedBoxes.indexOf(value) > -1);
-
                     if (arraycontainsgroup){
                         newFields.push(value);
                         console.log("newFields value: " + value);
                     }
-
                 });
 
                 var contact:Adaptive.IContact = Adaptive.AppRegistryBridge.getInstance().getContactBridge();
                 // Asynchronous Method (callback) (getContacts)
                 var callback:Adaptive.IContactResultCallback = new Adaptive.ContactResultCallback(
                     function onError(error:Adaptive.IContactResultCallbackError) {
-
                         console.log("case onError getContactsForFields");
-
                     },
                     function onResult(contacts:Adaptive.Contact[]) {
-
                         console.log("case onResult getContactsForFields, contacts: "+contacts.length);
                         $scope.parseContacts(contacts);
-
                     },
                     function onWarning(contacts:Adaptive.Contact[], warning:Adaptive.IContactResultCallbackWarning) {
-
                         console.log("case onWarning getContactsForFields");
                         $scope.parseContacts(contacts);
-
                     }
                 );
                 time = new Date();
@@ -191,7 +188,6 @@ app.controller('MethodController', [ '$rootScope','$scope',function ($rootScope,
                     $('#response').html('Error.');
                 }else
                     database.createDatabase( newDatabase , callbackDatabase );
-
                 break;
 
             case 'getOrientationDefault' :
@@ -201,12 +197,11 @@ app.controller('MethodController', [ '$rootScope','$scope',function ($rootScope,
                 console.log("getOrientationDefault: "+ orientation);
                 $scope.response.name = orientation.value ;
                 $scope.paramResponseOk = "OK";
-
                 break;
 
             default :
-                break;
 
+                break;
         }
     };
 
@@ -228,6 +223,8 @@ app.controller('MethodController', [ '$rootScope','$scope',function ($rootScope,
         $('#contacts-lists').html("");
 
         for (var i = 0; i < contacts.length; i++) {
+
+            //Evaluate what kind of type is selected by the user.
 
             var per:Adaptive.ContactPersonalInfo = contacts[i].getPersonalInfo();
             var pro:Adaptive.ContactProfessionalInfo = contacts[i].getProfessionalInfo();
@@ -280,14 +277,12 @@ app.controller('MethodController', [ '$rootScope','$scope',function ($rootScope,
         items.data.splice(index, 1);
         $scope.selectedBoxes.splice(index, 1);
     };
-
     $scope.addItem = function (index) {
         items.data.push({
             id: $scope.items.data.length + 1,
             title: "New Listener"
         });
     };
-
     $scope.deleteAllItems = function () {
         for (var i = 0; i < items.data.length; i++) {
             items.data.splice(i);

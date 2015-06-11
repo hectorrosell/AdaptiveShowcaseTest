@@ -3,11 +3,13 @@
 'use strict';
 var time;
 app.controller('MethodController', ['$rootScope', '$scope', function ($rootScope, $scope) {
+    // Set text in some cases
     $scope.response = {
         name: "",
         version: "",
         vendor: ""
     };
+    //Data for some select input
     $scope.itemSelectForContactFieldGroup = [
         {
             group: Adaptive.IContactFieldGroup.PersonalInfo,
@@ -56,7 +58,6 @@ app.controller('MethodController', ['$rootScope', '$scope', function ($rootScope
     var tempScope = $scope;
     $scope.inputTextParam = "";
     // Activate the Device Orientation Listener listener
-    //$scope.paramResponse = "Orientation listener activated";
     var device = Adaptive.AppRegistryBridge.getInstance().getDeviceBridge();
     console.log("case DeviceOrientationListener");
     var orientationListener = new Adaptive.DeviceOrientationListener(function onError(error) {
@@ -66,7 +67,7 @@ app.controller('MethodController', ['$rootScope', '$scope', function ($rootScope
     }, function onWarning(event, warning) {
     });
     device.addDeviceOrientationListener(orientationListener);
-    //
+    // button 'Submit' is clicked
     $scope.sendRequestMethod = function sendRequestMethod(method) {
         switch (method) {
             case 'getOSInfo':
@@ -176,6 +177,7 @@ app.controller('MethodController', ['$rootScope', '$scope', function ($rootScope
         $('#contacts-info').html("tooks " + (new Date().getTime() - time.getTime()) + " ms [" + contacts.length + "]").show();
         $('#contacts-lists').html("");
         for (var i = 0; i < contacts.length; i++) {
+            //Evaluate what kind of type is selected by the user.
             var per = contacts[i].getPersonalInfo();
             var pro = contacts[i].getProfessionalInfo();
             var addresses = contacts[i].getContactAddresses();

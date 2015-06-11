@@ -3,6 +3,7 @@
 'use strict';
 app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$location', '$route', '$timeout', function ($rootScope, $scope, $log, $state, $location, $route, $timeout) {
     $log.debug("MainController");
+    //Set data of Adaptive methods in localstorage
     if (localStorage.getItem("firstTime") === null) {
         localStorage.setItem("data", JSON.stringify(dataInfo));
         localStorage.setItem("firstTime", false);
@@ -15,12 +16,17 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
         var retrieveData = localStorage.getItem("data");
         dataInfo = JSON.parse(retrieveData);
     }
-    $scope.isChecked = false;
+    $scope.items = items;
     var currentLocation;
-    $scope.isSlideBack = false;
     $scope.title = "Adaptive Showcase";
     $scope.status = statusNextSlice;
+    $scope.isSlideBack = false;
+    $scope.isChecked = false;
     var isAddToFavorites = false;
+    $scope.inputTextSearch = false;
+    $scope.status = statusNextSlice;
+    $scope.scrollItems = dataInfo;
+    $scope.main_list = dataInfo;
     $scope.go = function (location) {
         $state.transitionTo(location);
         if ($state.is("favorites")) {
@@ -42,7 +48,9 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
             }
         }
     };
+    // isHomePage: returns true in case that the option of the menu is Services
     $scope.isHomePage = function () {
+        // The height of response-content class of css is adapted dynamically
         var heightMethodContent = $('.method-content').innerHeight();
         var heightFormMethodContent = $('.form-method-content').innerHeight();
         var offSetY = 10;
@@ -58,11 +66,11 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
             return true;
         }
     };
-    $scope.inputTextSearch = false;
     $scope.focusSearchBar = function () {
         $scope.inputTextSearch = true;
         console.log("focusSearchBar:" + $scope.inputTextSearch);
     };
+    // Ng-click functions, manage the previous state when the back button is pressed
     $scope.setBackTransitionServices = function () {
         $state.transitionTo("home");
     };
@@ -78,15 +86,14 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
     $scope.setBackTransitionForm = function () {
         $state.transitionTo("form-submit");
     };
-    if (isFirstState) {
+    /*if (isFirstState) {
         oldLocation = "home";
         isFirstState = false;
-    }
-    $scope.status = statusNextSlice;
-    $scope.scrollItems = dataInfo;
-    $scope.main_list = dataInfo;
+    }*/
+    //
     $scope.itemMainListSelected = function (id) {
         currentServiceId = id;
+        // When the side bar is open the other visible elements are not clickable.
         if (currentLocation.indexOf("uiSidebarLeft") !== -1) {
         }
         else {
@@ -118,9 +125,10 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
             }
         }
     };
+    //
     $scope.itemMethodListSelected = function (id, location) {
         console.log("id: " + id);
-        //disable the functions of the other page
+        // When the side bar is open the other visible elements are not clickable.
         if (currentLocation.indexOf("uiSidebarLeft") !== -1 || isAddToFavorites) {
             isAddToFavorites = false;
         }
@@ -324,26 +332,10 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
         else
             $scope.isChecked = true;
     };
-    $scope.items = items;
-    /* $scope.deleteItem = function (index) {
-         items.data.splice(index, 1);
-     };
- 
-     $scope.addItem = function (index) {
-         items.data.push({
-             id: $scope.items.data.length + 1,
-             title: "New Listener"
-         });
-     };
- 
-     $scope.deleteAllItems = function () {
-         for (var i = 0; i < items.data.length; i++) {
-             items.data.splice(i);
-         }
-     };*/
     $scope.$watch(function () {
         return window.innerWidth;
     }, function (value) {
+        // The height of response-content class of css is adapted dynamically.
         var heightMethodContent = $('.method-content').innerHeight();
         var heightFormMethodContent = $('.form-method-content').innerHeight();
         var offSetY = 10;

@@ -2,21 +2,19 @@
 
     <div class="scrollable" ui-state="searchBar">
 
+        <!-- List when the search bar is activated -->
 
         <div ng-if="Ui.active('searchBar')" type="search" class="wrapper-search">
 
-            <!--<input id="inputTextSearch" type="text" pattern="\-?\d+(\.\d{0,})?" ng-model="searchText" class="form-control scrollable-header inputField" placeholder="Search.." autofocus />-->
-
             <input id="name" ng-model="searchText" type="text" pattern="\-?\d+(\.\d{0,})?" class="form-control scrollable-header inputField" placeholder="Search.." />
-
-            <!--<input xng-focus='isChecked2'>-->
-
             <div class="scrollable-content">
                 <div class="list-group">
 
                     <div ng-repeat="item in scrollItems | filter:searchText" ng-click="itemMainListSelected(item.id)" class="list-group-item item-list">
 
                         <div class="row">
+
+                            <!-- Fix the right emoji for the item of the list-->
 
                             <div ng-if="$index==0" class="col-xs-2  arrow-list-center text-center">
                                 <i class="fa fa-mobile fa-3x emoji" styles="font-size: 2em;"></i>
@@ -79,83 +77,10 @@
             </div>
         </div>
 
+        <!-- List without ng-repeat -->
+
         <div ng-if="!Ui.active('searchBar')" class="scrollable-content main-list-content">
             <div class="list-group">
-
-                <!--<div ng-click="itemMainListSelected(0)" class="list-group-item item-list">
-                    <div class="row">
-                        <div class="col-xs-2  arrow-list-center text-center">
-
-                        </div>
-                        <div class="col-xs-8" style="padding-left: 0px;">
-                            <p class="name-item-list"> getOSInfo</p>
-                            <p class="description-item-list">Example, Application: Interface for Managing the DataStream operations, interface for Managing the DataStream operations</p>
-                        </div>
-                        <div class="col-xs-2  arrow-list-center">
-                            <i class="fa fa-chevron-right pull-right"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div href ng-click="itemMainListSelected(1)" class="list-group-item item-list">
-                    <div class="row">
-                        <div class="col-xs-2  arrow-list-center text-center">
-
-                        </div>
-                        <div class="col-xs-8" style="padding-left: 0px;">
-                            <p class="name-item-list"> getResourceLiteral</p>
-                            <p class="description-item-list">Description text</p>
-                        </div>
-                        <div class="col-xs-2  arrow-list-center">
-                            <i class="fa fa-chevron-right pull-right"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div href ng-click="itemMainListSelected(2)" class="list-group-item item-list">
-                    <div class="row">
-                        <div class="col-xs-2  arrow-list-center text-center">
-
-                        </div>
-                        <div class="col-xs-8" style="padding-left: 0px;">
-                            <p class="name-item-list"> getContactsForFields</p>
-                            <p class="description-item-list">Description text</p>
-                        </div>
-                        <div class="col-xs-2  arrow-list-center">
-                            <i class="fa fa-chevron-right pull-right"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div href ng-click="itemMainListSelected(3)" class="list-group-item item-list">
-                    <div class="row">
-                        <div class="col-xs-2  arrow-list-center text-center">
-
-                        </div>
-                        <div class="col-xs-8" style="padding-left: 0px;">
-                            <p class="name-item-list">ButtonListener</p>
-                            <p class="description-item-list">Description text</p>
-                        </div>
-                        <div class="col-xs-2  arrow-list-center">
-                            <i class="fa fa-chevron-right pull-right"></i>
-                        </div>
-                    </div>
-                </div>-->
-
-                <!--
-                <a ng-repeat="item in scrollItems" href ng-click="itemMainListSelected($index)" class="list-group-item name-item-list">
-                    <div class="row">
-                        <div class="col-xs-10 name-item-list">
-                            <p>  <i class="fa fa-bars"></i>     {{item.name}} ({{item.size}})</p>
-                            <p class="description-item-list">{{item.description}}</p>
-                        </div>
-                        <div class="col-xs-2  arrow-list-center">
-                            <i class="fa fa-chevron-right pull-right"></i>
-                        </div>
-                    </div>
-
-                </a>
--->
 
                 <!-- //Application-->
 
@@ -166,14 +91,13 @@
                         </div>
                         <div class="col-xs-8" style="padding-left: 0px;">
                             <p class="name-item-list"> Application (1)</p>
-                            <p class="description-item-list">Example, Application: Interface for Managing the DataStream operations, interface for Managing the DataStream operations</p>
+                            <p class="description-item-list">Description text </p>
                         </div>
                         <div class="col-xs-2  arrow-list-center">
                             <i class="fa fa-chevron-right pull-right"></i>
                         </div>
                     </div>
                 </div>
-
 
                 <!-- //Commerce-->
 
@@ -192,7 +116,6 @@
                     </div>
                 </div>
 
-
                 <!--//Communication-->
 
                 <div href ng-click="itemMainListSelected(2)" class="list-group-item item-list">
@@ -209,7 +132,6 @@
                         </div>
                     </div>
                 </div>
-
 
                 <!--//Data-->
 
@@ -245,7 +167,6 @@
                     </div>
                 </div>
 
-
                 <!-- //Notification-->
 
                 <div href ng-click="itemMainListSelected(5)" class="list-group-item item-list">
@@ -262,7 +183,6 @@
                         </div>
                     </div>
                 </div>
-
 
                 <!--//PIM-->
 
@@ -281,7 +201,6 @@
                     </div>
                 </div>
 
-
                 <!--//Reader-->
 
                 <div href ng-click="itemMainListSelected(7)" class="list-group-item item-list">
@@ -298,7 +217,6 @@
                         </div>
                     </div>
                 </div>
-
 
                 <!--//Security-->
 
@@ -333,7 +251,6 @@
                         </div>
                     </div>
                 </div>
-
 
                 <!--//Social-->
 

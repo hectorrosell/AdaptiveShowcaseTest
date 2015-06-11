@@ -17,7 +17,9 @@ module.exports = function (grunt) {
 
     // configurable paths
     var yeomanConfig = {
+        // relative project path
         app: 'www',
+        // destination project of distribution version
         dist: 'dist/www',
         doc: 'doc'
     };
@@ -53,21 +55,12 @@ module.exports = function (grunt) {
 					['<%= yeoman.app %>/scripts/*.ts']
                 ]
             },
-            //            karma: {
-            //                files: ['app/scripts/**/*.js', 'test/unit/**/*.js'],
-            //                tasks: ['karma:unit:run']
-            //            },
             dist: {
                 files: ['<%= yeoman.dist %>/**/*'],
                 tasks: []
             }
-            //            ,
-            //            doc: {
-            //                files: ['{.tmp,<%= yeoman.app %>}/scripts/**/*.js'],
-            //                tasks: ['docular', 'open:doc']
-            //}
         },
-		
+
 		// Compile Typescript
         ts: {
           default : {

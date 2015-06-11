@@ -11,128 +11,76 @@ app.config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider
 
     $urlRouterProvider.otherwise('/home');
 
-    /*$routeProvider.when('/units-list', {
-        templateUrl: 'views/units-list.html',
-        reloadOnSearch: false
-    });*/
-
-    /*$urlRouterProvider.otherwise('/');*/
-
-    $stateProvider
-    /* .state('/', {
-         url: "/home",
-         templateUrl: 'views/home.html',
-         //controller: 'MainController',
-         //resolve: resolve
-     })*/
-        .state("home", {
+    $stateProvider.state("home", {
             url: "/home",
-            templateUrl: 'views/home.html',
-            //controller: 'MainController',
-            //resolve: resolve
+            templateUrl: 'views/home.html'
         })
         .state("units-list", {
             url: "/units-list",
-            templateUrl: 'views/units-list.html',
-            //controller: 'MainController',
-            //resolve: resolve
+            templateUrl: 'views/units-list.html'
         })
         .state("methods-list", {
             url: "/methods-list",
             templateUrl: 'views/methods-list.html',
-            controller: 'MainController',
-            //resolve: resolve
+            controller: 'MainController'
         })
         .state("form-submit", {
             url: "/form-submit",
-            templateUrl: 'views/form-submit.html',
-            //controller: 'MainController',
-            //resolve: resolve
+            templateUrl: 'views/form-submit.html'
         })
         .state("contact", {
             url: "/contact",
-            templateUrl: 'views/menu/contact.html',
-            //controller: 'MainController',
-            //resolve: resolve
+            templateUrl: 'views/menu/contact.html'
         })
         .state("license", {
             url: "/license",
-            templateUrl: 'views/menu/license.html',
-            //controller: 'MainController',
-            //resolve: resolve
+            templateUrl: 'views/menu/license.html'
         })
         .state("favorites", {
             url: "/favorites",
-            templateUrl: 'views/menu/favorites.html',
-            //controller: 'MainController',
-            //resolve: resolve
+            templateUrl: 'views/menu/favorites.html'
         })
         .state("services", {
             url: "/services",
-            templateUrl: 'views/menu/services.html',
-            //controller: 'MainController',
-            //resolve: resolve
+            templateUrl: 'views/menu/services.html'
         })
         .state("home-page", {
             url: "/home-page",
-            templateUrl: 'views/menu/home-page.html',
-            //controller: 'MainController',
-            //resolve: resolve
+            templateUrl: 'views/menu/home-page.html'
         })
         .state("method-getContactsForFields", {
             url: "/method-getContactsForFields",
             templateUrl: 'views/methods/method-getContactsForFields.html',
             controller: 'MethodController'
-            //resolve: resolve
         })
         .state("method-getOSInfo", {
             url: "/method-getOSInfo",
             templateUrl: 'views/methods/method-getOSInfo.html',
             controller: 'MethodController'
-            //resolve: resolve
         }).state("method-getResourceLiteral", {
             url: "/method-getResourceLiteral",
             templateUrl: 'views/methods/method-getResourceLiteral.html',
             controller: 'MethodController'
-            //resolve: resolve
+
         }).state("method-DeviceOrientationListener", {
             url: "/method-DeviceOrientationListener",
             templateUrl: 'views/methods/method-DeviceOrientationListener.html',
             controller: 'MethodController'
-            //resolve: resolve
+
         }).state("descriptor-method", {
             url: "/descriptor-method",
-            templateUrl: 'views/methods/descriptor-method.html',
-            //controller: 'MainController',
-            //resolve: resolve
+            templateUrl: 'views/methods/descriptor-method.html'
+
         }).state("method-createDatabase", {
             url: "/method-createDatabase",
             templateUrl: 'views/methods/method-createDatabase.html',
             controller: 'MethodController'
-            //resolve: resolve
+
         }).state("method-getOrientationDefault", {
             url: "/method-getOrientationDefault",
             templateUrl: 'views/methods/method-getOrientationDefault.html',
             controller: 'MethodController'
-            //resolve: resolve
+
         })
-
     ;
-
 }]);
-
-/*'use strict';
-angular.module('ADApp', [
-  'ngRoute',
-  'mobile-angular-ui',
-  'mobile-angular-ui.gestures'
-])
-    .config(
-        function ($stateProvider, $urlRouterProvider, $routeProvider) {
-
-            $routeProvider.when('/', {
-                templateUrl: 'views/home.html',
-                reloadOnSearch: false
-            });
-
-        });*/
