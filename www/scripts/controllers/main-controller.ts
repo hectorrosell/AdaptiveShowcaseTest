@@ -57,18 +57,14 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
                 }
             }
         }
+
     };
-
-    // isHomePage: returns true in case that the option of the menu is Services
-
+    // isHomePage returns true in case that the option of the menu is Services
     $scope.isHomePage = function () {
-
         // The height of response-content class of css is adapted dynamically
-
         var heightMethodContent = $('.method-content').innerHeight();
         var heightFormMethodContent = $('.form-method-content').innerHeight();
         var offSetY = 10;
-
         if ((heightFormMethodContent - heightMethodContent - offSetY) > 75)
 
             $('.response-content').css({
@@ -119,7 +115,6 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
     //
 
     $scope.itemMainListSelected = function (id) {
-
         currentServiceId = id;
 
         // When the side bar is open the other visible elements are not clickable.
@@ -310,7 +305,9 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
                         data[3].list[0].list[0].favorite = true;
                     } else if ($scope.favoritesMethods[id].name.indexOf("getOrientationDefault") !== -1) {
                         data[11].list[0].list[0].favorite = true;
-                    } else {}
+                    }
+                     
+                    else {}
 
                     localStorage.setItem("data", JSON.stringify(data));
                     $scope.favoritesMethods[id].favorite = true;

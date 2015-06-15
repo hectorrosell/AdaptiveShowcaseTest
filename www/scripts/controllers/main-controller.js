@@ -48,7 +48,7 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
             }
         }
     };
-    // isHomePage: returns true in case that the option of the menu is Services
+    // isHomePage returns true in case that the option of the menu is Services
     $scope.isHomePage = function () {
         // The height of response-content class of css is adapted dynamically
         var heightMethodContent = $('.method-content').innerHeight();
