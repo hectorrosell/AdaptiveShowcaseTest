@@ -10,7 +10,7 @@
                     <div class="btn btn-default back-button"> <i class="fa fa-chevron-left pull-left back-icon"></i> Back</div>
                 </div>
                 <div class="col-xs-8">
-                    <p class="align-center label-form text-center">createDatabase</p>
+                    <p class="align-center label-form text-center">deleteTable</p>
                 </div>
                 <div class="col-xs-2">
                 </div>
@@ -23,8 +23,10 @@
 
                     <div class="method-content">
 
-                        <p>Creates a database on default path for every platform.</p>
+                        <p>Deletes a databaseTable inside a database for every platform.</p>
                         <br>
+                        <p><b>Returns:</b> []
+                        </p>
                         <p><b>Since:</b> v2.0
                         </p>
                         <p><b>Author:</b>
@@ -32,18 +34,13 @@
                         <br>
                         <p><b><u>Parameters</u></b>
                         </p>
+                        <p><b>Name of table </b>[  <a style="color: #428BCA;" href="">String</a> ]: to match text</p>
 
-                        <p><b>database </b>[  <a style="color: #428BCA;" href="">Database</a> ]: Database for databaseTable creating.</p>
-
-                        <div class="parameters-content">
-                            <br />
-                            <b>name</b> [string]: Name of the Database.
-                            <div>
-                                <input ng-model="databaseName" class="form-control" type="text">
-                            </div>
+                        <div>
+                            <input id="inputTextParam" ng-model="inputTextParam" class="form-control" type="text">
                         </div>
 
-                    <div class="response-content scrollable-content-response-method">
+                        <div class="response-content scrollable-content-response-method">
 
                             {
                             <br /> <span style="padding: 0 20px">&nbsp;</span>"response": {
@@ -53,8 +50,8 @@
                             <br /> <span style="padding: 0 20px">&nbsp;</span>statusMessage:
                             <br /> }
 
-                        <br />
-                    </div>
+                            <br />
+                        </div>
 
                 </fieldset>
 
@@ -65,7 +62,7 @@
                 <!--<button class="btn btn-primary btn-block footer-submit" ui-turn-on="modal2" ng-click="sendRequestMethod('getResourceLiteral')">
                     SUBMIT
                 </button>-->
-                <button class="btn btn-primary btn-block footer-submit" ng-click="sendRequestMethod('createDatabase')">
+                <button class="btn btn-primary btn-block footer-submit" ng-click="sendRequestMethod('deleteTable')">
                     SUBMIT
                 </button>
             </div>

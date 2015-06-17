@@ -13,6 +13,7 @@ var currentServiceId;
 var currentUnitId;
 var currentMethodId;
 var isFavoriteState = false;
+var isSearchState = false;
 
 var app = angular.module('ADApp', [
   'mobile-angular-ui',

@@ -1,0 +1,132 @@
+<section class="section container-fluid">
+
+    <div class="scrollable">
+        <div class="section border-bottom-line-subtitle subToolBar">
+
+            <div class="row">
+                <div ng-click="setBackTransitionMethods()" class="col-xs-2">
+                    <div class="btn btn-default back-button"> <i class="fa fa-chevron-left pull-left back-icon"></i> Back</div>
+                </div>
+                <div class="col-xs-8">
+                    <p class="align-center label-form text-center">createTable</p>
+                </div>
+                <div class="col-xs-2">
+                </div>
+            </div>
+        </div>
+        <div class="scrollable-content section list-content-form">
+            <form role="form" ng-submit='submit()' style="height: 100%;" class="form-method-content">
+
+                <fieldset style="height: 100%;">
+
+                    <div class="method-content">
+
+                        <p>Creates a databaseTable inside a database for every platform.</p>
+                        <br>
+                        <p><b>Since:</b> v2.0
+                        </p>
+                        <p><b>Author:</b>
+                        </p>
+                        <br>
+                        <p><b><u>Parameters</u></b>
+                        </p>
+
+                        <p><b>database </b>[  <a style="color: #428BCA;" href="">Database</a> ]: Database for databaseTable creating.</p>
+
+                        <div class="parameters-content">
+                            <br />
+                            <b>name</b> [string]: Name of the DatabaseTable.
+                            <div>
+                                <input ng-model="databaseName" class="form-control" type="text">
+                            </div>
+                        </div>
+
+                        <p><b>dataBaseTable </b>[DataBaseTable]: DatabaseTable object with the name of the databaseTable inside.</p>
+
+                        <div class="parameters-content">
+                            <br />
+
+                            <b>name</b> [String]: The name of the table.
+                            <div>
+                                <input ng-model="databaseTableName" class="form-control" type="text">
+                            </div>
+
+                            <b>columnCount</b> [number]: The number of the table.
+                            <div>
+                                <input ng-model="databaseTableColumnCount" class="form-control" type="number" pattern="\d*">
+                            </div>
+
+                            <b>rowCount</b> [number]: The number of databaseRows.
+                            <div>
+                                <input ng-model="databaseTableRowCount" class="form-control" type="number" pattern="\d*">
+                            </div>
+
+                            <b>databaseColumns</b> [Adaptive.DatabaseColumn[]]: databaseColumns.
+                            <div>
+                                <div class="row">
+                                    <!--ul class="nav"-->
+                                        <div class="col-xs-2">
+                                            <a class="add-item" ng-click="addDatabaseTableDatabaseColumn()"><i class="fa fa-plus"></i></a>
+                                        </div>
+                                        <div class="col-xs-10" style="margin-left: -4px; padding-right: 0px;">
+                                            <input ng-model="databaseTableDatabaseColumnName" class="form-control" type="text" >
+                                            <li ng-repeat="item in databaseTableDatabaseColumns" style="height: 28px;padding: 3px;margin: 3px; margin-left: -16px; padding-right: 0px;">
+                                                <label> {{item}} </label>
+                                                <a ng-click="deleteDatabaseTableDatabaseColumn($index)" class="delete-item-defauld"><i class="fa fa-minus"></i></a>
+                                            </li>
+                                        </div>
+                                    <!--</ul>-->
+                                </div>
+                            </div>
+
+                            <b>databaseRows</b> [Adaptive.DatabaseRow[]]: The databaseRows of the table.
+                            <div class="row">
+                                <div class="col-xs-2">
+                                    <a class="add-item" ng-click="addDatabaseTableDatabaseRow()"> <i class="fa fa-plus"></i> </a>
+                                </div>
+
+                                <div class="col-xs-10" style="margin-left: -4px; padding-right: 0px;">
+                                    <input ng-model="databaseTableDatabaseRowName" class="form-control" type="text" >
+                                    <li ng-repeat="item in databaseTableDatabaseRows" style="height: 28px;padding: 3px;margin: 3px; margin-left: -16px; padding-right: 0px;">
+                                        <label> {{item}} </label>
+                                        <a ng-click="deleteDatabaseTableDatabaseRow($index)" class="delete-item-defauld"><i class="fa fa-minus"></i></a>
+                                    </li>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="response-content scrollable-content-response-method">
+
+                            {
+                            <br /> <span style="padding: 0 20px">&nbsp;</span>"response": {
+                            <br /> <span style="padding: 0 40px">&nbsp;</span>value: <p id="response"></p>
+                            <br /> <span style="padding: 0 20px">&nbsp;</span> },
+                            <br /> <span style="padding: 0 20px">&nbsp;</span>statusCode:
+                            <br /> <span style="padding: 0 20px">&nbsp;</span>statusMessage:
+                            <br /> }
+
+                            <br />
+                        </div>
+
+                </fieldset>
+
+            </form>
+
+            <div style="margin-left: 0px;margin-right: 0px;margin-top: 0%;margin-bottom: 0px;">
+
+                <!--<button class="btn btn-primary btn-block footer-submit" ui-turn-on="modal2" ng-click="sendRequestMethod('getResourceLiteral')">
+                    SUBMIT
+                </button>-->
+                <button class="btn btn-primary btn-block footer-submit" ng-click="sendRequestMethod('createTable')">
+                    SUBMIT
+                </button>
+            </div>
+
+            <!--
+margin-left: 15px;margin-right: 15px;margin-top: 0%;margin-bottom: 0px;
+-->
+        </div>
+    </div>
+</section>

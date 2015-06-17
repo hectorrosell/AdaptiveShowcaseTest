@@ -48,6 +48,9 @@ app.config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider
             url: "/home-page",
             templateUrl: 'views/menu/home-page.html'
         })
+
+        /* METHODS */
+
         .state("method-getContactsForFields", {
             url: "/method-getContactsForFields",
             templateUrl: 'views/methods/method-getContactsForFields.html',
@@ -79,6 +82,33 @@ app.config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider
         }).state("method-getOrientationDefault", {
             url: "/method-getOrientationDefault",
             templateUrl: 'views/methods/method-getOrientationDefault.html',
+            controller: 'MethodController'
+
+        })
+
+        .state("method-createTable", {
+            url: "/method-createTable",
+            templateUrl: 'views/methods/method-createTable.html',
+            controller: 'MethodController'
+
+        }).state("method-deleteDatabase", {
+            url: "/method-deleteDatabase",
+            templateUrl: 'views/methods/method-deleteDatabase.html',
+            controller: 'MethodController'
+
+        }).state("method-deleteTable", {
+            url: "/method-deleteTable",
+            templateUrl: 'views/methods/method-deleteTable.html',
+            controller: 'MethodController'
+
+        }).state("method-existsDatabase", {
+            url: "/method-existsDatabase",
+            templateUrl: 'views/methods/method-existsDatabase.html',
+            controller: 'MethodController'
+
+        }).state("method-existsTable", {
+            url: "/method-existsTable",
+            templateUrl: 'views/methods/method-existsTable.html',
             controller: 'MethodController'
 
         })

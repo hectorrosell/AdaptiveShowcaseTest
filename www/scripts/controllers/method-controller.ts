@@ -52,13 +52,12 @@ app.controller('MethodController', [ '$rootScope','$scope',function ($rootScope,
         Adaptive.IContactFieldGroup.Websites
     ];
 
-
     $scope.selectedBoxes = ["none","none","none"];
 
     var tempScope = $scope;
 
     $scope.inputTextParam ="";
-
+    $scope.inputTextParam2 ="";
     // Activate the Device Orientation Listener listener
 
     var device:Adaptive.IDevice = Adaptive.AppRegistryBridge.getInstance().getDeviceBridge();
@@ -145,6 +144,10 @@ app.controller('MethodController', [ '$rootScope','$scope',function ($rootScope,
                 var globalization:Adaptive.IGlobalization = Adaptive.AppRegistryBridge.getInstance().getGlobalizationBridge();
                 // Synchronous Method with Parameters (getResourceLiteral)
                 var locale:Adaptive.Locale = globalization.getDefaultLocale();
+
+                locale.setCountry( $scope.country) ;
+                locale.setLanguage( $scope.language) ;
+
                 var i18nResource:string = globalization.getResourceLiteral($scope.inputTextParam, locale);
                 //$('#i18n-resource').html("<b>String from Adaptive Core</b>: " + i18nResource);
                 console.log("String from Adaptive Core: "+i18nResource);
@@ -163,20 +166,21 @@ app.controller('MethodController', [ '$rootScope','$scope',function ($rootScope,
             case 'createDatabase' :
 
                 var database:Adaptive.IDatabase = Adaptive.AppRegistryBridge.getInstance().getDatabaseBridge();
-                var newDatabase = new Adaptive.Database($scope.inputTextParam,false) ;
-                var database2:Adaptive.Database = new Adaptive.Database();
+                var newDatabase = new Adaptive.Database($scope.databaseName,false) ;
+                //var database2:Adaptive.Database = new Adaptive.Database();
 
                 var callbackDatabase:Adaptive.IDatabaseResultCallback = new Adaptive.DatabaseResultCallback (
 
                     function onError(error:Adaptive.IDatabaseResultCallbackError) {
-                        console.log("case onError createDatabase");
+                        console.log("case onError createDatabase ");
                     },
                     function onResult(databases:Adaptive.Database ) {
-                        $('#response').html ( 'Created Database: '+databases.getName()+'.'  );
+                        $('#response').html ( 'Created Database: ' + databases.getName() + '.'  );
                     },
-                    function onWarning(databases:Adaptive.Database, warning:Adaptive.IContactPhotoResultCallbackWarning) {
+                    function onWarning(databases:Adaptive.Database, warning:Adaptive.IDatabaseResultCallbackWarning) {
                         console.log("case onWarning createDatabase");
                     }
+
                 );
 
                 console.log("inputTextParam:" + typeof ( $('#inputTextParam').val() ) +"." );
@@ -199,9 +203,93 @@ app.controller('MethodController', [ '$rootScope','$scope',function ($rootScope,
                 $scope.paramResponseOk = "OK";
                 break;
 
-            default :
+            case 'createTable' :
+
+                var database:Adaptive.IDatabase = Adaptive.AppRegistryBridge.getInstance().getDatabaseBridge();
+
+                console.log("createTable $scope.inputTextParam : "+$scope.inputTextParam);
+                console.log("createTable $scope.inputTextParam2 : "+$scope.inputTextParam2);
+
+                var newDatabase  = new Adaptive.Database  ($scope.inputTextParam2 ,false) ;
+
+                //constructor(name: dstring, columnCount: number, rowCount: number, databaseColumns: Array<DatabaseColumn>, databaseRows: Array<DatabaseRow>);
+
+                var arr1:Adaptive.DatabaseColumn[] = [new Adaptive.DatabaseColumn("test")];
+                var arr2:Adaptive.DatabaseRow[] = [];
+                var newDatabaseTable = new Adaptive.DatabaseTable ($scope.inputTextParam, 1, 0, arr1, arr2) ;
+
+                var callbackDatabaseTable:Adaptive.IDatabaseTableResultCallback = new Adaptive.DatabaseTableResultCallback (
+
+                    function onError(error:Adaptive.IDatabaseTableResultCallbackError) {
+                        console.log("case onError createTable");
+                    },
+                    function onResult( databaseTableResult:Adaptive.DatabaseTable ) {
+                        console.log("createTable -> onResult");
+                        //$('#response').html ( 'Created DatabaseTable: '+databaseTable.getName()+'.'  );
+                    },
+                    function onWarning(databaseTable:Adaptive.DatabaseTable, warning:Adaptive.IDatabaseTableResultCallbackWarning ) {
+                        console.log("case onWarning createTable");
+                    }
+                );
+
+                console.log("inputTextParam:" + typeof ( $('#inputTextParam').val() ) +"." );
+                if (  ($('#inputTextParam').val() === '') )
+                    console.log("testing inputTextParam: " + $('#inputTextParam').val());
+
+                if ( ($('#inputTextParam').val() === '') || ($('#inputTextParam')).val() === ' ' ) {
+                    $('#response').html('Error.');
+                }else{
+                    database.createTable ( newDatabase ,newDatabaseTable ,callbackDatabaseTable) ;
+                }
+                break;
+
+            case 'deleteTable' :
+                break;
+
+            case 'deleteDatabase' :
+
+                var databaseIns:Adaptive.IDatabase = Adaptive.AppRegistryBridge.getInstance().getDatabaseBridge();
+                var db = new Adaptive.Database( $scope.databaseName , false) ;
+
+                var callbackDatabase:Adaptive.IDatabaseResultCallback = new Adaptive.DatabaseResultCallback (
+
+                    function onError(error:Adaptive.IDatabaseResultCallbackError) {
+                        console.log("case onError createDatabase ");
+                        $('#response').html ( 'Error database: ' + $scope.databaseName + ' NOT DELETED!'  );
+                        //deleteDatabase: database.getName() NOT Deleted!
+                    },
+                    function onResult(database:Adaptive.Database ) {
+                        $('#response').html ( 'Deleted database: ' + database.getName() + '.'  );
+                    },
+                    function onWarning(databases:Adaptive.Database, warning:Adaptive.IDatabaseResultCallbackWarning) {
+                        console.log("case onWarning createDatabase");
+                    }
+
+                );
+
+                databaseIns.deleteDatabase ( db , callbackDatabase ) ;
 
                 break;
+
+            case 'existsDatabase' :
+
+                var databaseIns:Adaptive.IDatabase = Adaptive.AppRegistryBridge.getInstance().getDatabaseBridge();
+                var db  = new Adaptive.Database  ($scope.databaseName ,false) ;
+
+                console.log("The database "+db.getName()+" exists: " + databaseIns.existsDatabase(db));
+
+                if(databaseIns.existsDatabase(db)){
+                    $('#response').html ( 'The DatabaseTable: '+db.getName()+' exists.'  );
+                }else
+                    $('#response').html ( 'The DatabaseTable: '+db.getName()+' don\'t exists.'  );
+                break;
+
+            case 'existsTable' :
+                break;
+
+            default :
+                break;
+
         }
     };
 
@@ -277,16 +365,46 @@ app.controller('MethodController', [ '$rootScope','$scope',function ($rootScope,
         items.data.splice(index, 1);
         $scope.selectedBoxes.splice(index, 1);
     };
+
     $scope.addItem = function (index) {
         items.data.push({
             id: $scope.items.data.length + 1,
             title: "New Listener"
         });
     };
+
     $scope.deleteAllItems = function () {
         for (var i = 0; i < items.data.length; i++) {
             items.data.splice(i);
         }
+    };
+
+    $scope.databaseTableDatabaseColumns = [];
+    $scope.addDatabaseTableDatabaseColumn = function () {
+        console.log("databaseTableDatabaseColumns: "+$scope.databaseTableDatabaseColumnName);
+        if (typeof $scope.databaseTableDatabaseColumnName === "undefined" || $scope.databaseTableDatabaseColumns.indexOf($scope.databaseTableDatabaseColumnName) > -1){
+            console.log("Invalid text");
+        }else {
+            if ( $scope.databaseTableDatabaseColumnName.length > 0 )
+                $scope.databaseTableDatabaseColumns.push( $scope.databaseTableDatabaseColumnName );
+        }
+    };
+    $scope.deleteDatabaseTableDatabaseColumn = function (index) {
+        $scope.databaseTableDatabaseColumns.splice(index, 1);
+    };
+
+    $scope.databaseTableDatabaseRows = [];
+    $scope.addDatabaseTableDatabaseRow = function () {
+        console.log("databaseTableDatabaseRows: "+$scope.databaseTableDatabaseRowName);
+        if (typeof $scope.databaseTableDatabaseRowName === "undefined" || $scope.databaseTableDatabaseRows.indexOf($scope.databaseTableDatabaseRowName) > -1){
+            console.log("Invalid text");
+        }else {
+            if ( $scope.databaseTableDatabaseRowName.length > 0 )
+                $scope.databaseTableDatabaseRows.push( $scope.databaseTableDatabaseRowName );
+        }
+    };
+    $scope.deleteDatabaseTableDatabaseRow = function (index) {
+        $scope.databaseTableDatabaseRows.splice(index, 1);
     };
 
 }]);

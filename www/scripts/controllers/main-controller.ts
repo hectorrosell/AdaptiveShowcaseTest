@@ -6,6 +6,7 @@
 app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$location', '$route', '$timeout', function ($rootScope, $scope, $log, $state, $location, $route, $timeout) {
 
     $log.debug("MainController");
+    var isSearchState = false;
 
     //Set data of Adaptive methods in localstorage
     if (localStorage.getItem("firstTime") === null) {
@@ -31,11 +32,25 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
     $scope.inputTextSearch = false;
     $scope.status = statusNextSlice;
     $scope.scrollItems = dataInfo;
-    $scope.main_list = dataInfo;
 
+    $scope.newArray2 = [] ;
+    $scope.newArray = [];
+
+    for (var i = 0; i < $scope.scrollItems.length; i++) {
+        for (var j = 0; j < $scope.scrollItems[i].list.length; j++) {
+            for (var y = 0; y < $scope.scrollItems[i].list[j].size; y++) {
+
+                    $scope.newArray.push($scope.scrollItems[i].list[j].list[y]);
+
+            }
+        }
+    }
+
+    $scope.main_list = dataInfo;
     $scope.go = function (location) {
 
         $state.transitionTo(location);
+
         if ($state.is("favorites")) {
             isFavoriteState = true;
         } else {
@@ -57,6 +72,13 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
                 }
             }
         }
+
+        console.log( "stateChageSucces, $scope.searchBar: " + $scope.Ui.active('searchBar') );
+
+        if ( $scope.Ui.active('searchBar') )
+            isSearchState = true;
+        else
+            isSearchState = false;
 
     };
     // isHomePage returns true in case that the option of the menu is Services
@@ -97,7 +119,11 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
 
     $scope.setBackTransitionMethods = function () {
 
-        if (isFavoriteState)
+        console.log ("isSearchState: "+isSearchState);
+
+        if (isSearchState)
+            $state.transitionTo("home");
+        else if (isFavoriteState)
             $state.transitionTo("favorites");
         else
             $state.transitionTo("methods-list");
@@ -108,14 +134,22 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
     };
 
     /*if (isFirstState) {
-        oldLocation = "home";
-        isFirstState = false;
-    }*/
+     oldLocation = "home";
+     isFirstState = false;
+     }*/
 
     //
 
     $scope.itemMainListSelected = function (id) {
         currentServiceId = id;
+
+        console.log( "$scope.main_list[id].list.length: "+$scope.main_list[id].list.length );
+
+        for (var j = 0; j < $scope.main_list[id].list.length; j++) {
+            for (var y = 0; y <$scope.main_list[id].list[j].size; y++) {
+                $scope.newArray2.push($scope.main_list[id].list[j].list[y]);
+            }
+        }
 
         // When the side bar is open the other visible elements are not clickable.
         if (currentLocation.indexOf("uiSidebarLeft") !== -1) {
@@ -154,33 +188,91 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
         }
     };
 
-    //
+    $scope.searchItemMethodListSelected = function (id, location) {
 
-    $scope.itemMethodListSelected = function (id, location) {
+        isSearchState = true;
+        console.log ("isSearchState: "+isSearchState);
 
-        console.log("id: "+id);
+        console.log("id: " + id);
 
         // When the side bar is open the other visible elements are not clickable.
         if (currentLocation.indexOf("uiSidebarLeft") !== -1 || isAddToFavorites) {
             isAddToFavorites = false;
         }
         // Transitions in favorite methods
-        else if ($state.is("favorites")) {
 
             isFavoriteState = true;
             $scope.isSlideBack = false;
-            if (id.indexOf("getOSInfo") !== -1)                         {
+            if (id.indexOf("getOSInfo") !== -1) {
                 $state.transitionTo('method-getOSInfo');
-            } else if (id.indexOf("getResourceLiteral") !== -1)         {
+            } else if (id.indexOf("getResourceLiteral") !== -1) {
                 $state.transitionTo('method-getResourceLiteral');
-            } else if (id.indexOf("getContactsForFields") !== -1)       {
+            } else if (id.indexOf("getContactsForFields") !== -1) {
                 $state.transitionTo('method-getContactsForFields');
-            } else if (id.indexOf("DeviceOrientationListener") !== -1)  {
+            } else if (id.indexOf("DeviceOrientationListener") !== -1) {
                 $state.transitionTo('method-DeviceOrientationListener');
             } else if (id.indexOf("createDatabase") !== -1) {
                 $state.transitionTo('method-createDatabase');
             } else if (id.indexOf("getOrientationDefault") !== -1) {
                 $state.transitionTo('method-getOrientationDefault');
+            }
+
+
+            else if (id.indexOf("createTable") !== -1) {
+                $state.transitionTo('method-createTable');
+            }else if (id.indexOf("deleteDatabase") !== -1) {
+                $state.transitionTo('method-deleteDatabase');
+            }else if (id.indexOf("deleteDatabase") !== -1) {
+                $state.transitionTo('method-deleteDatabase');
+            }else if (id.indexOf("existsDatabase") !== -1) {
+                $state.transitionTo('method-existsDatabase');
+            }else if (id.indexOf("existsTable") !== -1) {
+                $state.transitionTo('method-existsTable');
+            }
+            else {
+            }
+
+    };
+
+    $scope.itemMethodListSelected = function (id, location) {
+
+        isSearchState = false;
+
+        console.log("id: " + id);
+
+        // When the side bar is open the other visible elements are not clickable.
+        if (currentLocation.indexOf("uiSidebarLeft") !== -1 || isAddToFavorites) {
+            isAddToFavorites = false;
+        }
+        // Transitions in favorite methods
+        else if ( $state.is("favorites") || $state.is("home") ) {
+
+            isFavoriteState = true;
+            $scope.isSlideBack = false;
+            if (id.indexOf("getOSInfo") !== -1) {
+                $state.transitionTo('method-getOSInfo');
+            } else if (id.indexOf("getResourceLiteral") !== -1) {
+                $state.transitionTo('method-getResourceLiteral');
+            } else if (id.indexOf("getContactsForFields") !== -1) {
+                $state.transitionTo('method-getContactsForFields');
+            } else if (id.indexOf("DeviceOrientationListener") !== -1) {
+                $state.transitionTo('method-DeviceOrientationListener');
+            } else if (id.indexOf("createDatabase") !== -1) {
+                $state.transitionTo('method-createDatabase');
+            } else if (id.indexOf("getOrientationDefault") !== -1) {
+                $state.transitionTo('method-getOrientationDefault');
+            }
+
+            else if (id.indexOf("createTable") !== -1) {
+                $state.transitionTo('method-createTable');
+            }else if (id.indexOf("deleteDatabase") !== -1) {
+                $state.transitionTo('method-deleteDatabase');
+            }else if (id.indexOf("deleteTable") !== -1) {
+                $state.transitionTo('method-deleteTable');
+            }else if (id.indexOf("existsDatabase") !== -1) {
+                $state.transitionTo('method-existsDatabase');
+            }else if (id.indexOf("existsTable") !== -1) {
+                $state.transitionTo('method-existsTable');
             }
             else {
             }
@@ -211,8 +303,21 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
                     } else if (detailList.name.indexOf("getOrientationDefault") !== -1) {
                         $state.transitionTo('method-getOrientationDefault');
                     }
+
+                    else if (detailList.name.indexOf("createTable") !== -1) {
+                        $state.transitionTo('method-createTable');
+                    }else if (detailList.name.indexOf("deleteDatabase") !== -1) {
+                        $state.transitionTo('method-deleteDatabase');
+                    }else if (detailList.name.indexOf("deleteTable") !== -1) {
+                        $state.transitionTo('method-deleteTable');
+                    }else if (detailList.name.indexOf("existsDatabase") !== -1) {
+                        $state.transitionTo('method-existsDatabase');
+                    }else if (detailList.name.indexOf("existsTable") !== -1) {
+                        $state.transitionTo('method-existsTable');
+                    }
+
                     else {
-                        console.log("id: "+id);
+                        console.log("id: " + id);
                     }
                 }
             }
@@ -247,7 +352,6 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
         } else {
             $scope.title = "Adaptive Showcase";
         }
-
     });
 
     $scope.$on('$locationChangeStart', function (angularEvent, next, location) {
@@ -256,7 +360,9 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
         if (next) {
             currentLocation = next;
             var newLocation = next;
-            if (newLocation.indexOf(oldLocation) !== -1) {} else {}
+            if (newLocation.indexOf(oldLocation) !== -1) {
+            } else {
+            }
         }
     });
 
@@ -266,6 +372,7 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
         isAddToFavorites = true;
         var data;
         if ($state.is("favorites")) {
+            console.log("addFavorites -> state favorites");
             if ($scope.favoritesMethods[id].favorite) {
                 if (localStorage.getItem("data") !== null) {
                     var retrieveData = localStorage.getItem("data");
@@ -306,9 +413,8 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
                     } else if ($scope.favoritesMethods[id].name.indexOf("getOrientationDefault") !== -1) {
                         data[11].list[0].list[0].favorite = true;
                     }
-                     
-                    else {}
-
+                    else {
+                    }
                     localStorage.setItem("data", JSON.stringify(data));
                     $scope.favoritesMethods[id].favorite = true;
                 }
@@ -316,7 +422,13 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
 
         } else {
 
-            if ($scope.method_list.list[id].favorite) {
+            console.log("addFavorites -> state no favorites");
+
+            if (typeof $scope.method_list === "undefined") {
+
+            }
+
+            else if ($scope.method_list.list[id].favorite) {
 
                 if (localStorage.getItem("data") !== null) {
 

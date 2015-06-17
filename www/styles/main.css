@@ -1221,6 +1221,7 @@ corresponding value from the list below*/
 
 .starIconFavorite {
     position: relative;
+    z-index: 1000;
 }
 /*replace the content value with the
 corresponding value from the list below*/
@@ -1239,6 +1240,7 @@ corresponding value from the list below*/
     position: absolute;
     top: 0px;
     left: 0;
+    z-index: 1000;
 }
 
 .navbar-app .btn,

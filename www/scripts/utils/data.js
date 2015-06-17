@@ -46,14 +46,69 @@ var dataInfo = [
             {
                 id: 0,
                 name: "Database",
-                size: 1,
+                size: 10,
                 list: [
                     {
                         id: 0,
                         name: "createDatabase",
                         description: "Description text",
                         favorite: false
+                    },
+                    {
+                        id: 1,
+                        name: "deleteDatabase",
+                        description: "Description text",
+                        favorite: false
+                    },
+                    {
+                        id: 2,
+                        name: "existsDatabase",
+                        description: "Description text",
+                        favorite: false
+                    },
+                    {
+                        id: 3,
+                        name: "createTable",
+                        description: "Description text",
+                        favorite: false
+                    },
+                    {
+                        id: 4,
+                        name: "existsTable",
+                        description: "Description text",
+                        favorite: false
+                    },
+                    {
+                        id: 5,
+                        name: "deleteTable",
+                        description: "Description text",
+                        favorite: false
+                    },
+                    {
+                        id: 6,
+                        name: "executeSqlStatement",
+                        description: "Description text",
+                        favorite: false
+                    },
+                    {
+                        id: 7,
+                        name: "executeSqlTransactions",
+                        description: "Description text",
+                        favorite: false
+                    },
+                    {
+                        id: 8,
+                        name: "getFormattedSQL",
+                        description: "Description text",
+                        favorite: false
+                    },
+                    {
+                        id: 9,
+                        name: "resultSetToTable",
+                        description: "Description text",
+                        favorite: false
                     }
+
                 ],
                 description: "Description text"
             }
