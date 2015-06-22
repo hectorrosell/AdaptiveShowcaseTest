@@ -111,6 +111,10 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
     //
     $scope.itemMainListSelected = function (id) {
         currentServiceId = id;
+        //reload the
+        var retrieveData = localStorage.getItem("data");
+        var var1 = JSON.parse(retrieveData);
+        $scope.main_list = var1;
         console.log("$scope.main_list[id].list.length: " + $scope.main_list[id].list.length);
         for (var j = 0; j < $scope.main_list[id].list.length; j++) {
             for (var y = 0; y < $scope.main_list[id].list[j].size; y++) {

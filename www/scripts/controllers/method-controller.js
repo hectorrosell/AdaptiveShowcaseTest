@@ -9,7 +9,7 @@ app.controller('MethodController', ['$rootScope', '$scope', function ($rootScope
         version: "",
         vendor: ""
     };
-    //Data for some select input
+    //Type of information in contacts to filter in method getContactsForFields.
     $scope.itemSelectForContactFieldGroup = [
         {
             group: Adaptive.IContactFieldGroup.PersonalInfo,
@@ -58,7 +58,7 @@ app.controller('MethodController', ['$rootScope', '$scope', function ($rootScope
     var tempScope = $scope;
     $scope.inputTextParam = "";
     $scope.inputTextParam2 = "";
-    // Activate the Device Orientation Listener listener
+    // Activate the Device Orientation Listener for testing.
     var device = Adaptive.AppRegistryBridge.getInstance().getDeviceBridge();
     console.log("case DeviceOrientationListener");
     var orientationListener = new Adaptive.DeviceOrientationListener(function onError(error) {
@@ -68,7 +68,7 @@ app.controller('MethodController', ['$rootScope', '$scope', function ($rootScope
     }, function onWarning(event, warning) {
     });
     device.addDeviceOrientationListener(orientationListener);
-    // button 'Submit' is clicked
+    // SUBMIT (ng-click)
     $scope.sendRequestMethod = function sendRequestMethod(method) {
         switch (method) {
             case 'getOSInfo':
@@ -137,7 +137,7 @@ app.controller('MethodController', ['$rootScope', '$scope', function ($rootScope
                 break;
             case 'createDatabase':
                 var database = Adaptive.AppRegistryBridge.getInstance().getDatabaseBridge();
-                var newDatabase = new Adaptive.Database($scope.databaseName, false);
+                var newDatabase = new Adaptive.Database($scope.databaseName, $scope.databaseCompress);
                 //var database2:Adaptive.Database = new Adaptive.Database();
                 var callbackDatabase = new Adaptive.DatabaseResultCallback(function onError(error) {
                     console.log("case onError createDatabase ");
@@ -164,8 +164,6 @@ app.controller('MethodController', ['$rootScope', '$scope', function ($rootScope
                 break;
             case 'createTable':
                 var database = Adaptive.AppRegistryBridge.getInstance().getDatabaseBridge();
-                console.log("createTable $scope.inputTextParam : " + $scope.inputTextParam);
-                console.log("createTable $scope.inputTextParam2 : " + $scope.inputTextParam2);
                 var newDatabase = new Adaptive.Database($scope.inputTextParam2, false);
                 //constructor(name: dstring, columnCount: number, rowCount: number, databaseColumns: Array<DatabaseColumn>, databaseRows: Array<DatabaseRow>);
                 var arr1 = [new Adaptive.DatabaseColumn("test")];
@@ -223,15 +221,12 @@ app.controller('MethodController', ['$rootScope', '$scope', function ($rootScope
     };
     $scope.printDeviceOrientationEvents = function printDeviceOrientationEvents(event) {
         var text = "printDeviceOrientationEvents:" + ': ' + event.getOrigin() + ' > ' + event.getDestination() + ' [' + event.getState() + ']\n';
-        console.log(" ---->> rotationEvent :" + text);
-        console.log(" ---->> rotationEvent :" + $scope.paramResponse);
         $scope.paramResponse = "text";
         $scope.paramResponseOk = "OK";
         var $textArea = $('#textarea-1');
         $textArea.html("printDeviceOrientationEvents:" + ': ' + event.getOrigin() + ' > ' + event.getDestination() + ' [' + event.getState() + ']\n');
     };
     $scope.parseContacts = function parseContacts(contacts) {
-        //console.log("case parseContacts");
         $('#contacts-info').html("tooks " + (new Date().getTime() - time.getTime()) + " ms [" + contacts.length + "]").show();
         $('#contacts-lists').html("");
         for (var i = 0; i < contacts.length; i++) {
@@ -310,5 +305,6 @@ app.controller('MethodController', ['$rootScope', '$scope', function ($rootScope
     $scope.deleteDatabaseTableDatabaseRow = function (index) {
         $scope.databaseTableDatabaseRows.splice(index, 1);
     };
+    $scope.databaseCompress = true;
 }]);
 //# sourceMappingURL=method-controller.js.map

@@ -38,17 +38,17 @@
         <!-- Navbars -->
 
         <div class="navbar navbar-app navbar-absolute-top">
-            
+
             <div class="navbar-brand navbar-brand-center main-header" ui-yield-to="title ">
                 {{ title }}
             </div>
-            
+
             <div class="btn-group pull-left ">
                 <div ui-toggle="uiSidebarLeft " class="btn sidebar-toggle ">
                     <i class="fa fa-bars "></i>
                 </div>
             </div>
-            
+
             <div ng-hide="isHomePage() == true" class="btn-group pull-right " ui-yield-to="navbarAction ">
                 <div ui-toggle="searchBar" ng-click="setFocus()" class="btn ">
                     <i class="fa fa-search"></i>
@@ -56,11 +56,13 @@
             </div>
 
         </div>
+
         <div class="navbar-absolute-bottom footer">
             
             <p class="fotter">&#169; 2016 Adaptive.me Forged with <span style="color: red ">&hearts;</span> in Barcelona</p>
 
         </div>
+
         <!-- App Body -->
         <div class="app-body " style="
     background: #FFFFFF;

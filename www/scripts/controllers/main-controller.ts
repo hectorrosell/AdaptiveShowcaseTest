@@ -81,6 +81,7 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
             isSearchState = false;
 
     };
+
     // isHomePage returns true in case that the option of the menu is Services
     $scope.isHomePage = function () {
         // The height of response-content class of css is adapted dynamically
@@ -142,6 +143,13 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
 
     $scope.itemMainListSelected = function (id) {
         currentServiceId = id;
+
+        //reload the
+
+        var retrieveData = localStorage.getItem("data");
+        var var1 = JSON.parse(retrieveData);
+
+        $scope.main_list = var1;
 
         console.log( "$scope.main_list[id].list.length: "+$scope.main_list[id].list.length );
 
@@ -216,7 +224,6 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
             } else if (id.indexOf("getOrientationDefault") !== -1) {
                 $state.transitionTo('method-getOrientationDefault');
             }
-
 
             else if (id.indexOf("createTable") !== -1) {
                 $state.transitionTo('method-createTable');
@@ -364,6 +371,7 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
             } else {
             }
         }
+
     });
 
     $scope.addFavorites = function (id) {
@@ -373,7 +381,9 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
         var data;
         if ($state.is("favorites")) {
             console.log("addFavorites -> state favorites");
+
             if ($scope.favoritesMethods[id].favorite) {
+
                 if (localStorage.getItem("data") !== null) {
                     var retrieveData = localStorage.getItem("data");
                     data = JSON.parse(retrieveData);
@@ -395,6 +405,7 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
                     localStorage.setItem("data", JSON.stringify(data));
                     $scope.favoritesMethods[id].favorite = false;
                 }
+
             } else {
                 if (localStorage.getItem("data") !== null) {
                     var retrieveData = localStorage.getItem("data");
@@ -415,8 +426,8 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
                     }
                     else {
                     }
-                    localStorage.setItem("data", JSON.stringify(data));
-                    $scope.favoritesMethods[id].favorite = true;
+                    localStorage.setItem("data", JSON.stringify(data)) ;
+                    $scope.favoritesMethods[id].favorite = true ;
                 }
             }
 
@@ -455,6 +466,7 @@ app.controller('MainController', ['$rootScope', '$scope', '$log', '$state', '$lo
 
                 console.log("add to Favorites");
                 $scope.method_list.list[id].favorite = true;
+
             }
         }
     }

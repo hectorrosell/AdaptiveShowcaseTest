@@ -16,13 +16,17 @@ var isFavoriteState = false;
 var isSearchState = false;
 
 var app = angular.module('ADApp', [
+
+  // Framework MOBILE ANGULAR UI
   'mobile-angular-ui',
   'ui.router',
   'ngRoute',
   //'mobile-angular-ui.gestures',
   'ngAnimate'
+
 ]);
 
+/*
 app.directive('xngFocus', function () {
     return function (scope, element, attrs) {
         scope.$watch(attrs.xngFocus,
@@ -31,17 +35,14 @@ app.directive('xngFocus', function () {
             }, true);
     };
 });
+*/
+
+// Resize the height of the element with response-content css class, based on the height of others contents of the view.
 
 $(window).resize(function () {
-
-    //alert(window.innerWidth);
-    
     var heightMethodContent = $('.method-content').innerHeight();
     var heightFormMethodContent = $('.form-method-content').innerHeight();
     var offSetY = 10;
-
-    //console.log("win: " + $(window).height() + ", meth: " + heightMethodContent + ", Final height: " + (($(window).height()) - heightMethodContent));
-
     if ((heightFormMethodContent - heightMethodContent - offSetY) > 75)
         $('.response-content').css({
         //        'height': (($(window).height()) - heightMethodContent) + 'px'

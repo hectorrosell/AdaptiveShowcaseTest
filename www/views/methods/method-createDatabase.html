@@ -36,11 +36,20 @@
                         <p><b>database </b>[  <a style="color: #428BCA;" href="">Database</a> ]: Database for databaseTable creating.</p>
 
                         <div class="parameters-content">
+
                             <br />
                             <b>name</b> [string]: Name of the Database.
                             <div>
                                 <input ng-model="databaseName" class="form-control" type="text">
                             </div>
+
+                            <br />
+                            <b>compress</b> [boolean]: Indicates if database was created or needs to be created as Compressed.
+                            <div>
+                                <!--input ng-model="databaseName" class="form-control" type="text"-->
+                                <ui-switch ng-model="databaseCompress"></ui-switch>
+                            </div>
+
                         </div>
 
                     <div class="response-content scrollable-content-response-method">
